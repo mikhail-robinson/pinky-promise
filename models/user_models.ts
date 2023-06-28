@@ -7,7 +7,7 @@ export const users_draft_schema = z.object({
 })
 
 export const users = users_draft_schema.extend({
-  id: z.number(),
+  id: z.string(),
 })
 
 export type user_draft = z.infer<typeof users_draft_schema>
