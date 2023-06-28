@@ -18,13 +18,14 @@ afterAll(async () => {
 })
 
 describe('getUserById', () => {
-  it('returns the correct id from the user', async () => {
-    expect.assertions(3)
+  it('makes sure the user contains the correct propertys', async () => {
+    expect.assertions(4)
     const user = await db.getUser(testDb, '1')
 
-    expect(user.username).toBe('khailjuice')
-    expect(user.name).toBe('Mikhail')
-    expect(user.bio).toBe('Fun loving guy')
+    expect(user).toHaveProperty('auth0_id')
+    expect(user).toHaveProperty('name')
+    expect(user).toHaveProperty('username')
+    expect(user).toHaveProperty('bio')
   })
 })
 

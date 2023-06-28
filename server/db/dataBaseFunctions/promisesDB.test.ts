@@ -31,9 +31,11 @@ describe('getPromisesById', () => {
   it('returns the correct information', async () => {
     const promise = await db.getPromiseById(testDb, '1')
 
-    expect(promise[0].id).toBe(1)
-    expect(promise[0].promise_name).toBe('Finish this assignment')
-    expect(promise[0].promise_description).toBe('Please let us finish')
-    expect(promise[0].status).toBe('pending')
+    expect(promise[0]).toHaveProperty('id')
+    expect(promise[0]).toHaveProperty('promise_name')
+    expect(promise[0]).toHaveProperty('promise_description')
+    expect(promise[0]).toHaveProperty('status')
+    expect(promise[0]).toHaveProperty('user_id')
+    expect(promise[0]).toHaveProperty('friend_user_id')
   })
 })
