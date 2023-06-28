@@ -1,6 +1,6 @@
 import connection from './connection'
-import { users } from '../../models/user_models'
+import { user } from '../../models/user_models'
 
-export function getUser(db = connection, id: string): Promise<users[]> {
-  return db('users').where('auth0_id', id).select()
+export function getUser(db = connection, id: string): Promise<user> {
+  return db('users').where('auth0_id', id).select().first()
 }
