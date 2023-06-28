@@ -3,7 +3,7 @@ exports.up = function (knex) {
       table.increments('id')
       table.string('user_id').references('users.auth0_id')
       table.string('friend_user_id').references('users.auth0_id')
-      table.timestamps('bio')
+      table.timestamps('date_created')
     })
   }
   
