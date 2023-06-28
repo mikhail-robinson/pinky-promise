@@ -31,7 +31,8 @@
     "express-oauth2-jwt-bearer": "^1.5.0",
     "knex": "^2.3.0",
     "sqlite3": "^5.1.2",
-    "superagent": "7.1.1"
+    "superagent": "7.1.1",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@auth0/auth0-react": "^2.1.1",
