@@ -17,12 +17,11 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/protected', validateAccessToken, async (req, res) => {
-
   const auth0Id = req.auth?.payload.sub
   // STRETCH example of making a friend request
   const friendRequest = {
     user1: auth0Id,
-    user2: req.body.user2
+    user2: req.body.user2,
   }
   try {
     res.send('this is a protected route')
