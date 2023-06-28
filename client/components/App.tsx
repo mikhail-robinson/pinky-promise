@@ -1,53 +1,10 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { fetchFruits } from '../slices/fruits'
+import LoginButton from './LoginButton'
 import { useAuth0 } from '@auth0/auth0-react'
-
-function LoginButton() {
-  const { loginWithRedirect } = useAuth0()
-
-  return (
-    <button
-      onClick={() => {
-        loginWithRedirect()
-      }}
-    >
-      Login
-    </button>
-  )
-}
-
-function RegisterButton() {
-  const { loginWithRedirect } = useAuth0()
-
-  return (
-    <button
-      onClick={() => {
-        loginWithRedirect({
-          authorizationParams: {
-            screen_hint: 'signin',
-            // redirect_uri: '/',
-          },
-        })
-      }}
-    >
-      Register
-    </button>
-  )
-}
-
-function LogoutButton() {
-  const { logout } = useAuth0()
-  return (
-    <button
-      onClick={() => {
-        logout()
-      }}
-    >
-      Logout
-    </button>
-  )
-}
+import LogoutButton from './LogoutButton'
+import RegisterButton from './RegisterButton'
 
 function App() {
   const {
@@ -63,16 +20,11 @@ function App() {
     dispatch(fetchFruits())
   }, [dispatch])
 
-  async function handleAccessToken() {
-    const token = await getAccessTokenSilently()
-    console.log(token)
-  }
-
   return (
     <>
       <div className="app">
         <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <button onClick={handleAccessToken}>Show Access token</button>
+
         {isAuthenticated ? (
           <>
             <LogoutButton />
