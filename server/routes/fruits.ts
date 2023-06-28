@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import * as db from '../db/fruits'
+import * as db from '../db/usersDB'
 import { validateAccessToken } from '../auth0'
 
 const router = Router()
