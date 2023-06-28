@@ -17,6 +17,10 @@ This repo includes:
 
 ### Installation
 
+### Resources
+
+[Figma Wireframe]([url](https://www.figma.com/file/sNIyAtAcP5v3chOp3jlO7s/Pinky-Promise-Wireframe?type=design&node-id=0%3A1&mode=design&t=PexV5VXsLAXhLeMj-1))
+
 #### **From the Github UI**
 
 See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
