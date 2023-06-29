@@ -9,7 +9,7 @@ function RegisterButton() {
         loginWithRedirect({
           authorizationParams: {
             screen_hint: 'signin',
-            // redirect_uri:`${window.location.origin}/profile`,
+            redirect_uri: `${window.location.origin}/my-profile`,
           },
         })
       }}
