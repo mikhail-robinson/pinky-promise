@@ -29,22 +29,11 @@ function UserProfilePage() {
     return <div>Not authenticated</div>
   }
 
-  // const [userData, setUserData] = useState({
-  //   name: '',
-  //   username: '',
-  //   bio: '',
-  // } as user_draft)
-
-  // function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setUserData({
-  //     ...userData,
-  //     [event.target.name]: event.target.value,
-  //   })
-  // }
-
   async function handleSubmit(form: UserDraft | User) {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
+    console.log(form)
+
     // navigate('/home')
   }
 
