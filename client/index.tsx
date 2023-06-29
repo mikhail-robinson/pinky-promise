@@ -4,11 +4,17 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 import App from './components/App'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Route, createRoutesFromElements } from 'react-router-dom'
-import { Suspense } from 'react'
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom'
+import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
 import UserProfilePage from './components/UserProfilePage'
+const PromiseDetailPage = lazy(() => import('./components/PromiseDetailPage'))
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -46,6 +52,14 @@ export const routes = createRoutesFromElements(
       }
     />
     <Route
+      path="promise-detail/:promiseId"
+      element={
+        <Suspense fallback={<Loading />}>
+          <ProtectedComponent component={PromiseDetailPage} />
+        </Suspense>
+      }
+    />
+    <Route
       path="add-promise"
       element={
         <Suspense fallback={<Loading />}>
@@ -55,6 +69,10 @@ export const routes = createRoutesFromElements(
     />
   </Route>
 )
+
+function AppProvider() {
+  return <RouterProvider router={createBrowserRouter(routes)} />
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const queryClient = new QueryClient()
@@ -75,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }}
     >
       <QueryClientProvider client={queryClient}>
-        <App />
+        <AppProvider />
       </QueryClientProvider>
     </Auth0Provider>
   )

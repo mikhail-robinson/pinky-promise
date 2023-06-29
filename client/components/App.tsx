@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
 import { Pledge } from '../../models/promise_models'
 import { useState } from 'react'
@@ -14,6 +14,11 @@ function App() {
   const queryClient = useQueryClient()
   // const navigate = useNavigate()
   const { isAuthenticated } = useAuth0()
+  const navigate = useNavigate()
+
+  function goTo(link: string) {
+    navigate(link)
+  }
 
   return (
     <>
@@ -21,6 +26,10 @@ function App() {
         <h1>Pinky Promise!</h1>
         <Outlet />
         <PromiseDetailPage />
+        <Outlet />
+        <button onClick={() => goTo(`promise-detail/${1}`)}>
+          Promise Detail
+        </button>
 
         {isAuthenticated ? (
           <>
