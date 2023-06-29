@@ -22,24 +22,31 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
+      <div
+        className="w-screen h-screen
+       bg-space bg-no-repeat bg-center bg-right"
+      >
+        <div className="app">
+          <h1 className="font-primary text-pink  text-center text-8xl">
+            Pinky Promise
+          </h1>
 
-        {isAuthenticated ? (
-          <>
-            <LogoutButton />
-          </>
-        ) : (
-          <>
-            <LoginButton />
-            <RegisterButton />
-          </>
-        )}
-        <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
+          {isAuthenticated ? (
+            <>
+              <LogoutButton />
+            </>
+          ) : (
+            <>
+              <LoginButton />
+              <RegisterButton />
+            </>
+          )}
+          <ul>
+            {fruits.map((fruit) => (
+              <li key={fruit}>{fruit}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   )

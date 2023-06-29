@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face{
+  font-family: Cherry Bomb One;
+  src: url("CherryBombOne-Regular.ttf") format("opentype");
+}
+
+space-background-bg-class {
+  background-image: url(/image/background.png);
+}
