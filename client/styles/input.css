@@ -19,3 +19,10 @@
 space-background-bg-class {
   background-image: url(/image/background.png);
 }
+
+@layer utilities {
+  .my-custom {
+    margin-top: 8rem; /* Adjust the margin-top value as needed */
+
+  }
+}

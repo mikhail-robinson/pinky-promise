@@ -24,7 +24,7 @@ function App() {
     <>
       <div
         className="w-screen h-screen
-       bg-space bg-no-repeat bg-center"
+       bg-space bg-center bg-cover"
       >
         <div className="app">
           <div className="flex flex-col h-screen">
