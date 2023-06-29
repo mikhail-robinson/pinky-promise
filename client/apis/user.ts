@@ -1,7 +1,7 @@
 import request from 'superagent'
 import { user_draft, user } from '../../models/user_models'
 
-const rootUrl = '/api/v1/users'
+const rootUrl = '/api/v1/user'
 
 export async function insertProfile(userDraft: user_draft, token: string) {
   return await request
