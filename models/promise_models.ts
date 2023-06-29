@@ -1,6 +1,6 @@
 import * as z from 'zod'
 
-export const promise_draft_schema = z.object({
+export const Promise_Draft_Schema = z.object({
   promise_name: z.string(),
   promise_description: z.string(),
   user_id: z.string(),
@@ -10,9 +10,9 @@ export const promise_draft_schema = z.object({
   date_due: z.date(),
 })
 
-export const promises = promise_draft_schema.extend({
+export const Promises = Promise_Draft_Schema.extend({
   id: z.number(),
 })
 
-export type promise_draft = z.infer<typeof promise_draft_schema>
-export type promise = z.infer<typeof promises>
+export type Promise_Draft = z.infer<typeof Promise_Draft_Schema>
+export type Promise = z.infer<typeof Promises>

@@ -1,13 +1,13 @@
 import connection from '../connection'
-import { promise } from '../../../models/promise_models'
+import { Promise } from '../../../models/promise_models'
 
-export function getAllPromises(db = connection): Promise<promise[]> {
+export function getAllPromises(db = connection): Promise<Promise[]> {
   return db('promises').select()
 }
 
 export function getPromiseById(
   db = connection,
   id: string
-): Promise<promise[]> {
+): Promise<Promise[]> {
   return db('promises').where('id', id).select()
 }
