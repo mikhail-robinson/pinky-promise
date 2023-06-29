@@ -7,13 +7,20 @@ const router = Router()
 
 export default router
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const fruits = await db.getAllFruits()
+router.get('/', validateAccessToken, async (req, res) => {
+  const id = req.auth?.payload.sub
 
-//     res.json({ fruits: fruits.map((fruit) => fruit.name) })
-//   } catch (error) {
-//     console.log(error)
-//     res.status(500).json({ message: 'Something went wrong' })
-//   }
-// })
+  if (!id) {
+    res.status(400).json({ message: 'please login in or create an account' })
+    return
+  }
+
+  try {
+    const displayPromises = await db.getUser(id)
+    res.status(200).json(displayPromises)
+  } catch (err) {
+    if (err instanceof Error) {
+      res.status(500).json({ message: 'Unable to retrieve promises' })
+    }
+  }
+})
