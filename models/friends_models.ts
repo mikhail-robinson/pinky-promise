@@ -1,7 +1,7 @@
 import * as z from 'zod'
 
 export const friendsDraftSchema = z.object({
-  dateCreated: z.date(),
+  dateCreated: z.string(),
   userId: z.string(),
   friendUserId: z.string(),
 })

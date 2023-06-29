@@ -6,6 +6,7 @@ export const pledgeDraftSchema = z.object({
   userId: z.string(),
   friendUserId: z.string(),
   status: z.string(),
+  dateCreated: z.string(),
   dateDue: z.string(),
 })
 
