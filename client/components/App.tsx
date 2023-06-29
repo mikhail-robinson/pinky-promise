@@ -5,6 +5,7 @@ import LogoutButton from './LogoutButton'
 import { useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
 import { getFruits } from '../apis/fruits'
+import UserProfilePage from './UserProfilePage'
 
 function App() {
   const queryClient = useQueryClient()
@@ -20,9 +21,9 @@ function App() {
   const fruitsQuery = useQuery(['getFruit'], async () => {
     return await getFruits()
   })
-  
-  //example for mutation which is the useDispatch replacement. 
-  // mutation is a function that takes information to POST. 
+
+  //example for mutation which is the useDispatch replacement.
+  // mutation is a function that takes information to POST.
   // const mutation = useMutation({
   //   addNewFruit: ({ form, token }: { form: FruitDraft; token: string }) =>
   //     addFruit(form, token),
@@ -48,6 +49,7 @@ function App() {
         {isAuthenticated ? (
           <>
             <LogoutButton />
+            <UserProfilePage />
           </>
         ) : (
           <>
