@@ -18,6 +18,8 @@ function Promise(props: Props) {
       <div>Name: {promiseName}</div>
       <div>Desc: {promiseDescription}</div>
       <div>Status: {status}</div>
+      <button>Promise Broken!</button>
+      <button>Promise Kept!</button>
     </div>
   )
 }
