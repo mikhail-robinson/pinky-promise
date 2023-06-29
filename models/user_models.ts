@@ -1,14 +1,14 @@
 import * as z from 'zod'
 
-export const user_draft_schema = z.object({
+export const UserDraftSchema = z.object({
   username: z.string(),
   name: z.string(),
   bio: z.string(),
 })
 
-export const user = user_draft_schema.extend({
+export const User = UserDraftSchema.extend({
   id: z.string(),
 })
 
-export type user_draft = z.infer<typeof user_draft_schema>
-export type user = z.infer<typeof user>
+export type UserDraft = z.infer<typeof UserDraftSchema>
+export type User = z.infer<typeof User>

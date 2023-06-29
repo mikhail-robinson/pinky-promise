@@ -1,24 +1,23 @@
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchFruits } from '../slices/fruits'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import LoginButton from './LoginButton'
 import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from './LogoutButton'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
+import { Pledge } from '../../models/promise_models'
+import { useState } from 'react'
+import PromiseDetailPage from './PromiseDetailPage'
 
 function App() {
-  const {
-    user,
-    getAccessTokenSilently,
-    loginWithRedirect,
-    logout,
-    isAuthenticated,
-  } = useAuth0()
-  const fruits = useAppSelector((state) => state.fruits)
-  const dispatch = useAppDispatch()
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [dispatch])
+  const [form, setForm] = useState()
+  const queryClient = useQueryClient()
+  // const navigate = useNavigate()
+  const { isAuthenticated } = useAuth0()
+  const navigate = useNavigate()
+
+  function goTo(link:string) {
+    navigate(link)
+  }
 
   return (
     <>
@@ -35,6 +34,7 @@ function App() {
               Promise
             </h1>
           </div>
+          <Outlet/>
 
           {isAuthenticated ? (
             <>
@@ -46,11 +46,6 @@ function App() {
               <RegisterButton />
             </>
           )}
-          <ul>
-            {fruits.map((fruit) => (
-              <li key={fruit}>{fruit}</li>
-            ))}
-          </ul>
         </div>
       </div>
     </>
