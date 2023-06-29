@@ -14,5 +14,16 @@ export const pledge = pledgeDraftSchema.extend({
   dateCreated: z.string(),
 })
 
+export type PledgeFrontEnd = {
+  promiseId: number,
+  promiseName: string,
+  promiseDescription: string,
+  userId: string,
+  friendName: string,
+  status: string,
+  dateCreated: string,
+  dateDue: string
+}
+
 export type PledgeDraft = z.infer<typeof pledgeDraftSchema>
 export type Pledge = z.infer<typeof pledge>
