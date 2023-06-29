@@ -1,8 +1,8 @@
-import { user, user_draft } from '../../models/user_models'
+import { User, UserDraft } from '../../models/user_models'
 
 interface Props {
-  profile?: user
-  handleSubmit: (profile: user | user_draft) => void
+  profile?: User
+  handleSubmit: (profile: User | UserDraft) => void
 }
 
 function UserProfileForm(props: Props) {

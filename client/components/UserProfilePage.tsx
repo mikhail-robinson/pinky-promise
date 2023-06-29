@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { user_draft, user } from '../../models/user_models'
+import { UserDraft, User } from '../../models/user_models'
 import UserProfileForm from './UserProfileForm'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
@@ -14,7 +14,7 @@ function UserProfilePage() {
 
   const userQuery = useFetchUser()
   const mutation = useMutation({
-    mutationFn: ({ form, token }: { form: user_draft | user; token: string }) =>
+    mutationFn: ({ form, token }: { form: UserDraft | User; token: string }) =>
       insertProfile(form, token),
     onSuccess: () => {
       // navigate('/home')
@@ -42,7 +42,7 @@ function UserProfilePage() {
   //   })
   // }
 
-  async function handleSubmit(form: user_draft | user) {
+  async function handleSubmit(form: UserDraft | User) {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
     // navigate('/home')
