@@ -1,13 +1,13 @@
 import connection from '../connection'
-import { Promise } from '../../../models/promise_models'
+import { Pledge } from '../../../models/promise_models'
 
-export function getAllPromises(db = connection): Promise<Promise[]> {
+export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
 }
 
 export function getPromiseById(
   db = connection,
   id: string
-): Promise<Promise[]> {
+): Promise<Pledge[]> {
   return db('promises').where('id', id).select()
 }
