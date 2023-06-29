@@ -32,7 +32,6 @@ function UserProfilePage() {
   async function handleSubmit(form: UserDraft | User) {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
-    console.log(form)
 
     // navigate('/home')
   }
