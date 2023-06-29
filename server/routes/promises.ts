@@ -8,6 +8,7 @@ const router = Router()
 router.post('/', validateAccessToken, async (req, res) => {
   try {
     const promiseData = pledgeDraftSchema.safeParse(req.body)
+
     if (!promiseData.success) {
       res.status(400).json({
         error: {
