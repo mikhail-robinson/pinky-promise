@@ -1,3 +1,4 @@
+import { Pledge } from '../../models/promise_models'
 import Promise from './Promise'
 
 function PromiseDetailPage() {
@@ -7,10 +8,9 @@ function PromiseDetailPage() {
     userId: '1',
     friendUserId: '3',
     status: 'pending',
-    
   }
 
-  return <Promise props={promise} />
+  return <Promise promise={promise} />
 }
 
 export default PromiseDetailPage
