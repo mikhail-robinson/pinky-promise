@@ -24,16 +24,21 @@ function App() {
     <>
       <div
         className="w-screen h-screen
-       bg-space bg-no-repeat bg-center bg-right"
+       bg-space bg-no-repeat bg-center"
       >
         <div className="app">
-          <h1 className="font-primary text-pink  text-center text-8xl">
-            Pinky Promise
-          </h1>
+          <div className="flex flex-col justify-center items-center h-screen">
+            <h1 className="font-primary text-pink text-center text-5xl drop-shadow my-custom">
+              Pinky
+            </h1>
+            <h1 className="font-primary text-pink text-center text-5xl drop-shadow">
+              Promise
+            </h1>
+          </div>
 
           {isAuthenticated ? (
             <>
-              <LogoutButton />
+              <LogoutButton/>
             </>
           ) : (
             <>

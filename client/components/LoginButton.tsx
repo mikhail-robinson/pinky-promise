@@ -5,6 +5,7 @@ function LoginButton() {
 
   return (
     <button
+      className="font-mono text-purple bg-pink rounded "
       onClick={() => {
         loginWithRedirect()
       }}
