@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 import LoginButton from './LoginButton'
 import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from './LogoutButton'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
 import { Pledge } from '../../models/promise_models'
 import { useState } from 'react'
@@ -18,6 +18,7 @@ function App() {
     <>
       <div className="app">
         <h1>Pinky Promise!</h1>
+        <Outlet/>
         <PromiseDetailPage/>
 
         {isAuthenticated ? (
