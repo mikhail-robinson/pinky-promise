@@ -22,10 +22,9 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      <div>
         <h1>Pinky Promise!</h1>
-        <Outlet />
-        <PromiseDetailPage />
+
         <Outlet />
         <button onClick={() => goTo(`promise-detail/${1}`)}>
           Promise Detail
@@ -34,7 +33,6 @@ function App() {
         {isAuthenticated ? (
           <>
             <LogoutButton />
-            <UserProfilePage />
           </>
         ) : (
           <>
