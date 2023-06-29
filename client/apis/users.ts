@@ -5,7 +5,7 @@ const rootUrl = '/api/v1/users'
 
 export async function insertProfile(userDraft: user_draft, token: string) {
   return await request
-    .post(rootUrl + '/:id')
+    .post(rootUrl)
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
     .send(userDraft)
