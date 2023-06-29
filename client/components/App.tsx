@@ -27,8 +27,8 @@ function App() {
        bg-space bg-no-repeat bg-center"
       >
         <div className="app">
-          <div className="flex flex-col justify-center items-center h-screen">
-            <h1 className="font-primary text-pink text-center text-5xl drop-shadow my-custom">
+          <div className="flex flex-col h-screen">
+            <h1 className="font-primary text-pink text-center text-5xl drop-shadow mt-20">
               Pinky
             </h1>
             <h1 className="font-primary text-pink text-center text-5xl drop-shadow">
@@ -38,7 +38,7 @@ function App() {
 
           {isAuthenticated ? (
             <>
-              <LogoutButton/>
+              <LogoutButton />
             </>
           ) : (
             <>

@@ -6,16 +6,19 @@ module.exports = {
     extend: {
       colors: {
         purple: '#464FA3',
+        lightPurple: '#606EEF',
         pink: '#FBEAF3',
+        darkPink: '#F2BAD8',
         white: '#FFFFF',
       },
       fontFamily: {
-        primary: "Cherry Bomb One",
-        secondary: "Varela Round"
+        primary: 'Cherry Bomb One',
+        secondary: 'VarelaRound',
+        body: 'PTSans-Regular',
       },
       backgroundImage: {
-        space: 'url(/image/background.png)'
-      }
+        space: 'url(/image/background.png)',
+      },
     },
   },
   plugins: [],

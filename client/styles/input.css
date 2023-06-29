@@ -7,6 +7,14 @@
   font-family: Cherry Bomb One;
   src: url("CherryBombOne-Regular.ttf") format("opentype");
 }
+@font-face{
+  font-family: VarelaRound;
+  src: url("VarelaRound-Regular.ttf") format("opentype");
+}
+@font-face{
+  font-family: PTSans-Regular;
+  src: url("PTSans-Regular.ttf") format("opentype");
+}
 
 space-background-bg-class {
   background-image: url(/image/background.png);
