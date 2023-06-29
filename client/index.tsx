@@ -5,9 +5,10 @@ import { Auth0Provider } from '@auth0/auth0-react'
 import App from './components/App'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Route, createRoutesFromElements } from 'react-router-dom'
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
+const PromiseDetailPage = lazy(() => import('./components/PromiseDetailPage'))
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -41,6 +42,14 @@ export const routes = createRoutesFromElements(
       element={
         <Suspense fallback={<Loading />}>
           <ProtectedComponent component={MyPromises} />
+        </Suspense>
+      }
+    />
+    <Route
+      path="promise-detail/:promiseId"
+      element={
+        <Suspense fallback={<Loading />}>
+          <ProtectedComponent component={PromiseDetailPage} />
         </Suspense>
       }
     />
