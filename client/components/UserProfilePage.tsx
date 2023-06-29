@@ -8,7 +8,7 @@ import useFetchUser from '../hooks/useFetchProfile'
 import { insertProfile } from '../apis/user'
 
 function UserProfilePage() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
 
@@ -17,7 +17,7 @@ function UserProfilePage() {
     mutationFn: ({ form, token }: { form: UserDraft | User; token: string }) =>
       insertProfile(form, token),
     onSuccess: () => {
-      // navigate('/home')
+      navigate('/my-promises')
     },
   })
 
@@ -33,7 +33,7 @@ function UserProfilePage() {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
 
-    // navigate('/home')
+    navigate('/my-promises')
   }
 
   return (
