@@ -1,9 +1,9 @@
 import * as z from 'zod'
 
 export const FriendsDraftSchema = z.object({
-  date_created: z.date(),
-  user_id: z.string(),
-  friend_user_id: z.string(),
+  dateCreated: z.date(),
+  userId: z.string(),
+  friendUserId: z.string(),
 })
 
 export const Friends = FriendsDraftSchema.extend({
