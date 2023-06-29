@@ -9,5 +9,5 @@ export function getPromiseById(
   db = connection,
   id: string
 ): Promise<Pledge[]> {
-  return db('promises').where('id', id).select()
+  return db('promises').where('id', id).select('promise_name as promiseName')
 }
