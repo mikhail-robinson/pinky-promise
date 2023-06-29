@@ -18,7 +18,7 @@ const PromiseDetailPage = lazy(() => import('./components/PromiseDetailPage'))
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
-    <Route index element={<App />} />
+    {/* <Route index element={<App />} /> */}
     <Route
       path="find-friends"
       element={
