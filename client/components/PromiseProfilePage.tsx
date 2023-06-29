@@ -3,7 +3,6 @@ import PromiseProfileForm from './PromiseProfileForm'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
-import useFetchUser from '../hooks/useFetchProfile'
 import { addPromise } from '../apis/promises'
 
 function PromiseProfilePage() {
@@ -11,7 +10,6 @@ function PromiseProfilePage() {
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
 
-  const userQuery = useFetchUser()
   const mutation = useMutation({
     mutationFn: ({
       form,
@@ -42,10 +40,7 @@ function PromiseProfilePage() {
 
   return (
     <div>
-      <PromiseProfileForm
-        handleSubmit={handleSubmit}
-        promise={userQuery.data.i}
-      />
+      <PromiseProfileForm handleSubmit={handleSubmit} />
     </div>
   )
 }

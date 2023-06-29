@@ -8,6 +8,7 @@ import { useState } from 'react'
 import PromiseDetailPage from './PromiseDetailPage'
 import UserProfilePage from './UserProfilePage'
 import { useQueryClient } from 'react-query'
+import PromiseProfilePage from './PromiseProfilePage'
 
 function App() {
   const [form, setForm] = useState()
@@ -24,7 +25,7 @@ function App() {
     <>
       <div>
         <h1>Pinky Promise!</h1>
-
+        <PromiseProfilePage />
         <Outlet />
         <button onClick={() => goTo(`promise-detail/${1}`)}>
           Promise Detail

@@ -1,9 +1,13 @@
+import { Friend } from '../../models/friends_models'
 import { Pledge, PledgeDraft } from '../../models/pledge_models'
 
 interface Props {
   promise?: Pledge
   handleSubmit: (promise: Pledge | PledgeDraft) => void
+  friends: Friend[]
 }
+
+//call the get friends
 
 function PromiseProfileForm(props: Props) {
   function handleSave(e: React.FormEvent<HTMLFormElement>) {
@@ -20,7 +24,7 @@ function PromiseProfileForm(props: Props) {
       promiseDescription: promiseDescription,
     }
 
-    props.handleSubmit(form)
+    return form
   }
 
   return (
@@ -36,14 +40,17 @@ function PromiseProfileForm(props: Props) {
         />
       </div>
       <div>
-        <label htmlFor="friendUserId">Add Friend</label>
-        <input
-          type="text"
-          name="friendUserId"
-          id="friendUserId"
-          required
-          defaultValue={props.promise?.friendUserId}
-        />
+        <label htmlFor="friendName">Add a Friend</label>
+        <select name="friendName" id="friendName">
+          <option value="">Select Friend</option>
+          {/* {props.friends.map((friend) => ( */}
+          {/*         
+           <option key={friend.friendUserId} value={friend.friendUserId}>
+             {}
+           </option>
+           ))} */}
+          {/* this will only finish once getFriendbyId */}
+        </select>
       </div>
       <div>
         <label htmlFor="promiseDescription">Describe your promise</label>
