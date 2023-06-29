@@ -11,8 +11,8 @@ import Loading from './components/UI/Loading'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
-    <Route index element={<LandingPage />} />
-    <Route
+    <Route index element={<App />} />
+    {/* <Route
       path="find-friends"
       element={
         <Suspense fallback={<Loading />}>
@@ -49,9 +49,9 @@ export const routes = createRoutesFromElements(
       element={
         <Suspense fallback={<Loading />}>
           <ProtectedComponent component={AddPromisePage} />
-        </Suspense>
-      }
-    />
+        </Suspense> */}
+    {/* }
+    /> */}
   </Route>
 )
 
