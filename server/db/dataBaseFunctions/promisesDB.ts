@@ -10,9 +10,7 @@ export function getPromiseById(db = connection, id: string): Promise<Pledge[]> {
 }
 
 export function addPromise(input: PledgeDraft, db = connection) {
-  console.log('Input', input)
   const newDate = new Date().toString()
-  // console.log('hiya', newDate)
 
   const {
     promiseName,
