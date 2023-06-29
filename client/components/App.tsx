@@ -4,13 +4,13 @@ import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from './LogoutButton'
 import { useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
-import { promise } from '../../models/promise_models'
+import { Promise } from '../../models/promise_models'
 import { useState } from 'react'
 
 function App() {
   const [form, setForm] = useState()
   const queryClient = useQueryClient()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const {
     user,
     getAccessTokenSilently,
@@ -20,27 +20,27 @@ function App() {
   } = useAuth0()
   // promisesQuery.data contains data and promisesQuery.isLoading is a boolean for a pending promise waiting to be fulfilled
   const promisesQuery = useQuery(['getPromises'], async () => {
-    return await getPromises() as promise[]
+    return await getPromises() as Promise[]
   })
   
-  // example for mutation which is the useDispatch replacement. 
-  // mutation is a function that takes information to POST. 
-  const mutation = useMutation({
-    addNewPromise: ({ form: PromiseDraft; token: string }) =>
-      addPromise(form, token),
-    onSuccess: () => {
-      //tells the getPromise query to update
-      queryClient.invalidateQueries('getPromise')
-      // afterwards can navigate to another page
-      navigate('/')
-    },
-  })
+  // // example for mutation which is the useDispatch replacement. 
+  // // mutation is a function that takes information to POST. 
+  // const mutation = useMutation({
+  //   addNewPromise: ({ form: PromiseDraft; token: string }) =>
+  //     addPromise(form, token),
+  //   onSuccess: () => {
+  //     //tells the getPromise query to update
+  //     queryClient.invalidateQueries('getPromise')
+  //     // afterwards can navigate to another page
+  //     navigate('/')
+  //   },
+  // })
 
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault()
-    const token = await getAccessTokenSilently()
-    mutation.mutate(form, token)
-  }
+  // function handleSubmit(event: FormEvent) {
+  //   event.preventDefault()
+  //   const token = await getAccessTokenSilently()
+  //   mutation.mutate(form, token)
+  // }
 
   return (
     <>
@@ -57,11 +57,11 @@ function App() {
             <RegisterButton />
           </>
         )}
-        <ul>
+        {/* <ul>
           {!promisesQuery.isLoading &&
             promisesQuery.data &&
-            promisesQuery.data.map((promises) => <li key={fruit}>{fruit}</li>)}
-        </ul>
+            promisesQuery.data.map((promise) => <li key={promise}>{promise}</li>)}
+        </ul> */}
       </div>
     </>
   )
