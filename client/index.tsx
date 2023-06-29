@@ -8,15 +8,16 @@ import { Route, createRoutesFromElements } from 'react-router-dom'
 import { Suspense } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
+import UserProfilePage from './components/UserProfilePage'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
-    <Route index element={<LandingPage />} />
+    <Route index element={<App />} />
     <Route
       path="find-friends"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={AddFriends} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
@@ -24,12 +25,12 @@ export const routes = createRoutesFromElements(
       path="my-friends"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={MyFriends} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
     <Route
-      path="profile"
+      path="my-profile"
       element={
         <Suspense fallback={<Loading />}>
           <ProtectedComponent component={UserProfilePage} />
@@ -40,7 +41,7 @@ export const routes = createRoutesFromElements(
       path="my-promises"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={MyPromises} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
@@ -48,7 +49,7 @@ export const routes = createRoutesFromElements(
       path="add-promise"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={AddPromisePage} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
