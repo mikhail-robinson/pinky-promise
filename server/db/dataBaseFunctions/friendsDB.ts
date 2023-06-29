@@ -1,8 +1,6 @@
 import connection from '../connection'
-import { friend } from '../../../models/friends_models'
+import { Friend } from '../../../models/friends_models'
 
-
-export function getAllFriends(db = connection): Promise<friend[]> {
-  return db('friends').select() 
+export function getAllFriends(db = connection): Promise<Friend[]> {
+  return db('friends').select()
 }
-
