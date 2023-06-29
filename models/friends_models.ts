@@ -1,14 +1,14 @@
 import * as z from 'zod'
 
-export const FriendsDraftSchema = z.object({
+export const friendsDraftSchema = z.object({
   dateCreated: z.date(),
   userId: z.string(),
   friendUserId: z.string(),
 })
 
-export const Friends = FriendsDraftSchema.extend({
+export const friends = friendsDraftSchema.extend({
   id: z.number(),
 })
 
-export type FriendsDraft = z.infer<typeof FriendsDraftSchema>
-export type Friend = z.infer<typeof Friends>
+export type FriendsDraft = z.infer<typeof friendsDraftSchema>
+export type Friend = z.infer<typeof friends>

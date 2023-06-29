@@ -1,5 +1,5 @@
 import connection from '../connection'
-import { Pledge, PledgeDraft } from '../../../models/promise_models'
+import { Pledge, PledgeDraft } from '../../../models/pledge_models'
 
 export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
@@ -11,6 +11,7 @@ export function getPromiseById(db = connection, id: string): Promise<Pledge[]> {
 
 export function addPromise(input: PledgeDraft, db = connection) {
   const newDate = Number(new Date(Date.now()))
+  console.log('Are you working here?', input)
 
   const {
     promiseName,
@@ -20,6 +21,7 @@ export function addPromise(input: PledgeDraft, db = connection) {
     status,
     dateDue,
   } = input
+
   return db('promises').insert({
     promise_name: promiseName,
     promise_description: promiseDescription,
