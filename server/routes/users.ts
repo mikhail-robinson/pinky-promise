@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import * as db from '../db/usersDB'
+import * as db from '../db/dataBaseFunctions/usersDB'
 import { validateAccessToken } from '../auth0'
 import { user_draft_schema } from '../../models/user_models'
 

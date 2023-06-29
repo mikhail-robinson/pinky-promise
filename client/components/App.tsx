@@ -1,12 +1,14 @@
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchFruits } from '../slices/fruits'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import LoginButton from './LoginButton'
 import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from './LogoutButton'
+import { useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
+import { getFruits } from '../apis/fruits'
 
 function App() {
+  const queryClient = useQueryClient()
+  const navigate = useNavigate()
   const {
     user,
     getAccessTokenSilently,
@@ -14,11 +16,29 @@ function App() {
     logout,
     isAuthenticated,
   } = useAuth0()
-  const fruits = useAppSelector((state) => state.fruits)
-  const dispatch = useAppDispatch()
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [dispatch])
+  // fruitsQuery contains data and isLoading for a pending promise
+  const fruitsQuery = useQuery(['getFruit'], async () => {
+    return await getFruits()
+  })
+  
+  //example for mutation which is the useDispatch replacement. 
+  // mutation is a function that takes information to POST. 
+  // const mutation = useMutation({
+  //   addNewFruit: ({ form, token }: { form: FruitDraft; token: string }) =>
+  //     addFruit(form, token),
+  //   onSuccess: () => {
+  //     //tells the getFruit query to update
+  //     queryClient.invalidateQueries('getFruit')
+  //     afterwards can navigate to another page
+  //     navigate('/')
+  //   },
+  // })
+
+  // function handleSubmit(event: FormEvent) {
+  //   event.preventDefault()
+  //   const token = await getAccessTokenSilently()
+  //   mutation.mutate(form, token)
+  // }
 
   return (
     <>
@@ -36,9 +56,9 @@ function App() {
           </>
         )}
         <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
-          ))}
+          {!fruitsQuery.isLoading &&
+            fruitsQuery.data &&
+            fruitsQuery.data.map((fruit) => <li key={fruit}>{fruit}</li>)}
         </ul>
       </div>
     </>

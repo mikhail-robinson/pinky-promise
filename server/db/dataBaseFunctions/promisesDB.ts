@@ -1,5 +1,5 @@
-import connection from './connection'
-import { promise } from '../../models/promise_models'
+import connection from '../connection'
+import { promise } from '../../../models/promise_models'
 
 export function getAllPromises(db = connection): Promise<promise[]> {
   return db('promises').select()

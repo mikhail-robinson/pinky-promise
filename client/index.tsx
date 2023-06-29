@@ -1,12 +1,13 @@
 import { createRoot } from 'react-dom/client'
-import { Provider } from 'react-redux'
+
 import { Auth0Provider } from '@auth0/auth0-react'
 
-import store from './store'
 
 import App from './components/App'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 document.addEventListener('DOMContentLoaded', () => {
+  const queryClient = new QueryClient
   createRoot(document.getElementById('app') as HTMLElement).render(
     <Auth0Provider
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -23,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         redirect_uri: window.location.origin,
       }}
     >
-      <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
         <App />
-      </Provider>
+      </QueryClientProvider>
     </Auth0Provider>
   )
 })
