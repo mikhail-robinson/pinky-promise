@@ -4,13 +4,21 @@ function LoginButton() {
   const { loginWithRedirect } = useAuth0()
 
   return (
-    <button
-      onClick={() => {
-        loginWithRedirect()
-      }}
-    >
-      Login
-    </button>
+    <div className="flex justify-start items-start">
+      <button
+        className="font-body text-purple bg-pink text-2xl hover:bg-darkPink py-2 px-4 p-2 rounded-lg -mt-32 ml-14"
+        onClick={() => {
+          loginWithRedirect({
+            authorizationParams: {
+              screen_hint: 'signin',
+              redirect_uri: `${window.location.origin}/my-promises`,
+            },
+          })
+        }}
+      >
+        LOGIN
+      </button>
+    </div>
   )
 }
 

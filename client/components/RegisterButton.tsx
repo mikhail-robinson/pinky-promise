@@ -4,18 +4,21 @@ function RegisterButton() {
   const { loginWithRedirect } = useAuth0()
 
   return (
-    <button
-      onClick={() => {
-        loginWithRedirect({
-          authorizationParams: {
-            screen_hint: 'signin',
-            // redirect_uri: '/',
-          },
-        })
-      }}
-    >
-      Register
-    </button>
+    <div className="flex justify-end items-start">
+      <button
+        className="font-body text-pink bg-purple text-2xl hover:bg-lightPurple py-2 px-4 p-2 rounded-lg -mt-32 mr-14 "
+        onClick={() => {
+          loginWithRedirect({
+            authorizationParams: {
+              screen_hint: 'signin',
+              redirect_uri: `${window.location.origin}/my-profile`,
+            },
+          })
+        }}
+      >
+        REGISTER
+      </button>
+    </div>
   )
 }
 

@@ -4,19 +4,26 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 import App from './components/App'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Route, createRoutesFromElements } from 'react-router-dom'
-import { Suspense } from 'react'
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom'
+import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
+import UserProfilePage from './components/UserProfilePage'
+const PromiseDetailPage = lazy(() => import('./components/PromiseDetailPage'))
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
-    <Route index element={<LandingPage />} />
+    {/* <Route index element={<App />} /> */}
     <Route
       path="find-friends"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={AddFriends} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
@@ -24,12 +31,12 @@ export const routes = createRoutesFromElements(
       path="my-friends"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={MyFriends} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
     <Route
-      path="profile"
+      path="my-profile"
       element={
         <Suspense fallback={<Loading />}>
           <ProtectedComponent component={UserProfilePage} />
@@ -40,7 +47,15 @@ export const routes = createRoutesFromElements(
       path="my-promises"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={MyPromises} />
+          <ProtectedComponent component={Loading} />
+        </Suspense>
+      }
+    />
+    <Route
+      path="promise-detail/:promiseId"
+      element={
+        <Suspense fallback={<Loading />}>
+          <ProtectedComponent component={PromiseDetailPage} />
         </Suspense>
       }
     />
@@ -48,12 +63,16 @@ export const routes = createRoutesFromElements(
       path="add-promise"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={AddPromisePage} />
+          <ProtectedComponent component={Loading} />
         </Suspense>
       }
     />
   </Route>
 )
+
+function AppProvider() {
+  return <RouterProvider router={createBrowserRouter(routes)} />
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const queryClient = new QueryClient()
@@ -74,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }}
     >
       <QueryClientProvider client={queryClient}>
-        <App />
+        <AppProvider />
       </QueryClientProvider>
     </Auth0Provider>
   )

@@ -1,9 +1,17 @@
-import { beforeEach, beforeAll, afterAll, describe, it, expect } from 'vitest'
+import {
+  beforeEach,
+  beforeAll,
+  afterAll,
+  describe,
+  it,
+  expect,
+  vi,
+} from 'vitest'
 import knex from 'knex'
 import config from '../knexfile'
-const testDb = knex(config.test)
-
 import * as db from './usersDB'
+
+const testDb = knex(config.test)
 
 beforeAll(async () => {
   await testDb.migrate.latest()
