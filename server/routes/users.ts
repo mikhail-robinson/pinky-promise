@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import * as db from '../db/dataBaseFunctions/usersDB'
 import { validateAccessToken } from '../auth0'
-import { UserDraftSchema } from '../../models/user_models'
+import { userDraftSchema } from '../../models/user_models'
 
 const router = Router()
 
@@ -25,7 +25,7 @@ router.get('/', validateAccessToken, async (req, res) => {
 router.post('/', validateAccessToken, async (req, res) => {
   try {
     const input = req.body
-    const userData = UserDraftSchema.parse(input)
+    const userData = userDraftSchema.parse(input)
     const user = await db.addUser(userData)
     res.json(user)
   } catch (error) {
