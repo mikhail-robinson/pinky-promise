@@ -12,7 +12,7 @@ import config from '../knexfile'
 import * as db from './usersDB'
 
 const testDb = knex(config.test)
-vi.mock('./usersDB')
+
 beforeAll(async () => {
   await testDb.migrate.latest()
 })
