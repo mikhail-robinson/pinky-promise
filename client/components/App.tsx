@@ -7,6 +7,9 @@ import RegisterButton from './RegisterButton'
 import { Pledge } from '../../models/promise_models'
 import { useState } from 'react'
 import PromiseDetailPage from './PromiseDetailPage'
+import Header from './Header'
+import Home from './Home'
+import Nav from './Nav'
 
 function App() {
   const [form, setForm] = useState()
@@ -15,39 +18,28 @@ function App() {
   const { isAuthenticated } = useAuth0()
   const navigate = useNavigate()
 
-  function goTo(link:string) {
+  function goTo(link: string) {
     navigate(link)
   }
 
   return (
     <>
-      <div
-        className="w-screen h-screen
-       bg-space bg-center bg-cover"
-      >
-        <div className="app">
-          <div className="flex flex-col h-screen">
-            <h1 className="font-primary text-pink text-center text-5xl drop-shadow mt-20">
-              Pinky
-            </h1>
-            <h1 className="font-primary text-pink text-center text-5xl drop-shadow">
-              Promise
-            </h1>
-          </div>
-          <Outlet/>
+      <div className="w-screen h-screen bg-space bg-center bg-cover"> </div>
 
-          {isAuthenticated ? (
-            <>
-              <LogoutButton />
-            </>
-          ) : (
-            <>
-              <LoginButton />
-              <RegisterButton />
-            </>
-          )}
-        </div>
-      </div>
+      {isAuthenticated ? (
+        <>
+          <Header />
+          <Outlet />
+          <LogoutButton />
+          <Nav />
+        </>
+      ) : (
+        <>
+          <Home />
+          <LoginButton />
+          <RegisterButton />
+        </>
+      )}
     </>
   )
 }
