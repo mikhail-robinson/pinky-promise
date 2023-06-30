@@ -6,7 +6,12 @@ function LoginButton() {
   return (
     <button
       onClick={() => {
-        loginWithRedirect()
+        loginWithRedirect({
+          authorizationParams: {
+            screen_hint: 'signin',
+            redirect_uri: `${window.location.origin}/my-promises`,
+          },
+        })
       }}
     >
       Login
