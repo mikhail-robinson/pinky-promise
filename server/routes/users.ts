@@ -23,8 +23,15 @@ router.get('/', validateAccessToken, async (req, res) => {
 })
 
 router.post('/', validateAccessToken, async (req, res) => {
+  const input = req.body
   try {
-    const input = req.body
+    const profileDraftResult = userDraftSchema.safeParse(input)
+
+    if (!profileDraftResult.success) {
+      res.status(400).json({ message: 'Invalid form' })
+      return
+    }
+
     const userData = userDraftSchema.parse(input)
     const user = await db.addUser(userData)
     res.status(201).json(user)
