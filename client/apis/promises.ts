@@ -1,10 +1,11 @@
 import request from 'superagent'
-import { Pledge } from '../../models/pledge_models'
+import { PledgeFrontEnd } from '../../models/pledge_models'
 
 const rootUrl = '/api/v1/promises'
 
-export async function getPromiseById(promiseId: number): Promise<Pledge> {
+export async function getPromiseById(promiseId: number, token: string): Promise<PledgeFrontEnd> {
   const res = await request
-  .get(rootUrl + `${promiseId}`)
-    return res.body as Pledge  
+  .get(rootUrl + `/` + promiseId)
+  .set('Authorization', `Bearer ${token}`)
+    return res.body
 }

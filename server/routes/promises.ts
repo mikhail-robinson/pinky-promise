@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 import * as db from '../db/dataBaseFunctions/promisesDB'
 import { validateAccessToken } from '../auth0'
-import { Pledge } from '../../models/pledge_models'
+import { Pledge, PledgeFrontEnd } from '../../models/pledge_models'
 
 const router = Router()
 
@@ -16,8 +16,9 @@ router.get('/:promiseId', validateAccessToken, async (req, res) => {
   }
 
   try {
-    const pledge = (await db.getPromiseById(promiseId)) as Pledge
-    console.log(pledge);    
+    const pledge = (await db.getPromiseById(promiseId)) as PledgeFrontEnd
+    console.log(pledge)
+
     res.status(200).json(pledge)
   } catch (error) {
     console.error(error)
