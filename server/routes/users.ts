@@ -27,7 +27,7 @@ router.post('/', validateAccessToken, async (req, res) => {
     const input = req.body
     const userData = userDraftSchema.parse(input)
     const user = await db.addUser(userData)
-    res.json(user)
+    res.status(201).json(user)
   } catch (error) {
     if (error instanceof Error) {
       console.error(error)
