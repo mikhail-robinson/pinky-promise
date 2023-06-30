@@ -1,4 +1,3 @@
-import { Pledge } from '../../models/promise_models'
 import Promise from './Promise'
 
 function PromiseDetailPage() {
