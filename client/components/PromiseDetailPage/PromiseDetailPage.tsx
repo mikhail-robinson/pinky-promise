@@ -1,6 +1,9 @@
-import Pledge from '../Pledge/Pledge'
+import Pledge from '../Promise/Promise'
 
 function PromiseDetailPage() {
+
+  
+
   const pledge = {
     promiseName: 'name',
     promiseDescription: 'text',
