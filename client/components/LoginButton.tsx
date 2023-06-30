@@ -8,7 +8,12 @@ function LoginButton() {
       <button
         className="font-body text-purple bg-pink text-2xl hover:bg-darkPink py-2 px-4 p-2 rounded-lg -mt-32 ml-14"
         onClick={() => {
-          loginWithRedirect()
+          loginWithRedirect({
+            authorizationParams: {
+              screen_hint: 'signin',
+              redirect_uri: `${window.location.origin}/my-promises`,
+            },
+          })
         }}
       >
         LOGIN
