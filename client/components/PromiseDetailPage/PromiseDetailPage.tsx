@@ -13,7 +13,9 @@ function PromiseDetailPage() {
     return await getPromiseById(Number(params.promiseId), token)
   })
 
+
   function handleBrokenPromise(){
+    
     return
   }
 
