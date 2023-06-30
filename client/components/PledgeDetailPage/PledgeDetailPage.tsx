@@ -1,8 +1,7 @@
-import { Pledge } from '../../../models/promise_models'
-import Promise from '../Pledge/Pledge'
+import Pledge from '../Pledge/Pledge'
 
 function PromiseDetailPage() {
-  const promise = {
+  const pledge = {
     promiseName: 'name',
     promiseDescription: 'text',
     userId: '1',
@@ -10,7 +9,7 @@ function PromiseDetailPage() {
     status: 'pending',
   }
 
-  return <Promise promise={promise} />
+  return <Pledge promise={pledge} />
 }
 
 export default PromiseDetailPage
