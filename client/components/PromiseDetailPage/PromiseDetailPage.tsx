@@ -13,6 +13,14 @@ function PromiseDetailPage() {
     return await getPromiseById(Number(params.promiseId), token)
   })
 
+  function handleBrokenPromise(){
+    return
+  }
+
+  function handleKeptPromise() {
+    return
+  }
+
   if (isLoading) {
     return <div>Loading ...</div>
   }
@@ -22,7 +30,7 @@ function PromiseDetailPage() {
   }
 
   return (
-    <div>{promiseQuery.data && <Pledge promise={promiseQuery.data} />}</div>
+    <div>{promiseQuery.data && <Pledge promise={promiseQuery.data} handleBrokenPromise={handleBrokenPromise} handleKeptPromise={handleKeptPromise} />}</div>
   )
 }
 
