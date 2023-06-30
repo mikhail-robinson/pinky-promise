@@ -1,13 +1,12 @@
 import request from 'superagent'
-import { user } from '../../models/user_models'
+import { User } from '../../models/user_models'
 
 const rootUrl = '/api/v1'
 
-export async function getUser(token: string): Promise<string[]> {
+export async function getUser(token: string): Promise<User[]> {
   const res = await request
-  .get(rootUrl + `/users/`)
-  .set('Authorization', `Bearer ${token}`)
-  .set('Content-Type', 'application/json')
-    return res.body as user
-  
+    .get(rootUrl + `/users/`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+  return res.body as User[]
 }

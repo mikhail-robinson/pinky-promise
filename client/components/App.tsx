@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from './LogoutButton'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import RegisterButton from './RegisterButton'
-import { Pledge } from '../../models/promise_models'
+import { Pledge } from '../../models/pledge_models'
 import { useState } from 'react'
 import PromiseDetailPage from './PromiseDetailPage'
 
@@ -15,7 +15,7 @@ function App() {
   const { isAuthenticated } = useAuth0()
   const navigate = useNavigate()
 
-  function goTo(link:string) {
+  function goTo(link: string) {
     navigate(link)
   }
 
@@ -23,8 +23,10 @@ function App() {
     <>
       <div className="app">
         <h1>Pinky Promise!</h1>
-        <Outlet/>
-        <button onClick={() => goTo(`promise-detail/${1}`)}>Promise Detail</button>
+        <Outlet />
+        <button onClick={() => goTo(`promise-detail/${1}`)}>
+          Promise Detail
+        </button>
 
         {isAuthenticated ? (
           <>
