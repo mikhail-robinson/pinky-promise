@@ -31,10 +31,13 @@ router.post('/', validateAccessToken, async (req, res) => {
       res.status(400).json({ message: 'Invalid form' })
       return
     }
-
+    const auth0Id = req.auth?.payload.sub
     const userData = userDraftSchema.parse(input)
-    const user = await db.addUser(userData)
-    res.status(201).json(user)
+
+    if (profileDraftResult.success && auth0Id) {
+      const user = await db.addUser({ ...userData }, auth0Id)
+      res.status(201).json(user)
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.error(error)
