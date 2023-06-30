@@ -4,11 +4,18 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 import App from './components/App'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
-const PromiseDetailPage = lazy(() => import('./components/PromiseDetailPage'))
+const PromiseDetailPage = lazy(
+  () => import('./components/PledgeDetailPage/PledgeDetailPage')
+)
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>

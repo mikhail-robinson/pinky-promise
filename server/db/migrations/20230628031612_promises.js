@@ -6,7 +6,7 @@ exports.up = function (knex) {
       table.string('user_id').references('users.auth0_id')
       table.string('friend_user_id').references('users.auth0_id')
       table.string('status')
-      table.timestamps('date_created')
+      table.date('date_created')
       table.date('date_due')
     })
   }

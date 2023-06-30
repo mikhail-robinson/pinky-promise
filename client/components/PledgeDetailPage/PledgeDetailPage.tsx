@@ -1,5 +1,5 @@
-import { Pledge } from '../../models/promise_models'
-import Promise from './Promise'
+import { Pledge } from '../../../models/promise_models'
+import Promise from '../Pledge/Pledge'
 
 function PromiseDetailPage() {
   const promise = {
