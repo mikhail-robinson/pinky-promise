@@ -46,4 +46,36 @@ router.post('/', validateAccessToken, async (req, res) => {
   }
 })
 
+router.put('/', validateAccessToken, async (req, res) => {
+  const input = req.body
+  const auth0Id = req.auth?.payload.sub
+
+  if (!auth0Id) {
+    res.status(400).json({ message: 'Please provide an id' })
+    return
+  }
+
+  try {
+    const userDraftResult = userDraftSchema.safeParse(input)
+
+    if (!userDraftResult.success) {
+      res.status(400).json({ message: 'Invalid form' })
+      return
+    }
+
+    const userData = userDraftSchema.parse(input)
+
+    if (userDraftResult.success && auth0Id) {
+      const user = await db.updateUser({ ...userData }, auth0Id)
+      res.status(200).json(user)
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error)
+      res.status(500).json({ error: 'Internal Server Error' })
+    }
+  }
+})
+
+
 export default router
