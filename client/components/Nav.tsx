@@ -13,20 +13,25 @@ function Nav() {
         <div className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center  justify-center ">
           <button
             onClick={() => goTo('/')}
-            className="fa-solid fa-house fa-lg"style={{color:"#464fa3",}}
+            className="fa-solid fa-house fa-lg"
+            style={{ color: '#464fa3' }}
           ></button>
         </div>
 
         <div className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center  justify-center ">
           <button
             onClick={() => goTo('/add-promise')}
-            className="fa-thin fa-plus fa-2xl" style={{color:"#464fa3",}}
+            className="fa-thin fa-plus fa-2xl"
+            style={{ color: '#464fa3' }}
           ></button>
         </div>
 
         <div className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center  justify-center text-white ">
           <button onClick={() => goTo('/')}>
-            <i className="fa-solid fa-bars fa-lg " style={{color:"#464fa3",}}></i>
+            <i
+              className="fa-solid fa-bars fa-lg "
+              style={{ color: '#464fa3' }}
+            ></i>
           </button>
         </div>
       </div>
