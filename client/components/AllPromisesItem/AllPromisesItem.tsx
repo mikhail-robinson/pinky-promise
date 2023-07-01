@@ -12,6 +12,7 @@ function AllPromisesItem(props: Props) {
       <h2>Your Promises</h2>
       {promises.map((promise) => {
         return (
+          //TODO add button to details page
           <li key={promise.promiseId}>
             <div>{promise.promiseName}</div>
             <div>{promise.friendName}</div>
