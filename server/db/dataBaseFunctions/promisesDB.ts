@@ -5,7 +5,10 @@ export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
 }
 
-export function getPromiseById(id: number, db = connection): Promise<PledgeFrontEnd> {
+export function getPromiseByIdWithFriendName(
+  id: number,
+  db = connection
+): Promise<PledgeFrontEnd> {
   return db('promises')
     .join('users', 'promises.friend_user_id', 'users.auth0_id')
     .where('id', id)
@@ -17,5 +20,6 @@ export function getPromiseById(id: number, db = connection): Promise<PledgeFront
       'status',
       'date_created as dateCreated',
       'date_due as dateDue'
-    ).first()
+    )
+    .first()
 }
