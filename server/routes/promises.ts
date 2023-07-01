@@ -19,7 +19,7 @@ router.get('/:promiseId', validateAccessToken, async (req, res) => {
     const pledge = (await db.getPromiseByIdWithFriendName(
       promiseId
     )) as PledgeFrontEnd
-    console.log(pledge)
+    // console.log(pledge)
 
     res.status(200).json(pledge)
   } catch (error) {

@@ -13,6 +13,7 @@ export function getPromiseByIdWithFriendName(
     .join('users', 'promises.friend_user_id', 'users.auth0_id')
     .where('id', id)
     .select(
+      'id as promiseId',
       'promise_name as promiseName',
       'promise_description as promiseDescription',
       'user_id as userId',

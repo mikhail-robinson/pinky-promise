@@ -15,6 +15,7 @@ export const pledge = pledgeDraftSchema.extend({
 })
 
 export type PledgeFrontEnd = {
+  promiseId: number,
   promiseName: string,
   promiseDescription: string,
   userId: string,
