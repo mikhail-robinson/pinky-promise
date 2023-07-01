@@ -39,3 +39,16 @@ describe('getPromisesById', () => {
     expect(promise[0]).toHaveProperty('friendUserId')
   })
 })
+
+describe('getAllPromisesbyId', () => {
+  it('returns the correct information', async () => {
+    const promise = await db.getAllPromisesById(
+      'auth0|6491331aa4bd45e690ea1e87',
+      testDb
+    )
+
+    expect(promise[0]).toHaveProperty('id')
+    expect(promise[0]).toHaveProperty('promiseName')
+    expect(promise[0]).toHaveProperty('username')
+  })
+})
