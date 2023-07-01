@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      
+      <div className="relative w-screen h-screen bg-space bg-center bg-cover inset-0 z-0"></div>
 
       {isAuthenticated ? (
         <>
