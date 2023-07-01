@@ -4,6 +4,7 @@ import config from '../knexfile'
 const testDb = knex(config.test)
 
 import * as db from './promisesDB'
+import { PledgeFrontEnd } from '../../../models/pledge_models'
 
 beforeAll(async () => {
   await testDb.migrate.latest()
@@ -29,13 +30,14 @@ describe('get all the promises', () => {
 
 describe('getPromisesById', () => {
   it('returns the correct information', async () => {
-    const promise = await db.getPromiseById(testDb, '1')
+    const promise = await db.getPromiseByIdWithFriendName(1, testDb ) as PledgeFrontEnd
 
-    expect(promise[0]).toHaveProperty('id')
-    expect(promise[0]).toHaveProperty('promiseName')
-    expect(promise[0]).toHaveProperty('promiseDescription')
-    expect(promise[0]).toHaveProperty('status')
-    expect(promise[0]).toHaveProperty('userId')
-    expect(promise[0]).toHaveProperty('friendUserId')
+    expect(promise).toHaveProperty('promiseId')
+    expect(promise).toHaveProperty('promiseName')
+    expect(promise).toHaveProperty('promiseDescription')
+    expect(promise).toHaveProperty('userId')
+    expect(promise).toHaveProperty('status')
+    expect(promise).toHaveProperty('userId')
+    expect(promise).toHaveProperty('friendName')
   })
 })
