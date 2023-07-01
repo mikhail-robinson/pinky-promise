@@ -13,7 +13,6 @@ function App() {
 
   return (
     <>
-      {/* <div className="relative w-screen h-screen bg-space bg-center bg-cover inset-0 z-0"></div> */}
       <div
         className="relative w-screen h-screen bg-fixed bg-center bg-cover"
         style={{ backgroundImage: 'url(public/image/background3.png)' }}
