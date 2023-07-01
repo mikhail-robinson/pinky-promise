@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import Pledge from '../Promise/Promise'
-import { getPromiseById } from '../../apis/promises'
+import { getPromiseByPromiseId } from '../../apis/promises'
 import { useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -10,12 +10,12 @@ function PromiseDetailPage() {
     useAuth0()
   const promiseQuery = useQuery('getPromise', async () => {
     const token = await getAccessTokenSilently()
-    return await getPromiseById(Number(params.promiseId), token)
+    return await getPromiseByPromiseId(Number(params.promiseId), token)
   })
 
 
   function handleBrokenPromise(){
-    
+
     return
   }
 
