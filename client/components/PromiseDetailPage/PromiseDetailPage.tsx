@@ -1,26 +1,42 @@
-import { useQuery } from 'react-query'
-import Pledge from '../Promise/Promise'
-import { getPromiseByPromiseId } from '../../apis/promises'
-import { useParams } from 'react-router-dom'
+import { useMutation, useQuery } from 'react-query'
+import {
+  PledgeStatusUpdate,
+} from '../../../models/pledge_models'
+import { getPromiseByPromiseId, resolvePromise } from '../../apis/promises'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import Promise from '../Promise/Promise'
 
 function PromiseDetailPage() {
   const params = useParams()
+  const navigate = useNavigate()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
   const promiseQuery = useQuery('getPromise', async () => {
     const token = await getAccessTokenSilently()
     return await getPromiseByPromiseId(Number(params.promiseId), token)
   })
+  const mutation = useMutation({
+    mutationFn: ({
+      promiseUpdate,
+      token,
+    }: {
+      promiseUpdate: PledgeStatusUpdate
+      token: string
+    }) => resolvePromise(promiseUpdate, token),
+    onSuccess: () => {
+      navigate('/')
+      
+    },
+  })
 
+  async function handleResolvePromise(status: string) {
+    const token = await getAccessTokenSilently()
+    const promiseId = promiseQuery.data?.promiseId as number
+    const promiseUpdate = { promiseId, status }
+    
 
-  function handleBrokenPromise(){
-
-    return
-  }
-
-  function handleKeptPromise() {
-    return
+    mutation.mutate({ promiseUpdate, token })
   }
 
   if (isLoading) {
@@ -32,7 +48,14 @@ function PromiseDetailPage() {
   }
 
   return (
-    <div>{promiseQuery.data && <Pledge promise={promiseQuery.data} handleBrokenPromise={handleBrokenPromise} handleKeptPromise={handleKeptPromise} />}</div>
+    <div>
+      {promiseQuery.data && (
+        <Promise
+          promise={promiseQuery.data}
+          handleResolvePromise={handleResolvePromise}
+        />
+      )}
+    </div>
   )
 }
 

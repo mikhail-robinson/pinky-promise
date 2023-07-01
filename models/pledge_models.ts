@@ -14,6 +14,11 @@ export const pledge = pledgeDraftSchema.extend({
   id: z.number(),
 })
 
+export const pledgeStatusUpdate = z.object({
+  promiseId: z.number(),
+  status: z.string()
+})
+
 export type PledgeFrontEnd = {
   promiseId: number,
   promiseName: string,
@@ -27,3 +32,4 @@ export type PledgeFrontEnd = {
 
 export type PledgeDraft = z.infer<typeof pledgeDraftSchema>
 export type Pledge = z.infer<typeof pledge>
+export type PledgeStatusUpdate = z.infer<typeof pledgeStatusUpdate>

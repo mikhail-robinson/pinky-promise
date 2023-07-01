@@ -1,5 +1,5 @@
 import connection from '../connection'
-import { Pledge, PledgeFrontEnd } from '../../../models/pledge_models'
+import { Pledge, PledgeFrontEnd, PledgeStatusUpdate } from '../../../models/pledge_models'
 
 export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
@@ -23,4 +23,8 @@ export function getPromiseByIdWithFriendName(
       'date_due as dateDue'
     )
     .first()
+}
+
+export function updatePromiseStatus(promise:PledgeStatusUpdate, db = connection) {
+  return db('promises').where('id', promise.promiseId).update({status: promise.status})
 }
