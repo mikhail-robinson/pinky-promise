@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import AllPromisesItem from './AllPromisesItem'
+import AllPromisesItem from '../AllPromisesItem/AllPromisesItem'
 import { useQuery } from 'react-query'
-import { getPromisesbyUserId } from '../apis/promises'
+import { getPromisesbyUserId } from '../../apis/promises'
 
 function AllPromisesPage() {
   const { getAccessTokenSilently } = useAuth0()

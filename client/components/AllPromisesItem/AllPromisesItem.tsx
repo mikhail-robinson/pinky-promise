@@ -1,4 +1,4 @@
-import { PledgeFrontEnd } from '../../models/pledge_models'
+import { PledgeFrontEnd } from '../../../models/pledge_models'
 
 interface Props {
   promises: PledgeFrontEnd[]
