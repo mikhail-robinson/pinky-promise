@@ -25,9 +25,16 @@ export function getPromiseByIdWithFriendName(
     .first()
 }
 
-export async function getAllPromisesById(userId: string, db = connection) {
-  return (await db('promises')
+export async function getAllPromisesById(
+  userId: string,
+  db = connection
+): Promise<PledgeFrontEnd[]> {
+  return await db('promises')
     .join('users', 'promises.friend_user_id', 'users.auth0_id')
-    .select('id', 'promise_name as promiseName', 'users.username')
-    .where('user_id', userId)) as Pledge[]
+    .select(
+      'id as promiseId',
+      'promise_name as promiseName',
+      'users.username as friendName'
+    )
+    .where('user_id', userId)
 }
