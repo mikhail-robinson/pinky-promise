@@ -10,15 +10,19 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom'
+
 import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
-import UserProfilePage from './components/UserProfilePage'
-const PromiseDetailPage = lazy(() => import('./components/PromiseDetailPage'))
+import Home from './components/Home'
+const UserProfilePage = lazy(() => import('./components/UserProfilePage'))
+const PromiseDetailPage = lazy(
+  () => import('./components/PromiseDetailPage/PromiseDetailPage')
+)
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
-    {/* <Route index element={<App />} /> */}
+    <Route index element={<Home />} />
     <Route
       path="find-friends"
       element={
@@ -52,7 +56,7 @@ export const routes = createRoutesFromElements(
       }
     />
     <Route
-      path="promise-detail/:promiseId"
+      path="promises/:promiseId"
       element={
         <Suspense fallback={<Loading />}>
           <ProtectedComponent component={PromiseDetailPage} />
