@@ -46,7 +46,7 @@ router.post('/', validateAccessToken, async (req, res) => {
   }
 })
 
-router.put('/', validateAccessToken, async (req, res) => {
+router.patch('/', validateAccessToken, async (req, res) => {
   const input = req.body
   const auth0Id = req.auth?.payload.sub
 
@@ -64,11 +64,14 @@ router.put('/', validateAccessToken, async (req, res) => {
     }
 
     const userData = userDraftSchema.parse(input)
-    console.log('parse error: ', userData)
 
     if (userDraftResult.success && auth0Id) {
       const user = await db.updateUser({ ...userData }, auth0Id)
-      res.status(200).json(user)
+      if (user === 0) {
+        res.status(400).json({ message: 'User does not exist' })
+      } else {
+        res.status(200).json(user)
+      }
     }
   } catch (error) {
     if (error instanceof Error) {

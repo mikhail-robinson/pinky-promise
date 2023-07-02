@@ -5,21 +5,30 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
 import useFetchUser from '../hooks/useFetchProfile'
-import { insertProfile } from '../apis/user'
+import { insertProfile, updateProfile } from '../apis/user'
 
 function UserProfilePage() {
   const navigate = useNavigate()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
-
   const userQuery = useFetchUser()
-  const mutation = useMutation({
-    mutationFn: ({ form, token }: { form: UserDraft | User; token: string }) =>
-      insertProfile(form, token),
-    onSuccess: () => {
-      navigate('/my-promises')
-    },
-  })
+
+  const mutation = useMutation(
+    ({
+      form,
+      token,
+      mutationFn,
+    }: {
+      form: UserDraft | User
+      token: string
+      mutationFn: typeof insertProfile | typeof updateProfile
+    }) => mutationFn(form, token),
+    {
+      onSuccess: () => {
+        navigate('/my-promises')
+      },
+    }
+  )
 
   if (isLoading) {
     return <div>Loading ...</div>
@@ -31,9 +40,8 @@ function UserProfilePage() {
 
   async function handleSubmit(form: UserDraft | User) {
     const token = await getAccessTokenSilently()
-    mutation.mutate({ form, token })
-
-    navigate('/my-promises')
+    const mutationFn = userQuery.data ? updateProfile : insertProfile
+    mutation.mutate({ form, token, mutationFn })
   }
 
   return (

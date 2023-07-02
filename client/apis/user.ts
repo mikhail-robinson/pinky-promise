@@ -21,7 +21,7 @@ export async function getUser(token: string): Promise<User> {
 
 export async function updateProfile(userDraft: UserDraft, token: string) {
   return await request
-    .put(rootUrl)
+    .patch(rootUrl)
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
     .send(userDraft)

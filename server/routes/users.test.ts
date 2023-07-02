@@ -56,19 +56,46 @@ describe('POST /api/v1/user', () => {
   })
 })
 
-describe('Put /api/v1/user', () => {
-  it('Should return 400 if not valid id', async () => {
+describe('PUT /api/v1/user', () => {
+  it('Should return 200 when updating a user profile', async () => {
+    const fakeProfile: UserDraft = {
+      name: 'NewNameFromTest',
+      username: 'NewUsernameFromTest',
+      bio: 'NewBioFromTest',
+    }
+
+    vi.mocked(db.updateUser).mockResolvedValue(1)
+    const response = await request(server)
+      .patch('/api/v1/user')
+      .set('authorization', `Bearer ${getMockToken()}`)
+      .send(fakeProfile)
+    expect(response.status).toBe(200)
+  })
+
+  it('should return 400 if the body does not match the zod schema', async () => {
+    const fakeProfile = {}
+
+    vi.mocked(db.updateUser).mockResolvedValue(1)
+    const response = await request(server)
+      .patch('/api/v1/user')
+      .set('authorization', `Bearer ${getMockToken()}`)
+      .send(fakeProfile)
+    expect(response.status).toBe(400)
+  })
+
+  it('should return 400 if the user does not exist', async () => {
     const fakeProfile: UserDraft = {
       name: 'fakeName',
       username: 'fakeUserName',
       bio: 'fakeBio',
     }
 
-    vi.mocked(db.updateUser).mockResolvedValue(12)
+    vi.mocked(db.updateUser).mockResolvedValue(0) 
     const response = await request(server)
-      .post('/api/v1/user')
+      .patch('/api/v1/user')
       .set('authorization', `Bearer ${getMockToken()}`)
       .send(fakeProfile)
-    expect(response.status).toBe(201)
+    expect(response.status).toBe(400)
   })
 })
+
