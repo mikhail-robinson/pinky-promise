@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '@fortawesome/fontawesome-free/css/all.css'
-import LogoutButton from './LogoutButton'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Nav() {
   const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
+  const { logout } = useAuth0()
   function goTo(link: string) {
     navigate(link)
   }
 
   function handleLogout() {
-    LogoutButton()
+    logout()
   }
 
   return (

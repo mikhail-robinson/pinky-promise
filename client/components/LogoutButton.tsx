@@ -6,6 +6,7 @@ function LogoutButton() {
     <button
       onClick={() => {
         logout()
+        console.log('working log out')
       }}
     >
       Logout
