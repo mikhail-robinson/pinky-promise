@@ -52,6 +52,7 @@ function AddPromiseForm(props: Props) {
             type="text"
             name="promiseName"
             id="promiseName"
+            placeholder="Give your promise a name!"
             required
             defaultValue={props.promise?.promiseName}
           />
@@ -59,7 +60,7 @@ function AddPromiseForm(props: Props) {
         <div>
           <label htmlFor="friendUserId">Add a Friend</label>
           <select name="friendUserId" id="friendUserId">
-            <option>Select a Friend</option>
+            <option>Select a friend</option>
             {friendsQuery?.data?.map((friend) => (
               <option key={friend.friendUserId} value={friend.friendUserId}>
                 {friend.friendName}
@@ -69,13 +70,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div>
           <label htmlFor="promiseDescription">Describe your promise</label>
-          <input
-            type="text"
+          <textarea
             name="promiseDescription"
             id="promiseDescription"
+            placeholder="what's your promise about?"
             required
             defaultValue={props.promise?.promiseDescription}
-          />
+          ></textarea>
         </div>
         <div>
           <label htmlFor="dateDue">Date (optional)</label>
