@@ -25,25 +25,25 @@ function UserProfileForm(props: Props) {
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen w-">
+      <div className="flex mt-20 justify-center h-screen">
         <div className="">
           <form onSubmit={handleSubmit} className="w-80 h-auto">
-            <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7">
+            <h1 className="font-secondary text-slate-50 text-2xl font-medium">
               Introduce yourself
             </h1>
             <div className="pb-4">
               <label
-                className="font-secondary  text-slate-50 pb-2"
+                className="font-secondary text-slate-50 pb-2"
                 htmlFor="name"
               >
                 Name
               </label>
               <input
-                className="p-2 w-full text-sm text-gray-900 bg-black -50 opacity-30 rounded-lg font-body"
+                className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Insert tour title here"
+                placeholder="Insert your title here"
                 required
                 defaultValue={props.profile?.name}
               />
@@ -56,7 +56,7 @@ function UserProfileForm(props: Props) {
                 Username
               </label>
               <input
-                className="p-2 w-full text-sm text-gray-900 bg-black -50 opacity-30 rounded-lg font-body"
+                className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
                 type="text"
                 name="username"
                 id="username"
@@ -65,25 +65,25 @@ function UserProfileForm(props: Props) {
                 defaultValue={props.profile?.username}
               />
             </div>
-            <div>
+            <div className="text-start align-top place-items-start">
               <label
                 className="font-secondary text-slate-50 block"
                 htmlFor="bio"
               >
                 Bio
               </label>
-              <input
-                className="p-2 w-full min-h-1/2 text-sm text-gray-900 bg-black -50 opacity-30 rounded-lg font-body"
-                type="text"
+              <textarea
+                className="p-2 pb-20 w-80 m text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body resize-none overflow-wrap-normal"
                 name="bio"
                 id="bio"
                 placeholder=""
                 required
                 defaultValue={props.profile?.bio}
-              />
+              ></textarea>
             </div>
+
             <div className="flex items-center justify-center mt-10">
-              <button className="font-body text-purple bg-pink text-2xl hover:bg-darkPink drop-shadow-xl py-2 px-4 p-2 rounded-lg ">
+              <button className="font-body text-purple bg-pink text-2xl hover:bg-darkPink drop-shadow-xl py-2 px-4 p-2 rounded-lg">
                 submit
               </button>
             </div>
