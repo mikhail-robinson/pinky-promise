@@ -19,7 +19,7 @@ function App() {
       >
         {isAuthenticated ? (
           <>
-            <Header />
+            {/* <Header /> */}
             <Outlet />
             <Nav />
           </>
