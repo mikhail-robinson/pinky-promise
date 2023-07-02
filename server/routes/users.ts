@@ -51,7 +51,7 @@ router.put('/', validateAccessToken, async (req, res) => {
   const auth0Id = req.auth?.payload.sub
 
   if (!auth0Id) {
-    res.status(400).json({ message: 'Please provide an id' })
+    res.status(400).json({ message: 'Please log in' })
     return
   }
 
@@ -64,6 +64,7 @@ router.put('/', validateAccessToken, async (req, res) => {
     }
 
     const userData = userDraftSchema.parse(input)
+    console.log('parse error: ', userData)
 
     if (userDraftResult.success && auth0Id) {
       const user = await db.updateUser({ ...userData }, auth0Id)
