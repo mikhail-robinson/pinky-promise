@@ -1,55 +1,70 @@
 //@vitest-environment jsdom
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi, afterEach } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import Promise from './Promise'
 import { PledgeFrontEnd } from '../../../models/pledge_models'
 
-interface FakePromise {
-  promiseName: string
-  promiseDescription: string
-  userId: string
-  friendUserId: string
-  status: string
+const pledge: PledgeFrontEnd = {
+  promiseId: 1,
+  promiseName: 'name',
+  promiseDescription: 'text',
+  userId: '1',
+  friendName: '3',
+  status: 'pending',
+  dateCreated: 'dateCreated',
+  dateDue: 'dateDue ',
 }
 
-// describe('Promise component shows props', () =>
-//   it('shows the promise data', async () => {
-//     const pledge = {
-//       promiseName: 'name',
-//       promiseDescription: 'text',
-//       userId: '1',
-//       friendUserId: '3',
-//       status: 'pending',
-//     }
+afterEach(cleanup)
+const user = userEvent.setup()
 
-//     render(<Promise promise={pledge} />)
+describe('Promise component shows props', () => {
+  it('should display with promise data', async () => {
+    render(<Promise promise={pledge} handleResolvePromise={() => {}} />)
 
-//     const name = screen.getByText('Name: name')
-//     expect(name.textContent).toContain('name')
-//     const description = screen.getByText('Desc: text')
-//     expect(description.textContent).toContain('text')
-//     const status = screen.getByText('Status: pending')
-//     expect(status.textContent).toContain('pending')
-//   }))
+    const name = screen.getByText(pledge.promiseName)
+    expect(name.textContent).toContain(pledge.promiseName)
+    const description = screen.getByText(pledge.promiseDescription)
+    expect(description.textContent).toContain(pledge.promiseDescription)
+    const friendName = screen.getByText(pledge.friendName)
+    expect(friendName.textContent).toContain(pledge.friendName)
+  }),
+    it('shows the Promise Broken and Promise Kept buttons', async () => {
+      render(<Promise promise={pledge} handleResolvePromise={() => {}} />)
 
-describe('Promise component shows buttons', () => {
-  it('shows the Promise Broken and Promise Kept buttons', async () => {
-    const pledge: PledgeFrontEnd = {
-      promiseId: 1,
-      promiseName: 'name',
-      promiseDescription: 'text',
-      userId: '1',
-      friendName: '3',
-      status: 'pending',
-      dateCreated: 'dateCreated',
-      dateDue: 'dateDue ',
-    }
+      const buttons = await screen.getAllByRole('button')
+      expect(buttons[0].textContent).toContain('Promise Broken')
+      expect(buttons[1].textContent).toContain('Promise Kept')
+    })
+})
 
-    render(<Promise promise={pledge} handleBrokenPromise={() => {}} handleKeptPromise={() => {}} />)
+describe('handleResolvePromise function', () => {
+  it('when brokenButton is clicked, the function is called with `broken`', async () => {
+    const handleResolvePromise = vi.fn()
+    render(
+      <Promise promise={pledge} handleResolvePromise={handleResolvePromise} />
+    )
 
-    const buttons = await screen.getAllByRole('button')
-    expect(buttons[0].textContent).toContain('Promise Broken')
-    expect(buttons[1].textContent).toContain('Promise Kept')
+    const brokenButton = screen.getByRole('button', {
+      name: 'Promise Broken!',
+    })
+    const result = await user.click(brokenButton)
+    console.log(result)
+    expect(handleResolvePromise).toBeCalledWith('broken')
+  }),
+  it('when brokenButton is clicked, the function is called with `broken`', async () => {
+    const handleResolvePromise = vi.fn()
+    render(
+      <Promise promise={pledge} handleResolvePromise={handleResolvePromise} />
+    )
+
+    const brokenButton = screen.getByRole('button', {
+      name: 'Promise Kept!',
+    })
+    const result = await user.click(brokenButton)
+    console.log(result)
+    expect(handleResolvePromise).toBeCalledWith('kept')
   })
 })
