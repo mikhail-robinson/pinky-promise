@@ -1,5 +1,9 @@
 import connection from '../connection'
-import { Friend, FriendNames } from '../../../models/friends_models'
+import {
+  Friend,
+  FriendNames,
+  FriendsDraft,
+} from '../../../models/friends_models'
 
 export function getAllFriends(
   auth0: string,
@@ -18,6 +22,16 @@ export function getAllFriendsById(
     .select(
       'users.name as friendName',
       'users.username as username',
-      'friends.friend_user_id as friendUserId',
+      'friends.friend_user_id as friendUserId'
     )
+}
+
+export function addFriendbyId(input: FriendsDraft, db = connection) {
+  const newDate = new Date().toString()
+  const { userId, friendUserId } = input
+  return db('friends').insert({
+    user_id: userId,
+    friend_user_id: friendUserId,
+    date_created: newDate,
+  })
 }
