@@ -1,9 +1,5 @@
 import { Router } from 'express'
-import {
-  PledgeDraft,
-  pledgeDraftSchema,
-  pledgeDraftSchemaFrontEnd,
-} from '../../models/pledge_models'
+import { pledgeDraftSchema } from '../../models/pledge_models'
 import * as db from '../db/dataBaseFunctions/promisesDB'
 import { validateAccessToken } from '../auth0'
 import { PledgeFrontEnd, pledgeStatusUpdate } from '../../models/pledge_models'
