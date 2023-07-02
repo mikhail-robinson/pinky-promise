@@ -15,7 +15,7 @@ function App() {
     <>
       <div
         className="relative w-screen h-screen bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: 'url(public/image/background3.png)' }}
+        style={{ backgroundImage: 'url(/image/background3.png)' }}
       >
         {isAuthenticated ? (
           <>
