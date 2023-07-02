@@ -2,7 +2,6 @@ import { Pledge, PledgeDraft } from '../../../models/pledge_models'
 import { useQuery } from 'react-query'
 import { getAllFriendsById } from '../../apis/friends'
 import { useAuth0 } from '@auth0/auth0-react'
-import { FriendNames } from '../../../models/friends_models'
 
 interface Props {
   promise?: Pledge
@@ -17,7 +16,9 @@ function AddPromiseForm(props: Props) {
     return await getAllFriendsById(token)
   })
 
-  // TO DO: friendsQuery is possible undefined
+  if (friendsQuery.isLoading) {
+    return <div>Loading ...</div>
+  }
 
   function handleSave(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -26,19 +27,16 @@ function AddPromiseForm(props: Props) {
     const promiseName = formData.get('promiseName') as string
     const friendUserId = formData.get('friendUserId') as string
     const promiseDescription = formData.get('promiseDescription') as string
-    const dateDue = formData.get('date') as string
-    // TO DO: date is null
-    console.log('DateDue', dateDue)
+    const dateDue = formData.get('dateDue') as string
 
     const form = {
       promiseName: promiseName,
       promiseDescription: promiseDescription,
       friendUserId: friendUserId,
-      // TO DO: Remove userId from types
       status: 'pending',
-      // TO DO: date is null
       dateDue: dateDue,
     }
+
     props.handleSubmit(form)
   }
 
@@ -56,10 +54,11 @@ function AddPromiseForm(props: Props) {
           />
         </div>
         <div>
-          <label htmlFor="friendName">Add a Friend</label>
-          <select name="friendName" id="friendName">
+          <label htmlFor="friendUserId">Add a Friend</label>
+          <select name="friendUserId" id="friendUserId">
+            <option>Select a Friend</option>
             {friendsQuery?.data?.map((friend) => (
-              <option key={friend.friendUserId} value={friend.username}>
+              <option key={friend.friendUserId} value={friend.friendUserId}>
                 {friend.friendName}
               </option>
             ))}
@@ -76,12 +75,11 @@ function AddPromiseForm(props: Props) {
           />
         </div>
         <div>
-          <label htmlFor="promiseDescription">Date (optional)</label>
+          <label htmlFor="dateDue">Date (optional)</label>
           <input
             type="date"
-            name="promiseDescription"
-            id="promiseDescription"
-            required
+            name="dateDue"
+            id="dateDue"
             defaultValue={'none'}
           />
         </div>

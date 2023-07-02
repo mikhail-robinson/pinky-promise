@@ -9,5 +9,5 @@ export async function getAllFriendsById(token: string) {
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
 
-  return res.body as FriendNames
+  return res.body as FriendNames[]
 }
