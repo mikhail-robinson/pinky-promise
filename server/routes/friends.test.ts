@@ -11,7 +11,7 @@ import knex from 'knex'
 import config from '../db/knexfile'
 import request from 'supertest'
 import server from '../server'
-import { FriendsDraft } from '../../models/friends_models'
+
 import * as db from '../db/dataBaseFunctions/friendsDB'
 import { getMockToken } from '../db/dataBaseFunctions/mockToken'
 const testDb = knex(config.test)

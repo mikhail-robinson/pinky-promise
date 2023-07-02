@@ -8,7 +8,6 @@ import Home from './Home'
 import Nav from './Nav'
 
 function App() {
- 
   const { isAuthenticated } = useAuth0()
 
   return (
@@ -19,7 +18,7 @@ function App() {
       >
         {isAuthenticated ? (
           <>
-            {/* <Header /> */}
+            <Header />
             <Outlet />
             <Nav />
           </>

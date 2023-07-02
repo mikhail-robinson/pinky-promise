@@ -1,18 +1,10 @@
-import {
-  beforeEach,
-  beforeAll,
-  afterAll,
-  describe,
-  it,
-  expect,
-  vi,
-} from 'vitest'
+import { beforeEach, beforeAll, afterAll, describe, it, expect } from 'vitest'
 import knex from 'knex'
 import config from '../knexfile'
 const testDb = knex(config.test)
 
 import * as db from './promisesDB'
-import { PledgeDraft, PledgeFrontEnd } from '../../../models/pledge_models'
+import { PledgeFrontEnd } from '../../../models/pledge_models'
 
 beforeAll(async () => {
   await testDb.migrate.latest()
