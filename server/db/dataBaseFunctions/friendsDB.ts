@@ -26,6 +26,32 @@ export function getAllFriendsById(
     )
 }
 
+export function getNotFriends(auth0_id: string, db = connection) {
+  return db('users')
+    .leftJoin('friends', function () {
+      this.on(function () {
+        this.on('users.auth0_id', '=', 'friends.user_id').andOn(
+          'friends.friend_user_id',
+          '=',
+          db.raw('?', [auth0_id])
+        )
+      }).orOn(function () {
+        this.on('users.auth0_id', '=', 'friends.friend_user_id').andOn(
+          'friends.user_id',
+          '=',
+          db.raw('?', [auth0_id])
+        )
+      })
+    })
+    .whereNull('friends.user_id')
+    .andWhere('users.auth0_id', '!=', auth0_id) // Exclude the current user
+    .select(
+      'users.name as friendName',
+      'users.username as username',
+      'users.auth0_id as friendUserId'
+    )
+}
+
 export function addFriend(input: FriendsDraft, db = connection) {
   const newDate = new Date().toString()
   const { userId, friendUserId } = input
