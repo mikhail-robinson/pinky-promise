@@ -1,11 +1,14 @@
-import { Pledge, PledgeDraft } from '../../../models/pledge_models'
+import {
+  Pledge,
+  PledgeDraftSchemaFrontEnd,
+} from '../../../models/pledge_models'
 import { useQuery } from 'react-query'
 import { getAllFriendsById } from '../../apis/friends'
 import { useAuth0 } from '@auth0/auth0-react'
 
 interface Props {
-  promise?: Pledge
-  handleSubmit: (promise: Pledge | PledgeDraft) => void
+  promise?: PledgeDraftSchemaFrontEnd
+  handleSubmit: (promise: Pledge | PledgeDraftSchemaFrontEnd) => void
 }
 
 function AddPromiseForm(props: Props) {

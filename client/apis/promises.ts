@@ -1,5 +1,8 @@
 import request from 'superagent'
-import { PledgeFrontEnd, PledgeDraft } from '../../models/pledge_models'
+import {
+  PledgeFrontEnd,
+  PledgeDraftSchemaFrontEnd,
+} from '../../models/pledge_models'
 import { set } from 'zod'
 
 const rootUrl = '/api/v1/promises'
@@ -14,7 +17,10 @@ export async function getPromiseByPromiseId(
   return res.body
 }
 
-export async function addPromise(pledgeDraft: PledgeDraft, token: string) {
+export async function addPromise(
+  pledgeDraft: PledgeDraftSchemaFrontEnd,
+  token: string
+) {
   await request
     .post(rootUrl)
     .set('Authorization', `Bearer ${token}`)

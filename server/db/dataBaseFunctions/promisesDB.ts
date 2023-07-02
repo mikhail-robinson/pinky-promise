@@ -1,5 +1,9 @@
 import connection from '../connection'
-import { Pledge, PledgeFrontEnd, PledgeDraft } from '../../../models/pledge_models'
+import {
+  Pledge,
+  PledgeFrontEnd,
+  PledgeDraft,
+} from '../../../models/pledge_models'
 
 export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()

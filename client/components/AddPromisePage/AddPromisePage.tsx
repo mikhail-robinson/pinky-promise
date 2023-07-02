@@ -1,4 +1,7 @@
-import { PledgeDraft, Pledge } from '../../../models/pledge_models'
+import {
+  PledgeDraftSchemaFrontEnd,
+  PledgeDraft,
+} from '../../../models/pledge_models'
 import AddPromiseForm from './AddPromiseForm'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
@@ -15,7 +18,7 @@ function AddPromisePage() {
       form,
       token,
     }: {
-      form: PledgeDraft | Pledge
+      form: PledgeDraftSchemaFrontEnd | PledgeDraft
       token: string
     }) => addPromise(form, token),
     onSuccess: () => {
@@ -31,7 +34,7 @@ function AddPromisePage() {
     return <div>Not authenticated</div>
   }
 
-  async function handleSubmit(form: PledgeDraft | Pledge) {
+  async function handleSubmit(form: PledgeDraftSchemaFrontEnd | PledgeDraft) {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
 

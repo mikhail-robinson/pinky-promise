@@ -1,5 +1,9 @@
 import { Router } from 'express'
-import { pledgeDraftSchema } from '../../models/pledge_models'
+import {
+  PledgeDraft,
+  pledgeDraftSchema,
+  pledgeDraftSchemaFrontEnd,
+} from '../../models/pledge_models'
 import * as db from '../db/dataBaseFunctions/promisesDB'
 import { validateAccessToken } from '../auth0'
 import { Pledge, PledgeFrontEnd } from '../../models/pledge_models'
@@ -8,7 +12,14 @@ const router = Router()
 
 router.post('/', validateAccessToken, async (req, res) => {
   try {
-    const promiseData = pledgeDraftSchema.safeParse(req.body)
+    const auth0Id = req.auth?.payload.sub
+    if (!auth0Id) {
+      res.status(400).json({ message: 'Please provide an id' })
+      return
+    }
+    const input = { ...req.body, userId: auth0Id }
+
+    const promiseData = pledgeDraftSchema.safeParse(input)
 
     if (!promiseData.success) {
       res.status(400).json({
