@@ -29,6 +29,25 @@ router.post('/', validateAccessToken, async (req, res) => {
   }
 })
 
+router.get('/', validateAccessToken, async (req, res) => {
+  const auth0Id = req.auth?.payload.sub
+  if (!auth0Id) {
+    res.status(400).json({ message: 'Please provide an id' })
+    return
+  }
+
+  try {
+    const user = (await db.getAllPromisesById(auth0Id)) as PledgeFrontEnd[]
+
+    res.status(200).json(user)
+  } catch (error) {
+    console.error(error)
+    res
+      .status(500)
+      .json({ message: 'Unable to retrieve promises from database' })
+  }
+})
+
 router.get('/:promiseId', validateAccessToken, async (req, res) => {
   const promiseId = Number(req.params.promiseId)
   const auth0Id = req.auth?.payload.sub

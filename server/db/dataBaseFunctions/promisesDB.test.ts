@@ -81,3 +81,16 @@ describe('addPromise ', () => {
     expect(PromiseForm.date_due).toBe(test.dateDue)
   })
 })
+
+describe('getAllPromisesbyId', () => {
+  it('returns the correct information', async () => {
+    const promise = await db.getAllPromisesById(
+      'auth0|6491331aa4bd45e690ea1e87',
+      testDb
+    )
+
+    expect(promise[0]).toHaveProperty('promiseId')
+    expect(promise[0]).toHaveProperty('promiseName')
+    expect(promise[0]).toHaveProperty('friendName')
+  })
+})
