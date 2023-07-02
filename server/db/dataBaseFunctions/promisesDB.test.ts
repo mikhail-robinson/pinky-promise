@@ -30,7 +30,10 @@ describe('get all the promises', () => {
 
 describe('getPromisesById', () => {
   it('returns the correct information', async () => {
-    const promise = await db.getPromiseByIdWithFriendName(1, testDb ) as PledgeFrontEnd
+    const promise = (await db.getPromiseByIdWithFriendName(
+      1,
+      testDb
+    )) as PledgeFrontEnd
 
     expect(promise).toHaveProperty('promiseId')
     expect(promise).toHaveProperty('promiseName')
@@ -39,5 +42,18 @@ describe('getPromisesById', () => {
     expect(promise).toHaveProperty('status')
     expect(promise).toHaveProperty('userId')
     expect(promise).toHaveProperty('friendName')
+  })
+})
+
+describe('getAllPromisesbyId', () => {
+  it('returns the correct information', async () => {
+    const promise = await db.getAllPromisesById(
+      'auth0|6491331aa4bd45e690ea1e87',
+      testDb
+    )
+
+    expect(promise[0]).toHaveProperty('promiseId')
+    expect(promise[0]).toHaveProperty('promiseName')
+    expect(promise[0]).toHaveProperty('friendName')
   })
 })
