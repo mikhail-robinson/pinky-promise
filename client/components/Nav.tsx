@@ -51,18 +51,18 @@ function Nav() {
                 <ul className="text-base">
                   <li>
                     <a
-                      href="/my-friends"
+                      href="/my-profile"
                       className="block px-4 py-6 text-base text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black"
                     >
-                      Friends
+                      Profile
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/my-promises"
+                      href="/my-friends"
                       className="block px-4 py-6 text-base text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black"
                     >
-                      Profile
+                      Friends
                     </a>
                   </li>
                   <li>
