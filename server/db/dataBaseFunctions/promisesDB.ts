@@ -1,5 +1,9 @@
 import connection from '../connection'
-import { Pledge, PledgeFrontEnd } from '../../../models/pledge_models'
+import {
+  Pledge,
+  PledgeFrontEnd,
+  PledgeDraft,
+} from '../../../models/pledge_models'
 
 export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
@@ -23,6 +27,29 @@ export function getPromiseByIdWithFriendName(
       'date_due as dateDue'
     )
     .first()
+}
+
+export function addPromise(input: PledgeDraft, db = connection) {
+  const newDate = new Date().toString()
+
+  const {
+    promiseName,
+    promiseDescription,
+    userId,
+    friendUserId,
+    status,
+    dateDue,
+  } = input
+
+  return db('promises').insert({
+    promise_name: promiseName,
+    promise_description: promiseDescription,
+    user_id: userId,
+    friend_user_id: friendUserId,
+    status,
+    date_created: newDate,
+    date_due: dateDue,
+  })
 }
 
 export async function getAllPromisesById(

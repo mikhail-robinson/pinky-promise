@@ -20,6 +20,9 @@ const UserProfilePage = lazy(() => import('./components/UserProfilePage'))
 const PromiseDetailPage = lazy(
   () => import('./components/PromiseDetailPage/PromiseDetailPage')
 )
+const AddPromisePage = lazy(
+  () => import('./components/AddPromisePage/AddPromisePage')
+)
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -68,7 +71,7 @@ export const routes = createRoutesFromElements(
       path="add-promise"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={Loading} />
+          <ProtectedComponent component={AddPromisePage} />
         </Suspense>
       }
     />

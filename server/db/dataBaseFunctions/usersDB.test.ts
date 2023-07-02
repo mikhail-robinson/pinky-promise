@@ -26,7 +26,7 @@ afterAll(async () => {
 })
 
 describe('getUserById', () => {
-  it('makes sure the user contains the correct propertys', async () => {
+  it('makes sure the user contains the correct properties', async () => {
     expect.assertions(3)
     const user = await db.getUser('auth0|649cbc8bcb6899372f3cc882', testDb)
 
@@ -37,9 +37,9 @@ describe('getUserById', () => {
 })
 
 describe('userExist', () => {
-  it('returns true if user exist', async () => {
+  it('returns false if user exist', async () => {
     const userExist = await db.getUser('non user', testDb)
-    expect(userExist).toBeFalsy
+    expect(userExist).toBeFalsy()
   })
   it('returns true if user exist', async () => {
     const userExist = await db.getUser('auth0|649cbc8bcb6899372f3cc882', testDb)

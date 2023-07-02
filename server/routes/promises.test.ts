@@ -12,7 +12,7 @@ import config from '../db/knexfile'
 import request from 'supertest'
 import server from '../server'
 import * as db from '../db/dataBaseFunctions/promisesDB'
-import { Pledge, PledgeDraft, PledgeFrontEnd } from '../../models/pledge_models'
+
 import { getMockToken } from '../db/dataBaseFunctions/mockToken'
 const testDb = knex(config.test)
 vi.mock('../db/dataBaseFunctions/promisesDB')
