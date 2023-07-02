@@ -59,7 +59,7 @@ router.put('/', validateAccessToken, async (req, res) => {
     const userDraftResult = userDraftSchema.safeParse(input)
 
     if (!userDraftResult.success) {
-      res.status(400).json({ message: 'Invalid form' })
+      res.status(400).json({ message: 'Invalid update' })
       return
     }
 
@@ -76,6 +76,5 @@ router.put('/', validateAccessToken, async (req, res) => {
     }
   }
 })
-
 
 export default router

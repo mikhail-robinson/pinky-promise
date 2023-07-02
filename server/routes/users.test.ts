@@ -55,3 +55,20 @@ describe('POST /api/v1/user', () => {
     expect(response.status).toBe(400)
   })
 })
+
+describe('Put /api/v1/user', () => {
+  it('Should return 400 if not valid id', async () => {
+    const fakeProfile: UserDraft = {
+      name: 'fakeName',
+      username: 'fakeUserName',
+      bio: 'fakeBio',
+    }
+
+    vi.mocked(db.updateUser).mockResolvedValue(12)
+    const response = await request(server)
+      .post('/api/v1/user')
+      .set('authorization', `Bearer ${getMockToken()}`)
+      .send(fakeProfile)
+    expect(response.status).toBe(201)
+  })
+})
