@@ -2,10 +2,11 @@ import { User, UserDraft } from '../../models/user_models'
 
 interface Props {
   profile?: User
+  isProfileExist?: boolean
   handleSubmit: (profile: User | UserDraft) => void
 }
 
-function UserProfileForm(props: Props) {
+function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
@@ -20,7 +21,7 @@ function UserProfileForm(props: Props) {
       bio: bio,
     }
 
-    props.handleSubmit(form)
+    handleSubmit(form)
   }
 
   return (
@@ -29,7 +30,7 @@ function UserProfileForm(props: Props) {
         <div className="">
           <form onSubmit={handleSubmit} className="w-80 h-auto">
             <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7">
-              Introduce yourself
+              {isProfileExist ? 'Your Profile' : 'Introduce Yourself'}
             </h1>
             <div className="pb-4">
               <label
@@ -43,9 +44,9 @@ function UserProfileForm(props: Props) {
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Insert tour title here"
+                placeholder="Insert your title here"
                 required
-                defaultValue={props.profile?.name}
+                defaultValue={profile?.name}
               />
             </div>
             <div className="pb-4">
@@ -62,7 +63,7 @@ function UserProfileForm(props: Props) {
                 id="username"
                 placeholder="Who is your friend?"
                 required
-                defaultValue={props.profile?.username}
+                defaultValue={profile?.username}
               />
             </div>
             <div>
@@ -79,7 +80,7 @@ function UserProfileForm(props: Props) {
                 id="bio"
                 placeholder=""
                 required
-                defaultValue={props.profile?.bio}
+                defaultValue={profile?.bio}
               />
             </div>
             <div className="flex items-center justify-center mt-10">

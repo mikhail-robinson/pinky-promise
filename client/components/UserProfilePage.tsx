@@ -46,7 +46,11 @@ function UserProfilePage() {
 
   return (
     <div>
-      <UserProfileForm handleSubmit={handleSubmit} profile={userQuery.data} />
+      <UserProfileForm
+        handleSubmit={handleSubmit}
+        profile={userQuery.data}
+        isProfileExist={!!userQuery.data}
+      />
     </div>
   )
 }
