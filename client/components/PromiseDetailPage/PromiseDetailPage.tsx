@@ -25,8 +25,7 @@ function PromiseDetailPage() {
       token: string
     }) => resolvePromise(promiseUpdate, token),
     onSuccess: () => {
-      navigate('/')
-      
+      navigate('/my-promises')      
     },
   })
 

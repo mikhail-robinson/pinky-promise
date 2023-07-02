@@ -7,7 +7,7 @@ interface Props {
 }
 
 function Promise(props: Props) {
-  const { promiseName, promiseDescription, friendName, status } =
+  const { promiseName, promiseDescription, friendName } =
     props.promise
     //TODO: replace hardcoded date with acutal date
     const dateCreated = '28/06/3000'
@@ -15,12 +15,12 @@ function Promise(props: Props) {
     <div>
       <div className="promise">
         <h1>{promiseName}</h1>
-        <h2>{status}</h2>
+        
         <div>{dateCreated}</div>
         <div>{friendName}</div>
         <p>{promiseDescription}</p>
         
-        <button onClick={() => props.handleResolvePromise('pending')}>Promise Pending Button!</button>{/* TODO: replace buttons with actual promise action buttons */}
+        {/* TODO: replace buttons with actual promise action buttons */}
         <button onClick={() => props.handleResolvePromise('broken')}>Promise Broken!</button>
         <button onClick={() => props.handleResolvePromise('kept')}>Promise Kept!</button>
         <div>Twitter</div>

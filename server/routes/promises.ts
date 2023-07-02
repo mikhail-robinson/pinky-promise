@@ -82,20 +82,20 @@ router.get('/:promiseId', validateAccessToken, async (req, res) => {
 })
 
 router.put('/:promiseId', validateAccessToken, async (req, res) => {
+  const input = req.body
   try {
-    const promiseUpdateResult = pledgeStatusUpdate.safeParse(req.body)
-    console.log(req.body);
+    const promiseUpdateResult = pledgeStatusUpdate.safeParse(input)
+    
     
     if (!promiseUpdateResult) {
       res.status(400).json({ message: 'Invalid pledge' })
       return
     }
-    const updatedPromise = pledgeStatusUpdate.parse(req.body)
+    const updatedPromise = pledgeStatusUpdate.parse(input)
 
     const auth0Id = req.auth?.payload.sub
-    if (auth0Id) {
+    if (promiseUpdateResult.success && auth0Id) {
       const promise = await db.updatePromiseStatus(updatedPromise)
-      // console.log(pledge)
       res.status(200).json(promise)
     }
   } catch (error) {

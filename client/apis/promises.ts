@@ -1,6 +1,7 @@
 import request from 'superagent'
 import {
-  PledgeFrontEnd, PledgeStatusUpdate,
+  PledgeFrontEnd,
+  PledgeStatusUpdate,
   PledgeDraftSchemaFrontEnd,
 } from '../../models/pledge_models'
 import { set } from 'zod'
@@ -35,14 +36,13 @@ export async function getPromisesbyUserId(
   return res.body
 }
 
-
-export async function resolvePromise(promiseUpdate:PledgeStatusUpdate, token:string) { 
-  
-    console.log(promiseUpdate);
-    
+export async function resolvePromise(
+  promiseUpdate: PledgeStatusUpdate,
+  token: string
+) {
   return await request
-  .post(rootUrl + '/' + promiseUpdate.promiseId)
-  .set('Authorization', `Bearer ${token}`)
-  .set('Content-Type', 'application/json')
-  .send(promiseUpdate)
+    .put(`${rootUrl}/${promiseUpdate.promiseId}`)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+    .send(promiseUpdate)
 }
