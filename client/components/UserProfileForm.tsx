@@ -2,11 +2,10 @@ import { User, UserDraft } from '../../models/user_models'
 
 interface Props {
   profile?: User
-  isProfileExist?: boolean
   handleSubmit: (profile: User | UserDraft) => void
 }
 
-function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
+function UserProfileForm(props: Props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
@@ -21,7 +20,7 @@ function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
       bio: bio,
     }
 
-    handleSubmit(form)
+    props.handleSubmit(form)
   }
 
   return (
@@ -29,9 +28,7 @@ function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
       <div className="flex items-center justify-center h-screen w-">
         <div className="">
           <form onSubmit={handleSubmit} className="w-80 h-auto">
-            <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7">
-              {isProfileExist ? 'Your Profile' : 'Introduce Yourself'}
-            </h1>
+            <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7"></h1>
             <div className="pb-4">
               <label
                 className="font-secondary  text-slate-50 pb-2"
@@ -44,9 +41,9 @@ function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Insert your title here"
+                placeholder="Insert tour title here"
                 required
-                defaultValue={profile?.name}
+                defaultValue={props.profile?.name}
               />
             </div>
             <div className="pb-4">
@@ -63,7 +60,7 @@ function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
                 id="username"
                 placeholder="Who is your friend?"
                 required
-                defaultValue={profile?.username}
+                defaultValue={props.profile?.username}
               />
             </div>
             <div>
@@ -80,7 +77,7 @@ function UserProfileForm({ profile, handleSubmit, isProfileExist }: Props) {
                 id="bio"
                 placeholder=""
                 required
-                defaultValue={profile?.bio}
+                defaultValue={props.profile?.bio}
               />
             </div>
             <div className="flex items-center justify-center mt-10">

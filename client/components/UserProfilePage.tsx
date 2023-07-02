@@ -46,11 +46,10 @@ function UserProfilePage() {
 
   return (
     <div>
-      <UserProfileForm
-        handleSubmit={handleSubmit}
-        profile={userQuery.data}
-        isProfileExist={!!userQuery.data}
-      />
+      <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7">
+        {userQuery.data ? 'Your Profile' : 'Introduce Yourself'}
+      </h1>
+      <UserProfileForm handleSubmit={handleSubmit} profile={userQuery.data} />
     </div>
   )
 }
