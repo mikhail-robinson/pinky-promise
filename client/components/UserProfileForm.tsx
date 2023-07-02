@@ -28,7 +28,9 @@ function UserProfileForm(props: Props) {
       <div className="flex items-center justify-center h-screen w-">
         <div className="">
           <form onSubmit={handleSubmit} className="w-80 h-auto">
-            <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7"></h1>
+            <h1 className="font-secondary text-slate-50 text-2xl font-medium pb-4 pt-7">
+              {props.profile ? 'Your Profile' : 'Introduce Yourself'}
+            </h1>
             <div className="pb-4">
               <label
                 className="font-secondary  text-slate-50 pb-2"
