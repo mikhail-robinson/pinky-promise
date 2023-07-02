@@ -26,7 +26,7 @@ export function getAllFriendsById(
     )
 }
 
-export function addFriendbyId(input: FriendsDraft, db = connection) {
+export function addFriend(input: FriendsDraft, db = connection) {
   const newDate = new Date().toString()
   const { userId, friendUserId } = input
   return db('friends').insert({
