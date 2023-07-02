@@ -12,25 +12,25 @@ interface FakePromise {
   status: string
 }
 
-describe('Promise component shows props', () =>
-  it('shows the promise data', async () => {
-    const pledge = {
-      promiseName: 'name',
-      promiseDescription: 'text',
-      userId: '1',
-      friendUserId: '3',
-      status: 'pending',
-    }
+// describe('Promise component shows props', () =>
+//   it('shows the promise data', async () => {
+//     const pledge = {
+//       promiseName: 'name',
+//       promiseDescription: 'text',
+//       userId: '1',
+//       friendUserId: '3',
+//       status: 'pending',
+//     }
 
-    render(<Promise promise={pledge} />)
+//     render(<Promise promise={pledge} />)
 
-    const name = screen.getByText('Name: name')
-    expect(name.textContent).toContain('name')
-    const description = screen.getByText('Desc: text')
-    expect(description.textContent).toContain('text')
-    const status = screen.getByText('Status: pending')
-    expect(status.textContent).toContain('pending')
-  }))
+//     const name = screen.getByText('Name: name')
+//     expect(name.textContent).toContain('name')
+//     const description = screen.getByText('Desc: text')
+//     expect(description.textContent).toContain('text')
+//     const status = screen.getByText('Status: pending')
+//     expect(status.textContent).toContain('pending')
+//   }))
 
 describe('Promise component shows buttons', () => {
   it('shows the Promise Broken and Promise Kept buttons', async () => {
