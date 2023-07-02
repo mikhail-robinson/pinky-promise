@@ -15,9 +15,13 @@ import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
 import Home from './components/Home'
+
 const UserProfilePage = lazy(() => import('./components/UserProfilePage'))
 const PromiseDetailPage = lazy(
   () => import('./components/PromiseDetailPage/PromiseDetailPage')
+)
+const AddPromisePage = lazy(
+  () => import('./components/AddPromisePage/AddPromisePage')
 )
 
 export const routes = createRoutesFromElements(
@@ -67,7 +71,7 @@ export const routes = createRoutesFromElements(
       path="add-promise"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={Loading} />
+          <ProtectedComponent component={AddPromisePage} />
         </Suspense>
       }
     />

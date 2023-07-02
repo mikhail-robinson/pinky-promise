@@ -1,11 +1,11 @@
-import { PledgeDraft, Pledge } from '../../models/pledge_models'
-import PromiseProfileForm from './PromiseProfileForm'
+import { PledgeDraft, Pledge } from '../../../models/pledge_models'
+import AddPromiseForm from './AddPromiseForm'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
-import { addPromise } from '../apis/promises'
+import { addPromise } from '../../apis/promises'
 
-function PromiseProfilePage() {
+function AddPromisePage() {
   const navigate = useNavigate()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
@@ -40,9 +40,9 @@ function PromiseProfilePage() {
 
   return (
     <div>
-      <PromiseProfileForm handleSubmit={handleSubmit} />
+      <AddPromiseForm handleSubmit={handleSubmit} />
     </div>
   )
 }
 
-export default PromiseProfilePage
+export default AddPromisePage

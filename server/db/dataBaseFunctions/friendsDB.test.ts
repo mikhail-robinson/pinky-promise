@@ -32,7 +32,7 @@ describe('getAllFriends', () => {
 describe('getAllFriendsById', () => {
   it('returns a list of friends', async () => {
     const friends = await db.getAllFriendsById(
-      'auth0|6491331aa4bd45e690ea1e87',
+      'auth0|649caf539da0538e8a440ef7',
       testDb
     )
     const friendLength = friends.length
@@ -43,3 +43,4 @@ describe('getAllFriendsById', () => {
     expect(friends[0]).toHaveProperty('friendUserId')
   })
 })
+

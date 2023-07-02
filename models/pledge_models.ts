@@ -3,7 +3,7 @@ import * as z from 'zod'
 export const pledgeDraftSchema = z.object({
   promiseName: z.string(),
   promiseDescription: z.string(),
-  userId: z.string(),
+  // userId: z.string(),
   friendUserId: z.string(),
   status: z.string(),
   dateDue: z.string(),
@@ -15,13 +15,13 @@ export const pledge = pledgeDraftSchema.extend({
 })
 
 export type PledgeFrontEnd = {
-  promiseId: number,
-  promiseName: string,
-  promiseDescription: string,
-  userId: string,
-  friendName: string,
-  status: string,
-  dateCreated: string,
+  promiseId: number
+  promiseName: string
+  promiseDescription: string
+  userId: string
+  friendName: string
+  status: string
+  dateCreated: string
   dateDue: string
 }
 

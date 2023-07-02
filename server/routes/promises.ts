@@ -26,6 +26,9 @@ router.post('/', validateAccessToken, async (req, res) => {
       console.error('This is the error', error)
       res.status(500).json({ error: 'Unable to add new promise' })
     }
+  }
+})
+
 router.get('/:promiseId', validateAccessToken, async (req, res) => {
   const promiseId = Number(req.params.promiseId)
   const auth0Id = req.auth?.payload.sub
