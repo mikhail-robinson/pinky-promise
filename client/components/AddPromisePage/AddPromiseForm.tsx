@@ -9,6 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 interface Props {
   promise?: PledgeDraftSchemaFrontEnd
   handleSubmit: (promise: Pledge | PledgeDraftSchemaFrontEnd) => void
+  handleAnimation: () => void
 }
 
 function AddPromiseForm(props: Props) {
@@ -39,7 +40,6 @@ function AddPromiseForm(props: Props) {
       status: 'pending',
       dateDue: dateDue,
     }
-
     props.handleSubmit(form)
   }
 
@@ -87,7 +87,9 @@ function AddPromiseForm(props: Props) {
           />
         </div>
         <div>
-          <button>New Promise!</button>
+          <button onClick={props.handleAnimation} name="New Promise">
+            New Promise!
+          </button>
         </div>
       </form>
     </div>
