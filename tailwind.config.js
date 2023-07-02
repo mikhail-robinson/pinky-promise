@@ -22,6 +22,9 @@ module.exports = {
       backgroundPosition: {
         rightbackgroundImage: 'right 3000px',
       },
+      minHeight: {
+        '1/2': '100px',
+      },
     },
   },
   plugins: [],

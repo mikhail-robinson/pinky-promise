@@ -17,12 +17,30 @@ afterAll(async () => {
   await testDb.destroy()
 })
 
-describe('get all the promises', () => {
+describe('getAllFriends', () => {
   it('returns correct amount of promises', async () => {
-    const data = await db.getAllFriends(testDb)
-    const lengthOfFriendsArray = data.length
-    const friendAmount = await db.getAllFriends(testDb)
+    const friendData = await db.getAllFriends(
+      'auth0|6491331aa4bd45e690ea1e87',
+      testDb
+    )
+    const lengthOfFriendsArray = friendData.length
 
-    expect(friendAmount).toHaveLength(lengthOfFriendsArray)
+    expect(friendData).toHaveLength(lengthOfFriendsArray)
   })
 })
+
+describe('getAllFriendsById', () => {
+  it('returns a list of friends', async () => {
+    const friends = await db.getAllFriendsById(
+      'auth0|649caf539da0538e8a440ef7',
+      testDb
+    )
+    const friendLength = friends.length
+
+    expect(friends).toHaveLength(friendLength)
+    expect(friends[0]).toHaveProperty('friendName')
+    expect(friends[0]).toHaveProperty('username')
+    expect(friends[0]).toHaveProperty('friendUserId')
+  })
+})
+
