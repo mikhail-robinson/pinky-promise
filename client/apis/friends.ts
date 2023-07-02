@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { FriendNames } from '../../models/friends_models'
+import { FriendNames, FriendsDraft } from '../../models/friends_models'
 
 const rootUrl = '/api/v1/friends'
 
@@ -10,4 +10,12 @@ export async function getAllFriendsById(token: string) {
     .set('Content-Type', 'application/json')
 
   return res.body as FriendNames[]
+}
+
+export async function addFriend(friendsDraft: FriendsDraft, token: string) {
+  await request
+    .post(rootUrl)
+    .set('Authorization', `Bearer ${token}`)
+    .set('Content-Type', 'application/json')
+    .send(friendsDraft)
 }
