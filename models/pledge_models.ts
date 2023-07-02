@@ -28,14 +28,6 @@ export type PledgeFrontEnd = {
   dateDue: string
 }
 
-export const pledgeForm = {
-  promiseName: z.string(),
-  promiseDescription: z.string(),
-  friendUserId: z.string(),
-  status: z.string(),
-  dateDue: z.string(),
-}
-
 export type PledgeDraft = z.infer<typeof pledgeDraftSchema>
 export type Pledge = z.infer<typeof pledge>
 export type PledgeDraftSchemaFrontEnd = z.infer<

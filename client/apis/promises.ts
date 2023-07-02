@@ -3,7 +3,6 @@ import {
   PledgeFrontEnd,
   PledgeDraftSchemaFrontEnd,
 } from '../../models/pledge_models'
-import { set } from 'zod'
 
 const rootUrl = '/api/v1/promises'
 

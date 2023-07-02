@@ -7,9 +7,12 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
 import { addPromise } from '../../apis/promises'
+import AnimationComponent from './PromiseMadeAnimation'
+import { useAnimation } from 'framer-motion'
 
 function AddPromisePage() {
   const navigate = useNavigate()
+  const controls = useAnimation()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
 
@@ -21,9 +24,6 @@ function AddPromisePage() {
       form: PledgeDraftSchemaFrontEnd | PledgeDraft
       token: string
     }) => addPromise(form, token),
-    onSuccess: () => {
-      navigate('/my-promises')
-    },
   })
 
   if (isLoading) {
@@ -34,16 +34,30 @@ function AddPromisePage() {
     return <div>Not authenticated</div>
   }
 
+  async function handleAnimation() {
+    await controls.start({
+      scale: [1, 1.5, 1],
+      rotate: 360,
+      transition: { duration: 0.5 },
+    })
+    setTimeout(() => {
+      navigate('/my-promises')
+    }, 1000)
+  }
+
   async function handleSubmit(form: PledgeDraftSchemaFrontEnd | PledgeDraft) {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
-
-    navigate('/my-promises')
+    handleAnimation()
   }
 
   return (
     <div>
-      <AddPromiseForm handleSubmit={handleSubmit} />
+      <AddPromiseForm
+        handleSubmit={handleSubmit}
+        handleAnimation={handleAnimation}
+      />
+      <AnimationComponent controls={controls} />
     </div>
   )
 }

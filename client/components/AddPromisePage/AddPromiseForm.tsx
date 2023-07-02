@@ -9,6 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 interface Props {
   promise?: PledgeDraftSchemaFrontEnd
   handleSubmit: (promise: Pledge | PledgeDraftSchemaFrontEnd) => void
+  handleAnimation: () => void
 }
 
 function AddPromiseForm(props: Props) {
@@ -39,7 +40,6 @@ function AddPromiseForm(props: Props) {
       status: 'pending',
       dateDue: dateDue,
     }
-
     props.handleSubmit(form)
   }
 
@@ -58,6 +58,7 @@ function AddPromiseForm(props: Props) {
             type="text"
             name="promiseName"
             id="promiseName"
+            placeholder="Give your promise a name!"
             required
             defaultValue={props.promise?.promiseName}
           />
@@ -74,7 +75,7 @@ function AddPromiseForm(props: Props) {
             name="friendUserId"
             id="friendUserId"
           >
-            <option>Select a Friend</option>
+            <option>Select a friend</option>
             {friendsQuery?.data?.map((friend) => (
               <option key={friend.friendUserId} value={friend.friendUserId}>
                 {friend.friendName}
@@ -93,9 +94,10 @@ function AddPromiseForm(props: Props) {
             className="p-2 pb-20 w-80 m text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body resize-none overflow-wrap-normal"
             name="promiseDescription"
             id="promiseDescription"
+            placeholder="what's your promise about?"
             required
             defaultValue={props.promise?.promiseDescription}
-          />
+          ></textarea>
         </div>
         <div>
           <label
@@ -105,7 +107,7 @@ function AddPromiseForm(props: Props) {
             Date (optional)
           </label>
           <input
-            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
+            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body mt-"
             type="date"
             name="dateDue"
             id="dateDue"
@@ -113,7 +115,11 @@ function AddPromiseForm(props: Props) {
           />
         </div>
         <div className="flex items-center justify-center mt-10">
-          <button className="font-body text-purple bg-pink text-2x0 hover:bg-darkPink drop-shadow-xl py-2 px-4 p-2  rounded-lg">
+          <button
+            className='className="font-body text-purple bg-pink text-2x hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
+            onClick={props.handleAnimation}
+            name="New Promise"
+          >
             Make A Promise!
           </button>
         </div>
