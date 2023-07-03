@@ -3,6 +3,7 @@ import { PledgeFrontEnd } from '../../../models/pledge_models'
 interface Props {
   promise: PledgeFrontEnd
   handleResolvePromise: (status: string) => void
+
 }
 
 function Promise(props: Props) {
@@ -18,11 +19,21 @@ function Promise(props: Props) {
         <div>{friendName}</div>
         <p>{promiseDescription}</p>
 
-        {/* TODO: replace buttons with actual promise action buttons */}
         <button onClick={() => props.handleResolvePromise('broken')}>
+          <img
+            src="/promiseBroken.svg"
+            alt="promiseBroken"
+            aria-label="Promise broken"
+          />
           Promise Broken!
         </button>
+
         <button onClick={() => props.handleResolvePromise('kept')}>
+          <img
+            src="/promiseMade.svg"
+            alt="promisekept"
+            aria-label="Promise kept"
+          />
           Promise Kept!
         </button>
         <div>Twitter</div>
@@ -33,3 +44,5 @@ function Promise(props: Props) {
 }
 
 export default Promise
+
+// /promiseMade.svg

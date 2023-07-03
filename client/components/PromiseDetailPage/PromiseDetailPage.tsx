@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import Promise from '../Promise/Promise'
 import PromiseBroken from './PromiseBrokenAnimation'
 import { useAnimation } from 'framer-motion'
+import PromiseKept from './PromiseKeptAnimation'
 
 function PromiseDetailPage() {
   const params = useParams()
@@ -27,7 +28,16 @@ function PromiseDetailPage() {
     }) => resolvePromise(promiseUpdate, token),
   })
 
-  async function handleAnimation() {
+  async function handleBroken() {
+    await controls.start({
+      scale: [1, 1.5, 1],
+      transition: { duration: 0.5 },
+    })
+    setTimeout(() => {
+      navigate('/my-promises')
+    }, 1000)
+  }
+  async function handleKept() {
     await controls.start({
       scale: [1, 1.5, 1],
       transition: { duration: 0.5 },
@@ -43,7 +53,14 @@ function PromiseDetailPage() {
     const promiseUpdate = { promiseId, status }
 
     mutation.mutate({ promiseUpdate, token })
-    handleAnimation()
+
+    if (status === 'broken') {
+      handleBroken()
+    } else if (status === 'kept') {
+      handleKept()
+    } else {
+      return
+    }
   }
 
   if (isLoading) {
@@ -63,6 +80,7 @@ function PromiseDetailPage() {
         />
       )}
       <PromiseBroken controls={controls} />
+      <PromiseKept controls={controls} />
     </div>
   )
 }

@@ -4,7 +4,7 @@ interface Props {
   controls: AnimationControls
 }
 
-function PromiseBroken(props: Props) {
+function PromiseKept(props: Props) {
   const { controls } = props
 
   return (
@@ -16,7 +16,7 @@ function PromiseBroken(props: Props) {
       >
         <img
           className="absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="/promiseBroken.svg"
+          src="/promiseMade.svg"
           alt="promiseBrokenSvg"
           aria-label="Promise broken"
         />
@@ -25,4 +25,4 @@ function PromiseBroken(props: Props) {
   )
 }
 
-export default PromiseBroken
+export default PromiseKept
