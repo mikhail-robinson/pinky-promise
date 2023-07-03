@@ -1,5 +1,6 @@
 import connection from '../connection'
 import {
+  AddFriendDraft,
   Friend,
   FriendNames,
   FriendsDraft,
@@ -52,11 +53,15 @@ export function getNotFriends(auth0_id: string, db = connection) {
     )
 }
 
-export function addFriend(input: FriendsDraft, db = connection) {
+export function addFriend(
+  input: AddFriendDraft,
+  auth0_id: string,
+  db = connection
+) {
   const newDate = new Date().toString()
-  const { userId, friendUserId } = input
+  const { friendUserId } = input
   return db('friends').insert({
-    user_id: userId,
+    user_id: auth0_id,
     friend_user_id: friendUserId,
     date_created: newDate,
   })

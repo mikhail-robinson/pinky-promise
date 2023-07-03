@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import * as db from '../db/dataBaseFunctions/friendsDB'
 import { validateAccessToken } from '../auth0'
-import { friendsDraftSchema } from '../../models/friends_models'
+import { addFriendDraftSchema } from '../../models/friends_models'
 
 const router = Router()
 
@@ -22,18 +22,18 @@ router.get('/', validateAccessToken, async (req, res) => {
 
 router.post('/', validateAccessToken, async (req, res) => {
   const input = req.body
+
   try {
-    const friendDraftResult = friendsDraftSchema.safeParse(input)
+    const friendDraftResult = addFriendDraftSchema.safeParse(input)
 
     if (!friendDraftResult.success) {
       res.status(400).json({ message: 'Invalid form' })
       return
     }
     const auth0Id = req.auth?.payload.sub
-    const userData = friendsDraftSchema.parse(input)
 
     if (friendDraftResult.success && auth0Id) {
-      const user = await db.addFriend(userData)
+      const user = await db.addFriend(friendDraftResult.data, auth0Id)
       res.status(201).json(user)
     }
   } catch (error) {
