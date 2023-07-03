@@ -32,7 +32,7 @@ export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
     <Route index element={<Home />} />
     <Route
-      path="find-friends"
+      path="add-friends"
       element={
         <Suspense fallback={<Loading />}>
           <ProtectedComponent component={AddFriendsPage} />
