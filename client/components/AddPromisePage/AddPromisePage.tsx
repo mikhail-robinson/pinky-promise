@@ -52,7 +52,7 @@ function AddPromisePage() {
   }
 
   return (
-    <div>
+    <div className="relative ">
       <AddPromiseForm
         handleSubmit={handleSubmit}
         handleAnimation={handleAnimation}
