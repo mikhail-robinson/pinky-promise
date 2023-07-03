@@ -44,8 +44,10 @@ function AddPromiseForm(props: Props) {
   }
 
   return (
-    <div className="flex mt-20 justify-center h-screen">
-      <form onSubmit={handleSave} className="w-80 h-auto text-slate-50">
+    <div className="flex flex-col items-center mt-20">
+      <form onSubmit={handleSave} className="w-80">
+        {/* <div className="flex mt-20 justify-center h-screen">
+      <form onSubmit={handleSave} className="w-80 h-auto text-slate-50"> */}
         <div className="pb-4">
           <label
             className="font-sans font-bold text-base  pb-2"
