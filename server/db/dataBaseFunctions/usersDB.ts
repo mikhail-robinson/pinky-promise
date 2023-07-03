@@ -10,9 +10,3 @@ export function addUser(input: UserDraft, auth0Id: string, db = connection) {
 
   return db('users').insert({ auth0_id: auth0Id, username, name, bio })
 }
-
-export function updateUser(input: UserDraft, auth0Id: string, db = connection) {
-  const { username, name, bio } = input
-
-  return db('users').where('auth0_id', auth0Id).update({ username, name, bio })
-}

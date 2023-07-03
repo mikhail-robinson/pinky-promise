@@ -1,7 +1,0 @@
-{
-  "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#34ebab",
-    "titleBar.activeForeground": "#ffffff"
-  },
-  "window.title": "~[client]~${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${activeEditorShort}${separator}${rootName}${separator}${profileName}"
-}
