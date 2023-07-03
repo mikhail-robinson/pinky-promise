@@ -16,6 +16,7 @@ import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
 import Home from './components/Home'
 import AllPromisesPage from './components/AllPromisesPage/AllPromisesPage'
+import AddFriendsPage from './components/AddFriendsPage/AddFriendsPage'
 const UserProfilePage = lazy(() => import('./components/UserProfilePage'))
 const PromiseDetailPage = lazy(
   () => import('./components/PromiseDetailPage/PromiseDetailPage')
@@ -31,7 +32,7 @@ export const routes = createRoutesFromElements(
       path="find-friends"
       element={
         <Suspense fallback={<Loading />}>
-          <ProtectedComponent component={Loading} />
+          <ProtectedComponent component={AddFriendsPage} />
         </Suspense>
       }
     />

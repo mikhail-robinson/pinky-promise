@@ -47,3 +47,31 @@ describe('GET /api/v1/friends', () => {
     expect(response.body).toEqual(fakeFriends)
   })
 })
+
+describe('POST /api/v1/friends', () => {
+  it('should return 201 when creating a new profile', async () => {
+    const fakeFriend: FriendsDraft = {
+      userId: 'auth0|6491331aa4bd45e690ea1e87',
+      friendUserId: 'google-oauth2|117005350284520001031',
+      dateCreated: '2023-06-30T02:05:35.428Z',
+    }
+
+    vi.mocked(db.addFriend).mockResolvedValue([15])
+    const response = await request(server)
+      .post('/api/v1/friends')
+      .set('authorization', `Bearer ${getMockToken()}`)
+      .send(fakeFriend)
+    expect(response.status).toBe(201)
+  })
+
+  it('should return 400 if the body does not match the zod schemea', async () => {
+    const fakeProfile = {}
+
+    vi.mocked(db.addFriend).mockResolvedValue([15])
+    const response = await request(server)
+      .post('/api/v1/friends')
+      .set('authorization', `Bearer ${getMockToken()}`)
+      .send(fakeProfile)
+    expect(response.status).toBe(400)
+  })
+})
