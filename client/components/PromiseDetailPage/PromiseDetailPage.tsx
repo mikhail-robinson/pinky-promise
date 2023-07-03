@@ -47,12 +47,15 @@ function PromiseDetailPage() {
   }
 
   return (
+    
     <div>
-      {promiseQuery.data && (
+      { !promiseQuery.isLoading && promiseQuery.data && (
+
         <Promise
           promise={promiseQuery.data}
           handleResolvePromise={handleResolvePromise}
         />
+
       )}
     </div>
   )
