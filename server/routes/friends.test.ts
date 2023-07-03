@@ -14,6 +14,7 @@ import server from '../server'
 
 import * as db from '../db/dataBaseFunctions/friendsDB'
 import { getMockToken } from '../db/dataBaseFunctions/mockToken'
+import { FriendNames } from '../../models/friends_models'
 const testDb = knex(config.test)
 
 vi.mock('../db/dataBaseFunctions/friendsDB')
@@ -31,7 +32,7 @@ afterAll(async () => {
 
 describe('GET /api/v1/friends', () => {
   it('should return 200 when retrieving friends', async () => {
-    const fakeFriends: any = [
+    const fakeFriends: FriendNames[] = [
       {
         friendName: 'NameFromTest',
         username: 'NicknameFromTest',
