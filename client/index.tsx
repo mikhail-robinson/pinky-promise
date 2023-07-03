@@ -24,6 +24,8 @@ const MyFriendsPage = lazy(
 const AddFriendsPage = lazy(
   () => import('./components/AddFriendsPage/AddFriendsPage')
 )
+const ErrorPage = lazy(
+  () => import('./components/ErrorPage'))
 const UserProfilePage = lazy(() => import('./components/UserProfilePage'))
 const PromiseDetailPage = lazy(
   () => import('./components/PromiseDetailPage/PromiseDetailPage')
@@ -33,7 +35,7 @@ const AddPromisePage = lazy(
 )
 
 export const routes = createRoutesFromElements(
-  <Route path="/" element={<App />}>
+  <Route path="/" element={<App />} errorElement={<ErrorPage/>}>
     <Route index element={<Home />} />
     <Route
       path="add-friends"
