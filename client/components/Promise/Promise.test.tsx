@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Promise from './Promise'
+import { PledgeFrontEnd } from '../../../models/pledge_models'
 
 interface FakePromise {
   promiseName: string
@@ -34,15 +35,18 @@ interface FakePromise {
 
 describe('Promise component shows buttons', () => {
   it('shows the Promise Broken and Promise Kept buttons', async () => {
-    const pledge = {
+    const pledge: PledgeFrontEnd = {
+      promiseId: 1,
       promiseName: 'name',
       promiseDescription: 'text',
       userId: '1',
-      friendUserId: '3',
+      friendName: '3',
       status: 'pending',
+      dateCreated: 'dateCreated',
+      dateDue: 'dateDue ',
     }
 
-    render(<Promise promise={pledge} />)
+    render(<Promise promise={pledge} handleBrokenPromise={() => {}} handleKeptPromise={() => {}} />)
 
     const buttons = await screen.getAllByRole('button')
     expect(buttons[0].textContent).toContain('Promise Broken')

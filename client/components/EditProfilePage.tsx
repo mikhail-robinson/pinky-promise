@@ -5,30 +5,21 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
 import useFetchUser from '../hooks/useFetchProfile'
-import { insertProfile, updateProfile } from '../apis/user'
+import { updateProfile } from '../apis/user'
 
-function UserProfilePage() {
+function EditProfilePage() {
   const navigate = useNavigate()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
-  const userQuery = useFetchUser()
 
-  const mutation = useMutation(
-    ({
-      form,
-      token,
-      mutationFn,
-    }: {
-      form: UserDraft | User
-      token: string
-      mutationFn: typeof insertProfile | typeof updateProfile
-    }) => mutationFn(form, token),
-    {
-      onSuccess: () => {
-        navigate('/my-promises')
-      },
-    }
-  )
+  const userQuery = useFetchUser()
+  const mutation = useMutation({
+    mutationFn: ({ form, token }: { form: UserDraft | User; token: string }) =>
+      updateProfile(form, token),
+    onSuccess: () => {
+      navigate('/my-promises')
+    },
+  })
 
   if (isLoading) {
     return <div>Loading ...</div>
@@ -40,8 +31,9 @@ function UserProfilePage() {
 
   async function handleSubmit(form: UserDraft | User) {
     const token = await getAccessTokenSilently()
-    const mutationFn = userQuery.data ? updateProfile : insertProfile
-    mutation.mutate({ form, token, mutationFn })
+    mutation.mutate({ form, token })
+
+    navigate('/my-promises')
   }
 
   return (
@@ -51,4 +43,4 @@ function UserProfilePage() {
   )
 }
 
-export default UserProfilePage
+export default EditProfilePage
