@@ -54,17 +54,17 @@ describe('handleResolvePromise function', () => {
     console.log(result)
     expect(handleResolvePromise).toBeCalledWith('broken')
   }),
-  it('when brokenButton is clicked, the function is called with `broken`', async () => {
-    const handleResolvePromise = vi.fn()
-    render(
-      <Promise promise={pledge} handleResolvePromise={handleResolvePromise} />
-    )
+    it('when brokenButton is clicked, the function is called with `broken`', async () => {
+      const handleResolvePromise = vi.fn()
+      render(
+        <Promise promise={pledge} handleResolvePromise={handleResolvePromise} />
+      )
 
-    const brokenButton = screen.getByRole('button', {
-      name: 'Promise Kept!',
+      const brokenButton = screen.getByRole('button', {
+        name: 'Promise Kept!',
+      })
+      const result = await user.click(brokenButton)
+      console.log(result)
+      expect(handleResolvePromise).toBeCalledWith('kept')
     })
-    const result = await user.click(brokenButton)
-    console.log(result)
-    expect(handleResolvePromise).toBeCalledWith('kept')
-  })
 })

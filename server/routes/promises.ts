@@ -81,8 +81,7 @@ router.put('/:promiseId', validateAccessToken, async (req, res) => {
   const input = req.body
   try {
     const promiseUpdateResult = pledgeStatusUpdate.safeParse(input)
-    
-    
+
     if (!promiseUpdateResult) {
       res.status(400).json({ message: 'Invalid pledge' })
       return
