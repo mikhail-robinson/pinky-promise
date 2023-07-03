@@ -1,4 +1,3 @@
-import { FormEvent, useState } from 'react'
 import { UserDraft, User } from '../../models/user_models'
 import UserProfileForm from './UserProfileForm'
 import { useNavigate } from 'react-router-dom'

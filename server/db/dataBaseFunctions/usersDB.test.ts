@@ -1,12 +1,4 @@
-import {
-  beforeEach,
-  beforeAll,
-  afterAll,
-  describe,
-  it,
-  expect,
-  vi,
-} from 'vitest'
+import { beforeEach, beforeAll, afterAll, describe, it, expect } from 'vitest'
 import knex from 'knex'
 import config from '../knexfile'
 import * as db from './usersDB'
