@@ -12,7 +12,7 @@ import config from '../db/knexfile'
 import request from 'supertest'
 import server from '../server'
 import * as db from '../db/dataBaseFunctions/usersDB'
-import { User, UserDraft } from '../../models/user_models'
+import { UserDraft } from '../../models/user_models'
 import { getMockToken } from '../db/dataBaseFunctions/mockToken'
 const testDb = knex(config.test)
 vi.mock('../db/dataBaseFunctions/usersDB')
