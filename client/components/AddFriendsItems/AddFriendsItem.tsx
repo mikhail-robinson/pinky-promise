@@ -37,7 +37,7 @@ function AddFriendsItem(props: Props) {
       {friends.map((friend) => {
         return (
           <li key={friend.friendUserId}>
-            <div>{friend.friendName}</div>
+            <div>{friend.username}</div>
             <button
               className="fa-solid fa-plus"
               onClick={() => handleClick(friend.friendUserId)}
