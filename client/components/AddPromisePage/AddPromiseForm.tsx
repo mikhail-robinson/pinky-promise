@@ -48,13 +48,13 @@ function AddPromiseForm(props: Props) {
       <form onSubmit={handleSave} className="w-80 h-auto">
         <div className="pb-4">
           <label
-            className="font-secondary text-slate-50 pb-2"
+            className="font-sans font-bold text-base text-slate-50 pb-2"
             htmlFor="promiseName"
           >
             Name
           </label>
           <input
-            className="p-2 w-full text-base font-sans font-bold text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg"
+            className="p-2 w-full text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans "
             type="text"
             name="promiseName"
             id="promiseName"
@@ -65,13 +65,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div className="pb-4">
           <label
-            className="font-secondary text-slate-50"
+            className="font-sans font-bold text-base text-slate-50"
             htmlFor="friendUserId"
           >
             Add a Friend
           </label>
           <select
-            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
+            className="p-2 w-full text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
             name="friendUserId"
             id="friendUserId"
           >
@@ -89,13 +89,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div>
           <label
-            className="text-start align-top place-items-start font-secondary text-slate-50"
+            className="text-start align-top place-items-start font-sans font-bold text-base text-slate-50"
             htmlFor="promiseDescription"
           >
             Describe your promise
           </label>
           <textarea
-            className="p-2 pb-20 w-80 m text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body resize-none overflow-wrap-normal"
+            className="p-2 pb-20 w-80 m text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-sans font-bold resize-none overflow-wrap-normal"
             name="promiseDescription"
             id="promiseDescription"
             placeholder="what's your promise about?"
@@ -105,13 +105,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div>
           <label
-            className="text-start align-top place-items-start font-secondary text-slate-50"
+            className="text-start align-top place-items-start font-sans font-bold text-base text-slate-50"
             htmlFor="dateDue"
           >
             Date (optional)
           </label>
           <input
-            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
+            className="p-2 w-full text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
             type="date"
             name="dateDue"
             id="dateDue"
@@ -124,7 +124,7 @@ function AddPromiseForm(props: Props) {
             onClick={props.handleAnimation}
             name="New Promise"
           >
-            MAKE A PROMISE!
+            Make A Promise!
           </button>
         </div>
       </form>
