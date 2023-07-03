@@ -67,7 +67,7 @@ describe('ProfileForm', () => {
       '2023-06-29'
     )
 
-    const form = screen.getByRole('button', { name: 'New Promise!' })
+    const form = screen.getByRole('button', { name: 'Make A Promise!' })
     await user.click(form)
 
     expect(handleSubmit).toHaveBeenCalled()
