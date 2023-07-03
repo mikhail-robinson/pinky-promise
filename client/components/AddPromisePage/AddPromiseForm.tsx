@@ -54,7 +54,7 @@ function AddPromiseForm(props: Props) {
             Name
           </label>
           <input
-            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
+            className="p-2 w-full text-base font-sans font-bold text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg"
             type="text"
             name="promiseName"
             id="promiseName"
