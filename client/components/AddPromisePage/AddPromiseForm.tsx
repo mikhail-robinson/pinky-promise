@@ -45,16 +45,16 @@ function AddPromiseForm(props: Props) {
 
   return (
     <div className="flex mt-20 justify-center h-screen">
-      <form onSubmit={handleSave} className="w-80 h-auto">
+      <form onSubmit={handleSave} className="w-80 h-auto text-slate-50">
         <div className="pb-4">
           <label
-            className="font-sans font-bold text-base text-slate-50 pb-2"
+            className="font-sans font-bold text-base  pb-2"
             htmlFor="promiseName"
           >
             Name
           </label>
           <input
-            className="p-2 w-full text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans "
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans "
             type="text"
             name="promiseName"
             id="promiseName"
@@ -65,13 +65,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div className="pb-4">
           <label
-            className="font-sans font-bold text-base text-slate-50"
+            className="font-sans font-bold text-base "
             htmlFor="friendUserId"
           >
             Add a Friend
           </label>
           <select
-            className="p-2 w-full text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
             name="friendUserId"
             id="friendUserId"
           >
@@ -89,29 +89,29 @@ function AddPromiseForm(props: Props) {
         </div>
         <div>
           <label
-            className="text-start align-top place-items-start font-sans font-bold text-base text-slate-50"
+            className="text-start align-top place-items-start font-sans font-bold text-base "
             htmlFor="promiseDescription"
           >
             Describe your promise
           </label>
           <textarea
-            className="p-2 pb-20 w-80 m text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-sans font-bold resize-none overflow-wrap-normal"
+            className="p-2 pb-20 w-80 m text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-sans font-bold resize-none overflow-wrap-normal"
             name="promiseDescription"
             id="promiseDescription"
-            placeholder="what's your promise about?"
+            placeholder="What's your promise about?"
             required
             defaultValue={props.promise?.promiseDescription}
           ></textarea>
         </div>
         <div>
           <label
-            className="text-start align-top place-items-start font-sans font-bold text-base text-slate-50"
+            className="text-start align-top place-items-start font-sans font-bold text-base "
             htmlFor="dateDue"
           >
             Date (optional)
           </label>
           <input
-            className="p-2 w-full text-sm text-slate-400 bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
             type="date"
             name="dateDue"
             id="dateDue"
