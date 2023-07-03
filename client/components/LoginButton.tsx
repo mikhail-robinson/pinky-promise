@@ -6,7 +6,7 @@ function LoginButton() {
   return (
     <div className="flex justify-start items-start">
       <button
-        className="font-body text-purple bg-pink text-2xl hover:bg-darkPink py-2 px-4 p-2 rounded-lg -mt-32 ml-14"
+        className="font-body text-purple bg-pink text-2xl hover:bg-darkPink py-2 px-4 p-2 rounded-lg -mt-32 ml-16"
         onClick={() => {
           loginWithRedirect({
             authorizationParams: {
