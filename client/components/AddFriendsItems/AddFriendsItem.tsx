@@ -38,9 +38,10 @@ function AddFriendsItem(props: Props) {
         return (
           <li key={friend.friendUserId}>
             <div>{friend.friendName}</div>
-            <button onClick={() => handleClick(friend.friendUserId)}>
-              Add Friend
-            </button>
+            <button
+              className="fa-solid fa-plus"
+              onClick={() => handleClick(friend.friendUserId)}
+            ></button>
           </li>
         )
       })}
