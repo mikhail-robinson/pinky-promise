@@ -1,6 +1,11 @@
+import { useAuth0 } from "@auth0/auth0-react"
+
 function Home() {
+  const {isAuthenticated} = useAuth0()
+
   return (
     <div className="app">
+    {!isAuthenticated && 
       <div className=" w-screen h-screen bg-space bg-center bg-cover"> 
       <div className="flex flex-col  h-screen">
         <h1 className="font-primary text-pink text-center text-5xl drop-shadow mt-20">
@@ -12,6 +17,7 @@ function Home() {
         </h1>
       </div>
     </div>
+    }
     </div>
   )
 }
