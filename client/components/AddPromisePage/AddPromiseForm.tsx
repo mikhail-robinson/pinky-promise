@@ -75,9 +75,13 @@ function AddPromiseForm(props: Props) {
             name="friendUserId"
             id="friendUserId"
           >
-            <option>Select a friend</option>
+            <option className="bg-purple">Select a friend</option>
             {friendsQuery?.data?.map((friend) => (
-              <option key={friend.friendUserId} value={friend.friendUserId}>
+              <option
+                className="bg-purple"
+                key={friend.friendUserId}
+                value={friend.friendUserId}
+              >
                 {friend.friendName}
               </option>
             ))}
@@ -107,20 +111,20 @@ function AddPromiseForm(props: Props) {
             Date (optional)
           </label>
           <input
-            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body mt-"
+            className="p-2 w-full text-sm text-slate-50 bg-slate-950 bg-opacity-25 rounded-lg font-body"
             type="date"
             name="dateDue"
             id="dateDue"
             defaultValue={'none'}
           />
         </div>
-        <div className="flex items-center justify-center mt-10">
+        <div className="flex items-center justify-center mt-9">
           <button
-            className='className="font-body text-purple bg-pink text-2x hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
+            className='className="font-body text-purple bg-pink text-xl hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
             onClick={props.handleAnimation}
             name="New Promise"
           >
-            Make A Promise!
+            MAKE A PROMISE!
           </button>
         </div>
       </form>
