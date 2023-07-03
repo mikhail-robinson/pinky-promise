@@ -10,6 +10,8 @@ export const friends = friendsDraftSchema.extend({
   id: z.number(),
 })
 
+export const addFriendDraftSchema = z.object({ friendUserId: z.string() })
+
 export const friendNames = z.object({
   friendName: z.string(),
   username: z.string(),
@@ -19,3 +21,4 @@ export const friendNames = z.object({
 export type FriendsDraft = z.infer<typeof friendsDraftSchema>
 export type Friend = z.infer<typeof friends>
 export type FriendNames = z.infer<typeof friendNames>
+export type AddFriendDraft = z.infer<typeof addFriendDraftSchema>

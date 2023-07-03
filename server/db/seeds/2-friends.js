@@ -26,18 +26,6 @@ exports.seed = function (knex) {
         date_created: '2023-06-30T02:05:35.428Z',
       },
       {
-        id: 5,
-        user_id: 'auth0|649b980080e8d6023e17e6dd',
-        friend_user_id: 'auth0|649caf539da0538e8a440ef7',
-        date_created: '2023-06-30T02:05:35.428Z',
-      },
-      {
-        id: 6,
-        user_id: 'auth0|649b980080e8d6023e17e6dd',
-        friend_user_id: 'google-oauth2|117005350284520001031',
-        date_created: '2023-06-30T02:05:35.428Z',
-      },
-      {
         id: 7,
         user_id: 'auth0|649caf539da0538e8a440ef7',
         friend_user_id: 'auth0|649cbc8bcb6899372f3cc882',

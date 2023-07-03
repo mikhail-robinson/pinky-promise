@@ -2,6 +2,7 @@ import connection from '../connection'
 import {
   Pledge,
   PledgeFrontEnd,
+  PledgeStatusUpdate,
   PledgeDraft,
 } from '../../../models/pledge_models'
 
@@ -58,10 +59,20 @@ export async function getAllPromisesById(
 ): Promise<PledgeFrontEnd[]> {
   return await db('promises')
     .join('users', 'promises.friend_user_id', 'users.auth0_id')
+    .where('promises.status', '=', 'pending')
     .select(
       'id as promiseId',
       'promise_name as promiseName',
       'users.username as friendName'
     )
     .where('user_id', userId)
+}
+
+export function updatePromiseStatus(
+  promise: PledgeStatusUpdate,
+  db = connection
+) {
+  return db('promises')
+    .where('id', promise.promiseId)
+    .update({ status: promise.status })
 }
