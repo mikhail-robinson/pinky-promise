@@ -8,7 +8,7 @@ function AnimationComponent(props: Props) {
   const { controls } = props
 
   return (
-    <div>
+    <div className=" absolute inset-0  pointer-events-none">
       <motion.div
         initial={{ scale: 0 }}
         animate={controls}
