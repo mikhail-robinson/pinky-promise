@@ -15,8 +15,8 @@ function AllPromisesItem(props: Props) {
 
   return (
     <>
-      <div className="mt-20 w-80 ml-10">
-        <h2 className="font-secondary text-slate-50 text-2xl font-medium pb-4">
+      <div className="mt-20 w-80 ml-7">
+        <h2 className="font-secondary text-slate-50 text-2xl pb-4">
           Your Promises
         </h2>
 
@@ -26,10 +26,10 @@ function AllPromisesItem(props: Props) {
               //TODO add button to details page
               <div key={promise.promiseId} className="flex">
                 <ul className="list-disc">
-                  <div className="flex-initial p-2 w-72 text-base  text-slate-50 bg-slate-950 bg-opacity-25 rounded-l-lg font-body ">
+                  <div className="flex-initial p-2 w-72 text-base  text-slate-50 bg-slate-950 bg-opacity-25 rounded-l-lg font-sans font-bold">
                     <div className="">
                       <div className="">{promise.promiseName}</div>
-                      <span className=" text-bold text-gray-500">
+                      <span className=" font-sans font-bold text-bold text-slate-400">
                         {promise.friendName}
                       </span>
                     </div>
