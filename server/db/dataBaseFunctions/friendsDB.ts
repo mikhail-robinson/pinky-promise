@@ -3,7 +3,6 @@ import {
   AddFriendDraft,
   Friend,
   FriendNames,
-  FriendsDraft,
 } from '../../../models/friends_models'
 
 export function getAllFriends(
