@@ -1,7 +1,7 @@
 import connection from '../connection'
 import {
   Pledge,
-  PledgeFrontEnd,
+  PledgeFrontEnd, PledgeStatusUpdate,
   PledgeDraft,
 } from '../../../models/pledge_models'
 
@@ -64,4 +64,8 @@ export async function getAllPromisesById(
       'users.username as friendName'
     )
     .where('user_id', userId)
+}
+
+export function updatePromiseStatus(promise:PledgeStatusUpdate, db = connection) {
+  return db('promises').where('id', promise.promiseId).update({status: promise.status})
 }

@@ -74,7 +74,7 @@ function UserProfileForm(props: Props) {
 
           <div className="flex items-center justify-center mt-6">
             <button className="font-body text-purple bg-pink text-2xl hover:bg-darkPink drop-shadow-xl py-2 px-4 p-2 rounded-lg">
-              submit
+              Submit
             </button>
           </div>
         </form>

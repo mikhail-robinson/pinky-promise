@@ -18,11 +18,3 @@ export async function getUser(token: string): Promise<User> {
     .set('Content-Type', 'application/json')
   return res.body as User
 }
-
-export async function updateProfile(userDraft: UserDraft, token: string) {
-  return await request
-    .patch(rootUrl)
-    .set('Authorization', `Bearer ${token}`)
-    .set('Content-Type', 'application/json')
-    .send(userDraft)
-}

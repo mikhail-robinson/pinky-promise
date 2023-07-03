@@ -34,7 +34,6 @@ describe('getPromisesById', () => {
       1,
       testDb
     )) as PledgeFrontEnd
-
     expect(promise).toHaveProperty('promiseId')
     expect(promise).toHaveProperty('promiseName')
     expect(promise).toHaveProperty('promiseDescription')
@@ -84,5 +83,20 @@ describe('getAllPromisesbyId', () => {
     expect(promise[0]).toHaveProperty('promiseId')
     expect(promise[0]).toHaveProperty('promiseName')
     expect(promise[0]).toHaveProperty('friendName')
+  })
+})
+
+describe('updatePromiseStatus', () => {
+  it('updates the status of a promise', async () => {
+    const fakeUpdate = {
+      promiseId: 1,
+      status: 'kept',
+    }
+    await db.updatePromiseStatus(fakeUpdate, testDb)
+    const promise = (await db.getPromiseByIdWithFriendName(
+      1,
+      testDb
+    )) as PledgeFrontEnd
+    expect(promise.status).toBe(fakeUpdate.status)
   })
 })
