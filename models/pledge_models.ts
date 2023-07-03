@@ -22,16 +22,18 @@ export const pledgeStatusUpdate = z.object({
   status: z.string()
 })
 
-export type PledgeFrontEnd = {
-  promiseId: number
-  promiseName: string
-  promiseDescription: string
-  userId: string
-  friendName: string
-  status: string
-  dateCreated: string
-  dateDue: string
-}
+export const pledgeFrontEnd = z.object({
+  promiseId: z.number(),
+  promiseName: z.string(),
+  promiseDescription: z.string(),
+  userId: z.string(),
+  friendName: z.string(),
+  status: z.string(),
+  dateCreated: z.string(),
+  dateDue: z.string(),
+})
+
+export type PledgeFrontEnd = z.infer<typeof pledgeFrontEnd>
 
 export type PledgeDraft = z.infer<typeof pledgeDraftSchema>
 export type Pledge = z.infer<typeof pledge>

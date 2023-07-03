@@ -105,11 +105,16 @@ describe('PUT /api/v1/promises/:promiseId', () => {
     expect(response.status).toBe(200)
     expect(response.body).toEqual(1)
   }),
-  it('should return 500 when no access token is passed', async () => {
+  it('should return 500 when failed', async () => {
     vi.mocked(db.updatePromiseStatus).mockRejectedValue(new Error('test'))
+    const fakeUpdatePledge: PledgeStatusUpdate = {
+      promiseId: 1,
+      status: 'kept', 
+    }
     const response = await request(server)
       .put('/api/v1/promises/1')
       .set('authorization', `Bearer ${getMockToken()}`)
+      .send(fakeUpdatePledge)
     expect(response.status).toBe(500)
     expect(response.body).toEqual({
       message: 'Unable to update promise',
