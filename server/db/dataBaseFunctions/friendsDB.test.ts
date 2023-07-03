@@ -47,16 +47,14 @@ describe('getAllFriendsById', () => {
 describe('addFriend', () => {
   it('adds a friend to the database', async () => {
     const fakeFriend = {
-      id: 1,
       userId: 'auth0|6491331aa4bd45e690ea1e87',
       friendUserId: 'google-oauth2|117005350284520001031',
       dateCreated: '2023-06-30T02:05:35.428Z',
     }
 
-    await db.addFriend(fakeFriend, testDb)
+    await db.addFriend(fakeFriend, fakeFriend.userId, testDb)
 
     const [friendForm] = await testDb('friends').where({
-      id: fakeFriend.id,
       user_id: fakeFriend.userId,
       friend_user_id: fakeFriend.friendUserId,
       date_created: fakeFriend.dateCreated,
