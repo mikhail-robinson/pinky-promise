@@ -44,11 +44,17 @@ function AddPromiseForm(props: Props) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSave}>
-        <div>
-          <label htmlFor="promiseName">Name</label>
+    <div className="flex mt-20 justify-center h-screen">
+      <form onSubmit={handleSave} className="w-80 h-auto text-slate-50">
+        <div className="pb-4">
+          <label
+            className="font-sans font-bold text-base  pb-2"
+            htmlFor="promiseName"
+          >
+            Name
+          </label>
           <input
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans "
             type="text"
             name="promiseName"
             id="promiseName"
@@ -57,39 +63,68 @@ function AddPromiseForm(props: Props) {
             defaultValue={props.promise?.promiseName}
           />
         </div>
-        <div>
-          <label htmlFor="friendUserId">Add a Friend</label>
-          <select name="friendUserId" id="friendUserId">
-            <option>Select a friend</option>
+        <div className="pb-4">
+          <label
+            className="font-sans font-bold text-base "
+            htmlFor="friendUserId"
+          >
+            Add a Friend
+          </label>
+          <select
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
+            name="friendUserId"
+            id="friendUserId"
+          >
+            <option className="bg-purple">Select a friend</option>
             {friendsQuery?.data?.map((friend) => (
-              <option key={friend.friendUserId} value={friend.friendUserId}>
+              <option
+                className="bg-purple"
+                key={friend.friendUserId}
+                value={friend.friendUserId}
+              >
                 {friend.friendName}
               </option>
             ))}
           </select>
         </div>
         <div>
-          <label htmlFor="promiseDescription">Describe your promise</label>
+          <label
+            className="text-start align-top place-items-start font-sans font-bold text-base "
+            htmlFor="promiseDescription"
+          >
+            Describe your promise
+          </label>
           <textarea
+            className="p-2 pb-20 w-80 m text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-sans font-bold resize-none overflow-wrap-normal"
             name="promiseDescription"
             id="promiseDescription"
-            placeholder="what's your promise about?"
+            placeholder="What's your promise about?"
             required
             defaultValue={props.promise?.promiseDescription}
           ></textarea>
         </div>
         <div>
-          <label htmlFor="dateDue">Date (optional)</label>
+          <label
+            className="text-start align-top place-items-start font-sans font-bold text-base "
+            htmlFor="dateDue"
+          >
+            Date (optional)
+          </label>
           <input
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
             type="date"
             name="dateDue"
             id="dateDue"
             defaultValue={'none'}
           />
         </div>
-        <div>
-          <button onClick={props.handleAnimation} name="New Promise">
-            New Promise!
+        <div className="flex items-center justify-center mt-9">
+          <button
+            className='className="font-body text-purple bg-pink text-xl hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
+            onClick={props.handleAnimation}
+            name="New Promise"
+          >
+            Make A Promise!
           </button>
         </div>
       </form>

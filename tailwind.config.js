@@ -25,7 +25,10 @@ module.exports = {
       minHeight: {
         '1/2': '100px',
       },
+      margin: {
+        '8': '2rem',
+        '9': '2.25rem',
     },
   },
   plugins: [],
-}
+}}
