@@ -38,7 +38,7 @@ function PromiseDetailPage() {
       transition: { duration: 1 },
     })
     brokenPinky.start({
-      rotate: [0, -90, 0],
+      rotate: [0, -30, 0],
       scale: [1, 1.5, 1],
       transition: {
         duration: 1,

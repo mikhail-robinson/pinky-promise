@@ -20,7 +20,7 @@ function PromiseBroken(props: Props) {
       </motion.div>
       <motion.div initial={{ scale: 0 }} animate={brokenPinky}>
         <img
-          className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 
+          className="absolute top-10 transform -translate-x-1/2 -translate-y-1/2 
           border-solid border-white border-4"
           src="/brokenPinky.svg"
           alt="promise"
