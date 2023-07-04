@@ -15,7 +15,6 @@ router.post('/', validateAccessToken, async (req, res) => {
     }
     
     const dateDue = req.body.dateDue.split('-').reverse().join('/')
-    console.log(dateDue);
     
     const input = { ...req.body, userId: auth0Id, dateDue }
 
