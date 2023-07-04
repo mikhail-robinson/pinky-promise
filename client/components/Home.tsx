@@ -13,7 +13,7 @@ function Home() {
             </h1>
           </div>
         </div>
-        <div className="absolute top-1/2 right-16">
+        <div className="absolute top-1/2 right-16 animate-bounce">
           <svg
             width="246"
             height="126"
