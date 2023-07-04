@@ -26,9 +26,22 @@ module.exports = {
         '1/2': '100px',
       },
       margin: {
-        '8': '2rem',
-        '9': '2.25rem',
+        8: '2rem',
+        9: '2.25rem',
+      },
+      keyframes: {
+        pulse: {
+          '0%': { 'box-shadow': '0 0 0 0px rgba(0, 0, 255, 0.7)' },
+          '70%': { 'box-shadow': '0 0 0 0px rgba(0, 0, 255, 0.7)' },
+          '100%': { 'box-shadow': '0 0 0 0px rgba(0, 0, 255, 0)' },
+        },
+      },
+      animate: {
+        pulse: {
+          animation: 'pulse 2s infinite',
+        },
+      },
     },
   },
   plugins: [],
-}}
+}
