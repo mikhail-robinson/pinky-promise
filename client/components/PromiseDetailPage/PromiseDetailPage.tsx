@@ -11,7 +11,8 @@ import PromiseKept from './PromiseKeptAnimation'
 function PromiseDetailPage() {
   const params = useParams()
   const navigate = useNavigate()
-  const controls = useAnimation()
+  const kept = useAnimation()
+  const broken = useAnimation()
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
   const promiseQuery = useQuery('getPromise', async () => {
@@ -28,22 +29,28 @@ function PromiseDetailPage() {
     }) => resolvePromise(promiseUpdate, token),
   })
 
-  async function handleBroken() {
-    await controls.start({
+  // BROKEN ANIMATION HANDLER
+  function handleBroken() {
+    broken.start({
       scale: [1, 1.5, 1],
       transition: { duration: 0.5 },
+      opacity: 1,
     })
     setTimeout(() => {
-      navigate('/my-promises')
+      // CHANGE THIS BACK TO my-promises
+      navigate(`/my-promises`)
     }, 1000)
   }
-  async function handleKept() {
-    await controls.start({
+
+  // KEPT ANIMATION HANDLER
+  function handleKept() {
+    kept.start({
       scale: [1, 1.5, 1],
-      transition: { duration: 0.5 },
+      transition: { type: 'spring' },
     })
     setTimeout(() => {
-      navigate('/my-promises')
+      // CHANGE THIS BACK TO my-promises
+      navigate(`/my-promises`)
     }, 1000)
   }
 
@@ -56,10 +63,8 @@ function PromiseDetailPage() {
 
     if (status === 'broken') {
       handleBroken()
-    } else if (status === 'kept') {
-      handleKept()
     } else {
-      return
+      handleKept()
     }
   }
 
@@ -71,6 +76,8 @@ function PromiseDetailPage() {
     return <div>Not authenticated</div>
   }
 
+  console.log(promiseQuery.data?.status)
+
   return (
     <div>
       {!promiseQuery.isLoading && promiseQuery.data && (
@@ -79,8 +86,8 @@ function PromiseDetailPage() {
           handleResolvePromise={handleResolvePromise}
         />
       )}
-      <PromiseBroken controls={controls} />
-      <PromiseKept controls={controls} />
+      <PromiseBroken broken={broken} />
+      <PromiseKept kept={kept} />
     </div>
   )
 }

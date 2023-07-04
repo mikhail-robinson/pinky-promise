@@ -8,13 +8,12 @@ import Home from './Home'
 import Nav from './Nav'
 
 function App() {
- 
   const { isAuthenticated } = useAuth0()
 
   return (
     <>
       <div
-        className="relative w-screen h-screen bg-fixed bg-center bg-cover"
+        className="relative w-screen min-h-screen bg-fixed bg-center bg-cover"
         style={{ backgroundImage: 'url(/image/background3.png)' }}
       >
         {isAuthenticated ? (

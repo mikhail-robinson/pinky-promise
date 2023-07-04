@@ -14,12 +14,18 @@ import {
 import { Suspense, lazy } from 'react'
 import ProtectedComponent from './components/UI/ProtectedComponent'
 import Loading from './components/UI/Loading'
-import Home from './components/Home'
-import AllPromisesPage from './components/AllPromisesPage/AllPromisesPage'
+const Home = lazy(() => import('./components/Home'))
+const AllPromisesPage = lazy(
+  () => import('./components/AllPromisesPage/AllPromisesPage')
+)
 const MyFriendsPage = lazy(
   () => import('./components/MyFriendsPage/MyFriendsPage')
 )
-import AddFriendsPage from './components/AddFriendsPage/AddFriendsPage'
+const AddFriendsPage = lazy(
+  () => import('./components/AddFriendsPage/AddFriendsPage')
+)
+const ErrorPage = lazy(
+  () => import('./components/ErrorPage'))
 const UserProfilePage = lazy(() => import('./components/UserProfilePage'))
 const PromiseDetailPage = lazy(
   () => import('./components/PromiseDetailPage/PromiseDetailPage')
@@ -29,7 +35,7 @@ const AddPromisePage = lazy(
 )
 
 export const routes = createRoutesFromElements(
-  <Route path="/" element={<App />}>
+  <Route path="/" element={<App />} errorElement={<ErrorPage/>}>
     <Route index element={<Home />} />
     <Route
       path="add-friends"

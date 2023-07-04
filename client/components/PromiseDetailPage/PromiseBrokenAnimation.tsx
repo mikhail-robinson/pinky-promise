@@ -1,24 +1,24 @@
 import { motion, AnimationControls } from 'framer-motion'
 
 interface Props {
-  controls: AnimationControls
+  broken: AnimationControls
 }
 
 function PromiseBroken(props: Props) {
-  const { controls } = props
+  const { broken } = props
 
   return (
     <div>
       <motion.div
         initial={{ scale: 0 }}
-        animate={controls}
+        animate={broken}
         className="relative top-1/2 left-50 "
       >
         <img
           className="absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           src="/promiseBroken.svg"
-          alt="promiseBrokenSvg"
-          aria-label="Promise broken"
+          alt="promise"
+          aria-label="Promise"
         />
       </motion.div>
     </div>
