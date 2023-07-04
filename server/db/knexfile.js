@@ -1,4 +1,7 @@
 const { join } = require('node:path')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 module.exports = {
   development: {
@@ -30,13 +33,13 @@ module.exports = {
   },
 
   production: {
-    client: 'sqlite3',
-    useNullAsDefault: true,
+    client: 'pg',
     connection: {
-      filename: '/app/storage/prod.sqlite3',
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
     },
-    pool: {
-      afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
+    migrations: {
+      tableName: 'knex_migrations',
     },
   },
 }
