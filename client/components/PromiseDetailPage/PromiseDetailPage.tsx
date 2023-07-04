@@ -11,8 +11,11 @@ import PromiseKept from './PromiseKeptAnimation'
 function PromiseDetailPage() {
   const params = useParams()
   const navigate = useNavigate()
+
   const kept = useAnimation()
-  const broken = useAnimation()
+  const brokenHand = useAnimation()
+  const brokenPinky = useAnimation()
+
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
   const promiseQuery = useQuery('getPromise', async () => {
@@ -30,15 +33,21 @@ function PromiseDetailPage() {
   })
 
   function handleBroken() {
-    broken.start({
+    brokenHand.start({
       scale: [1, 1.5, 1],
-      // transition: { duration: 0.5 },
-      // opacity: 1,
-      // x: 100,
-      transition: { ease: 'easeOut', duration: 2 },
+      transition: { duration: 1 },
+    })
+    brokenPinky.start({
+      rotate: [0, -90, 0],
+      scale: [1, 1.5, 1],
+      transition: {
+        duration: 1,
+        repeatType: 'reverse',
+        ease: 'easeInOut',
+      },
     })
     setTimeout(() => {
-      navigate(`/my-promises`)
+      navigate(`/promises/7`)
     }, 1500)
   }
 
@@ -83,7 +92,7 @@ function PromiseDetailPage() {
           handleResolvePromise={handleResolvePromise}
         />
       )}
-      <PromiseBroken broken={broken} />
+      <PromiseBroken brokenHand={brokenHand} brokenPinky={brokenPinky} />
       <PromiseKept kept={kept} />
     </div>
   )

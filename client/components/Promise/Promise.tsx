@@ -25,7 +25,7 @@ function Promise(props: Props) {
         <p>{promiseDescription}</p>
 
         <button onClick={() => props.handleResolvePromise('broken')}>
-          <img src="/promiseBroken.svg" alt="Promise Broken!" />
+          <img src="/promiseBroken1.svg" alt="Promise Broken!" />
           Promise Broken!
         </button>
 

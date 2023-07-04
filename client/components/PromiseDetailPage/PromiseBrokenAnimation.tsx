@@ -1,28 +1,28 @@
 import { motion, AnimationControls } from 'framer-motion'
 
 interface Props {
-  broken: AnimationControls
+  brokenHand: AnimationControls
+  brokenPinky: AnimationControls
 }
 
 function PromiseBroken(props: Props) {
-  const { broken } = props
+  const { brokenHand, brokenPinky } = props
 
   return (
-    <div>
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={broken}
-        className="relative top-1/2 left-50 "
-      >
+    <div className="relative w-48 h-48 border-solid border-white border-4 mx-auto">
+      <motion.div initial={{ scale: 0 }} animate={brokenHand}>
         <img
-          className="absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="/"
+          className="absolute z-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-solid border-white border-4"
+          src="/brokenHand.svg"
           alt="promise"
           aria-label="Promise"
         />
+      </motion.div>
+      <motion.div initial={{ scale: 0 }} animate={brokenPinky}>
         <img
-          className="absolute z-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="/promiseBroken.svg"
+          className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 
+          border-solid border-white border-4"
+          src="/brokenPinky.svg"
           alt="promise"
           aria-label="Promise"
         />
