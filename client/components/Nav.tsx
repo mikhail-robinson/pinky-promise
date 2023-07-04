@@ -47,7 +47,7 @@ function Nav() {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute -inset-x-60 right-5  z-10 bottom-24 mt-3 rounded-lg bg-purple shadow-inner">
+              <div className="absolute -inset-x-64 right-5  z-10 bottom-24 mt-3 rounded-lg bg-purple shadow-inner">
                 <ul className="text-xl flex flex-col items-center w-full">
                   <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black">
                     <a href="/my-profile">Profile</a>
