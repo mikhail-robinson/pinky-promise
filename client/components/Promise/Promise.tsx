@@ -24,15 +24,18 @@ function Promise(props: Props) {
         <div>{friendName}</div>
         <p>{promiseDescription}</p>
 
-        {/* TODO: replace buttons with actual promise action buttons */}
         <button onClick={() => props.handleResolvePromise('broken')}>
+          <img src="/promiseBroken1.svg" alt="Promise Broken!" />
           Promise Broken!
         </button>
+
         <button onClick={() => props.handleResolvePromise('kept')}>
+          <img src="/promiseKept.svg" alt="Promise Kept!" />
           Promise Kept!
         </button>
+
         <FacebookShareButton
-          // TO DO: update when app is deployed
+          // TO DO: update when app is deployed with deployment site
           url={`kahikatea-2023-mikhail.au.auth0.com`}
           title={`Check out my promise with, ${friendName}!`}
           hashtag="#PinkyPromise"

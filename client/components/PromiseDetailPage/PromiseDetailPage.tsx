@@ -8,6 +8,7 @@ import Promise from '../Promise/Promise'
 function PromiseDetailPage() {
   const params = useParams()
   const navigate = useNavigate()
+
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
   const promiseQuery = useQuery('getPromise', async () => {
@@ -46,6 +47,14 @@ function PromiseDetailPage() {
   return (
     <div className="flex justify-center mt-20">
       <div className="flex flex-col bg-slate-950 bg-opacity-50 rounded-lg h-96">
+        {!promiseQuery.isLoading && promiseQuery.data && (
+          <Promise
+            promise={promiseQuery.data}
+            handleResolvePromise={handleResolvePromise}
+          />
+        )}
+      </div>
+      <div>
         {!promiseQuery.isLoading && promiseQuery.data && (
           <Promise
             promise={promiseQuery.data}
