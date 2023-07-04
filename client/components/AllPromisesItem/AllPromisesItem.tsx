@@ -20,20 +20,17 @@ function AllPromisesItem(props: Props) {
           Your Promises
         </h2>
 
-        <div className="flex flex-col gap-4 ">
+        <div className="flex flex-col gap-4">
           {promises.map((promise) => {
             return (
-              <div key={promise.promiseId} className="flex  dark:hover:bg-pink dark:hover:text-black">
-                
-                <div className="flex w-3/4 p-2 text-slate-50 bg-slate-950 bg-opacity-50 rounded-l text-lg font-sans font-bold">
-                  <a href="/promises">
-                    <ul className="list-disc">
-                      <div className="">{promise.promiseName}</div>
-                      <span className="font-sans font-bold text-bold text-fuchsia-200">
-                        {promise.friendName}
-                      </span>
-                    </ul>
-                  </a>
+              <div key={promise.promiseId} className="flex ">
+                <div className="flex w-3/4 p-2 text-slate-50 truncate pr-5 bg-slate-950 bg-opacity-50 rounded-l text-lg font-sans font-bold">
+                  <ul className="list-disc">
+                    <div className="flex truncate">{promise.promiseName}</div>
+                    <span className="font-sans font-bold text-bold text-fuchsia-200">
+                      {promise.friendName}
+                    </span>
+                  </ul>
                 </div>
                 <div className="flex items-center justify-center w-1/4 text-base  text-slate-50 bg-slate-950 bg-opacity-50 rounded-r-lg font-body ">
                   <button

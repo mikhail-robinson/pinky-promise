@@ -47,20 +47,15 @@ function Nav() {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute -inset-x-64 right-5  z-10 bottom-24 mt-3 rounded-lg bg-purple ">
+              <div className="absolute -inset-x-72 right-0  z-10 bottom-24  rounded-lg bg-purple">
                 <ul className="text-xl flex flex-col items-center w-full">
-                  <li className="w-full flex items-center justify-center rounded-lg px-4 py-6 text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black">
+                  <li className="w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink">
                     <a href="/my-profile">Profile</a>
                   </li>
-                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black">
-                    <a
-                      className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black"
-                      href="/my-friends"
-                    >
-                      Friends
-                    </a>
+                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink">
+                    <a href="/my-friends">Friends</a>
                   </li>
-                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black">
+                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50 ">
                     <button onClick={handleLogout}>Log out</button>
                   </li>
                 </ul>
