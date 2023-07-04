@@ -16,13 +16,13 @@ function Promise(props: Props) {
     
   return (
     <div className="font-sans flex-grow p-4">
-      <h1 className="flex items-center justify-between text-slate-50 text-base pt-2 text-xl">
+      <h1 className="flex items-center justify-between text-slate-50 p-2 text-2xl">
         <span className="font-bold">{promiseName}</span>
 
-        <span className="text-base text-fuchsia-200">{dateCreated}</span>
+        <span className="text-base font-bold text-fuchsia-200">{dateCreated}</span>
       </h1>
 
-      <div className="p-2 font-bold text-bold text-fuchsia-200">
+      <div className="p-2 font-bold text-xl text-fuchsia-200">
         {friendName}
       </div>
 
@@ -63,18 +63,18 @@ function Promise(props: Props) {
           title={`Check out my promise with, ${friendName}!`}
           hashtag="#PinkyPromise"
           name="Facebook Share Button"
-          className="items-end"
+          
         >
-          <FacebookIcon className="ml-4" size={40} borderRadius={50} />
+          <FacebookIcon className="mx-2" size={40} borderRadius={50} />
         </FacebookShareButton>
         <TwitterShareButton
           title={`Check out my promise with, ${friendName}!`}
           url={`${window.location.href}/my-promises/`}
           hashtags={['PinkyPromise']}
           name="Twitter Share Button"
-          className="items-center"
+          
         >
-          <TwitterIcon className="ml-4" size={40} borderRadius={50} />
+          <TwitterIcon className="mx-2" size={40} borderRadius={50} />
         </TwitterShareButton>
       </div>
     </div>
