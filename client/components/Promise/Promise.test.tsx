@@ -47,9 +47,7 @@ describe('handleResolvePromise function', () => {
       <Promise promise={pledge} handleResolvePromise={handleResolvePromise} />
     )
 
-    const brokenButton = screen.getByRole('button', {
-      name: 'Promise Broken!',
-    })
+    const brokenButton = screen.getAllByRole('button')[0]
     await user.click(brokenButton)
 
     expect(handleResolvePromise).toBeCalledWith('broken')
@@ -60,10 +58,8 @@ describe('handleResolvePromise function', () => {
         <Promise promise={pledge} handleResolvePromise={handleResolvePromise} />
       )
 
-      const brokenButton = screen.getByRole('button', {
-        name: 'Promise Kept!',
-      })
-      await user.click(brokenButton)
+      const keptButton = screen.getAllByRole('button')[1]
+      await user.click(keptButton)
 
       expect(handleResolvePromise).toBeCalledWith('kept')
     })
