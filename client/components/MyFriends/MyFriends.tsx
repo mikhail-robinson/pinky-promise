@@ -15,9 +15,18 @@ function MyFriends(props: Props) {
 
   return (
     <div>
-      <br /><br /><br /><br />
-      <h2>Friends List</h2>
-      <button onClick={() => redirect()}>Make A Friend!</button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="flex mb-8">
+        <h2 className="font-sans font-bold text-2xl text-slate-50  text-left ml-8 mr-8">
+          Friends List
+        </h2>
+        <div className="font-body text-purple flex items-end bg-pink text-xl hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg ml-8">
+          <button onClick={() => redirect()}>Make A Friend!</button>
+        </div>
+      </div>
       <ul>
         {props.friends.map((friend) => (
           <FriendListItem
