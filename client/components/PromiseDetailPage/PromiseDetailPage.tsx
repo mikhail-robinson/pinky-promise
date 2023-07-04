@@ -32,13 +32,14 @@ function PromiseDetailPage() {
   function handleBroken() {
     broken.start({
       scale: [1, 1.5, 1],
-      transition: { duration: 0.5 },
-      opacity: 1,
-      x: 100,
+      // transition: { duration: 0.5 },
+      // opacity: 1,
+      // x: 100,
+      transition: { ease: 'easeOut', duration: 2 },
     })
     setTimeout(() => {
       navigate(`/my-promises`)
-    }, 1000)
+    }, 1500)
   }
 
   function handleKept() {
@@ -48,7 +49,7 @@ function PromiseDetailPage() {
     })
     setTimeout(() => {
       navigate(`/my-promises`)
-    }, 1000)
+    }, 1800)
   }
 
   async function handleResolvePromise(status: string) {
@@ -57,7 +58,6 @@ function PromiseDetailPage() {
     const promiseUpdate = { promiseId, status }
 
     mutation.mutate({ promiseUpdate, token })
-
     if (status === 'broken') {
       handleBroken()
     } else {

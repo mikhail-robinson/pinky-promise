@@ -16,6 +16,12 @@ function PromiseBroken(props: Props) {
       >
         <img
           className="absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          src="/"
+          alt="promise"
+          aria-label="Promise"
+        />
+        <img
+          className="absolute z-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           src="/promiseBroken.svg"
           alt="promise"
           aria-label="Promise"
