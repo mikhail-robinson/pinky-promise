@@ -9,7 +9,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 interface Props {
   promise?: PledgeDraftSchemaFrontEnd
   handleSubmit: (promise: Pledge | PledgeDraftSchemaFrontEnd) => void
-  handleAnimation: () => void
 }
 
 function AddPromiseForm(props: Props) {
@@ -32,7 +31,7 @@ function AddPromiseForm(props: Props) {
     const friendUserId = formData.get('friendUserId') as string
     const promiseDescription = formData.get('promiseDescription') as string
     const dateDue = formData.get('dateDue') as string
-
+    
     const form = {
       promiseName: promiseName,
       promiseDescription: promiseDescription,
@@ -121,8 +120,7 @@ function AddPromiseForm(props: Props) {
         <div className="flex items-center justify-center mt-4">
           <button
             className='className="font-body text-purple bg-pink text-xl hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
-            onClick={props.handleAnimation}
-            name="New Promise"
+              name="New Promise"
           >
             Make A Promise!
           </button>

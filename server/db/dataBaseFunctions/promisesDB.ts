@@ -31,7 +31,7 @@ export function getPromiseByIdWithFriendName(
 }
 
 export function addPromise(input: PledgeDraft, db = connection) {
-  const newDate = new Date().toString()
+  const dateObject = new Date().toLocaleDateString()
 
   const {
     promiseName,
@@ -48,7 +48,7 @@ export function addPromise(input: PledgeDraft, db = connection) {
     user_id: userId,
     friend_user_id: friendUserId,
     status,
-    date_created: newDate,
+    date_created: dateObject,
     date_due: dateDue,
   })
 }
