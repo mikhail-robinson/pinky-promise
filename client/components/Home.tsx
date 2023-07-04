@@ -9,7 +9,7 @@ function Home() {
       <div className="">
         <div className=" w-screen h-screen bg-space bg-center bg-cover">
           <div className="flex flex-col  h-screen">
-            <h1 className="font-primary text-pink text-center text-5xl drop-shadow mt-24">
+            <h1 className="font-primary text-pink text-center text-5xl drop-shadow mt-48">
               Pinky
             </h1>
             <div></div>
@@ -18,7 +18,7 @@ function Home() {
             </h1>
           </div>
         </div>
-        <div className="absolute top-1/2 right-16 box-shadow ">
+        <div className="absolute top-1/2 right-16 animate-bounce">
           <svg
             width="246"
             height="126"
