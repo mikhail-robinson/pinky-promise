@@ -16,55 +16,67 @@ function Promise(props: Props) {
   //TODO: replace hardcoded date with acutal date
   const dateCreated = '28/06/3000'
   return (
-    <div className="font-sans center">
-      <div className="promise">
-        <h1 className="text-slate-50 font-bold text-base p-2 text-xl">
-          {promiseName}
-          <span className="text-base font-bold text-bold text-fuchsia-200 p-2">
-          {friendName}
-        </span>
-        </h1>
+    <div className="font-sans flex-grow p-4">
+      <h1 className="flex items-center justify-between text-slate-50 text-base pt-2 text-xl">
+        <span className="font-bold">{promiseName}</span>
 
-        <div className="text-base p-2 font-bold text-bold text-fuchsia-200">
-          {dateCreated}
-        </div>
+        <span className="text-base text-fuchsia-200">{dateCreated}</span>
+      </h1>
 
-        <p className="text-slate-50 text-base p-2">{promiseDescription}</p>
+      <div className="p-2 font-bold text-bold text-fuchsia-200">
+        {friendName}
+      </div>
 
-        <button onClick={() => props.handleResolvePromise('broken')}>
-          <img src="/promiseBroken.svg" alt="Promise Broken!" />
-          <span className="text-slate-50 font-bold text-base py">
-            Promise Broken!
+      <p className="text-slate-50 text-base p-2 font-bold ">
+        {promiseDescription}
+      </p>
+
+      <div className="flex justify-center items-center pt-5">
+        <button
+          onClick={() => props.handleResolvePromise('broken')}
+          className="p-2"
+        >
+          <img
+            src="/promiseBroken.svg"
+            alt="Promise Broken!"
+            className="flex items-center"
+          />
+          <span className="text-slate-50 font-bold text-base">
+            Promise <br /> Broken!
           </span>
         </button>
 
-        <button onClick={() => props.handleResolvePromise('kept')}>
+        <button
+          onClick={() => props.handleResolvePromise('kept')}
+          className="p-2"
+        >
           <img src="/promiseKept.svg" alt="Promise Kept!" />
-          <span className="text-slate-50 font-bold text-base pb-2">
-            Promise Kept!
+          <span className="text-slate-50 font-bold text-base ">
+            Promise <br /> Kept!
           </span>
         </button>
-        <div className="flex">
-          <FacebookShareButton
-            // TO DO: update when app is deployed with deployment site
-            url={`kahikatea-2023-mikhail.au.auth0.com`}
-            title={`Check out my promise with, ${friendName}!`}
-            hashtag="#PinkyPromise"
-            name="Facebook Share Button"
-            className="items-center"
-          >
-            <FacebookIcon className="ml-4" size={48} borderRadius={50} />
-          </FacebookShareButton>
-          <TwitterShareButton
-            title={`Check out my promise with, ${friendName}!`}
-            url={`${window.location.href}/my-promises/`}
-            hashtags={['PinkyPromise']}
-            name="Twitter Share Button"
-            className="items-center"
-          >
-            <TwitterIcon className="ml-4" size={48} borderRadius={50} />
-          </TwitterShareButton>
-        </div>
+      </div>
+
+      <div className="flex justify-center mx-2 pt-4">
+        <FacebookShareButton
+          // TO DO: update when app is deployed with deployment site
+          url={`kahikatea-2023-mikhail.au.auth0.com`}
+          title={`Check out my promise with, ${friendName}!`}
+          hashtag="#PinkyPromise"
+          name="Facebook Share Button"
+          className="items-end"
+        >
+          <FacebookIcon className="ml-4" size={40} borderRadius={50} />
+        </FacebookShareButton>
+        <TwitterShareButton
+          title={`Check out my promise with, ${friendName}!`}
+          url={`${window.location.href}/my-promises/`}
+          hashtags={['PinkyPromise']}
+          name="Twitter Share Button"
+          className="items-center"
+        >
+          <TwitterIcon className="ml-4" size={40} borderRadius={50} />
+        </TwitterShareButton>
       </div>
     </div>
   )
