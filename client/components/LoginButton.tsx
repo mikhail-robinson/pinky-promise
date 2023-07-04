@@ -24,7 +24,4 @@ function LoginButton() {
 
 export default LoginButton
 
-// async function handleAccessToken() {
-//   const token = await getAccessTokenSilently()
-//   console.log(token)
-// }
+
