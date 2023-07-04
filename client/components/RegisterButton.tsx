@@ -10,7 +10,7 @@ function RegisterButton() {
         onClick={() => {
           loginWithRedirect({
             authorizationParams: {
-              screen_hint: 'signin',
+              screen_hint: 'signup',
               redirect_uri: `${window.location.origin}/my-profile`,
             },
           })

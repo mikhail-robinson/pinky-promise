@@ -8,8 +8,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|6491331aa4bd45e690ea1e87',
         friend_user_id: 'google-oauth2|117005350284520001031',
         status: 'pending',
-        date_created: '2023-06-30T02:05:35.428Z',
-        date_due: '2023-06-30T02:05:35.428Z',
+        date_created: '30/06/2023',
+        date_due: '30/06/2023',
       },
       {
         id: 2,
@@ -18,8 +18,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|6491331aa4bd45e690ea1e87',
         friend_user_id: 'auth0|649caf539da0538e8a440ef7',
         status: 'pending',
-        date_created: '2023-06-29T09:20:10.123Z',
-        date_due: '2023-06-30T18:30:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '30/06/2023',
       },
       {
         id: 3,
@@ -28,8 +28,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|6491331aa4bd45e690ea1e87',
         friend_user_id: 'google-oauth2|105045456381689455682',
         status: 'pending',
-        date_created: '2023-06-28T15:45:22.987Z',
-        date_due: '2023-07-03T08:00:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '03/07/2023',
       },
       {
         id: 4,
@@ -38,8 +38,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|6491331aa4bd45e690ea1e87',
         friend_user_id: 'google-oauth2|117005350284520001031',
         status: 'pending',
-        date_created: '2023-06-27T19:10:50.645Z',
-        date_due: '2023-07-05T12:00:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '05/07/2023',
       },
       {
         id: 5,
@@ -48,8 +48,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|649b980080e8d6023e17e6dd',
         friend_user_id: 'google-oauth2|117005350284520001031',
         status: 'pending',
-        date_created: '2023-06-26T08:15:18.876Z',
-        date_due: '2023-07-02T19:30:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '02/07/2023',
       },
       {
         id: 6,
@@ -58,8 +58,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|649b980080e8d6023e17e6dd',
         friend_user_id: 'auth0|649cbc8bcb6899372f3cc882',
         status: 'pending',
-        date_created: '2023-06-25T14:40:05.222Z',
-        date_due: '2023-07-08T16:00:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '08/07/2023',
       },
       {
         id: 7,
@@ -68,8 +68,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|649b980080e8d6023e17e6dd',
         friend_user_id: 'auth0|649cac0335ec6771d5573424',
         status: 'pending',
-        date_created: '2023-06-24T11:55:35.789Z',
-        date_due: '2023-07-01T18:30:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '01/07/2023',
       },
       {
         id: 8,
@@ -78,8 +78,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|649b980080e8d6023e17e6dd',
         friend_user_id: 'google-oauth2|117005350284520001031',
         status: 'pending',
-        date_created: '2023-06-23T17:25:15.432Z',
-        date_due: '2023-07-07T09:00:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '07/07/2023',
       },
       {
         id: 9,
@@ -88,8 +88,8 @@ exports.seed = function (knex) {
         user_id: 'auth0|649cbc8bcb6899372f3cc882',
         friend_user_id: 'auth0|649caf539da0538e8a440ef7',
         status: 'pending',
-        date_created: '2023-06-22T20:50:45.963Z',
-        date_due: '2023-06-29T17:30:00.000Z',
+        date_created: '30/06/2023',
+        date_due: '29/06/2023',
       },
     ])
   })

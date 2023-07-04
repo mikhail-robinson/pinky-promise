@@ -13,7 +13,10 @@ router.post('/', validateAccessToken, async (req, res) => {
       res.status(400).json({ message: 'Please provide an id' })
       return
     }
-    const input = { ...req.body, userId: auth0Id }
+    
+    const dateDue = req.body.dateDue.split('-').reverse().join('/')
+    
+    const input = { ...req.body, userId: auth0Id, dateDue }
 
     const promiseData = pledgeDraftSchema.safeParse(input)
 
