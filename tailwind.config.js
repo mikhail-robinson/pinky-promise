@@ -40,9 +40,20 @@ module.exports = {
           '60%': { transform: 'rotate(0.0deg)' },
           '100%': { transform: 'rotate(0.0deg)' },
         },
+        float: {
+          '0%, 100%': {
+            transform: 'translateY(-12%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 1, 0, 0)',
+          },
+          '80%': {
+            transform: 'none',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 0)',
+          },
+        },
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
+        floating: 'float 4s infinite',
       },
     },
   },
