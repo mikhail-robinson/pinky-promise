@@ -12,9 +12,8 @@ interface Props {
 }
 
 function Promise(props: Props) {
-  const { promiseName, promiseDescription, friendName } = props.promise
-  //TODO: replace hardcoded date with acutal date
-  const dateCreated = '28/06/3000'
+  const { promiseName, promiseDescription, friendName, dateCreated } = props.promise
+    
   return (
     <div>
       <div className="promise">

@@ -31,7 +31,9 @@ export function getPromiseByIdWithFriendName(
 }
 
 export function addPromise(input: PledgeDraft, db = connection) {
-  const newDate = new Date().toString()
+  const dateObject = new Date()
+
+  const newDate = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`
 
   const {
     promiseName,
