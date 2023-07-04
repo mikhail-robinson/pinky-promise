@@ -22,7 +22,7 @@ function Nav() {
           <div className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center justify-center">
             <button
               onClick={() => goTo('/my-promises')}
-              className="fa-solid fa-house fa-lg"
+              className="fa-solid fa-house fa-lg "
               style={{ color: '#464fa3' }}
             ></button>
           </div>
@@ -30,7 +30,7 @@ function Nav() {
           <div className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center justify-center">
             <button
               onClick={() => goTo('/add-promise')}
-              className="fa-thin fa-plus fa-2xl"
+              className="fa-thin fa-plus fa-2xl mb-2"
               style={{ color: '#464fa3' }}
             ></button>
           </div>
@@ -41,7 +41,7 @@ function Nav() {
               className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center justify-center text-white focus:outline-none"
             >
               <i
-                className="fa-solid fa-bars fa-lg"
+                className="fa-solid fa-bars fa-lg ml-0.5"
                 style={{ color: '#464fa3' }}
               ></i>
             </button>

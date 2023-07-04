@@ -7,15 +7,17 @@
     "fullstack"
   ],
   "scripts": {
-    "start": "node dist/server/index.js",
+    "start": "ts-node server/index.ts",
     "test": "vitest",
     "dev": "run-p dev:client dev:server dev:css",
     "dev:client": "vite",
     "dev:server": "nodemon --watch server/",
     "dev:css": "tailwindcss -i ./client/styles/input.css -o ./public/output.css --watch",
-    "build": "run-s build:client build:server",
+    "build": "run-s build:client build:server build:css",
     "build:client": "vite build",
+    "build:css": "tailwindcss -i ./client/styles/input.css -o ./dist/output.css",
     "build:server": "tsc -p server/tsconfig.json",
+    "preview": "vite preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "knex": "knex --knexfile ./server/db/knexfile.js"
   },
@@ -35,6 +37,7 @@
     "jsonwebtoken": "^9.0.0",
     "knex": "^2.3.0",
     "nock": "^13.3.1",
+    "pg": "^8.11.1",
     "react-share": "^4.4.1",
     "sqlite3": "^5.1.2",
     "superagent": "^7.1.1",
