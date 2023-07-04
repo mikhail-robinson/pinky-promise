@@ -1,7 +1,5 @@
 import { useMutation, useQuery } from 'react-query'
-import {
-  PledgeStatusUpdate,
-} from '../../../models/pledge_models'
+import { PledgeStatusUpdate } from '../../../models/pledge_models'
 import { getPromiseByPromiseId, resolvePromise } from '../../apis/promises'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -25,7 +23,7 @@ function PromiseDetailPage() {
       token: string
     }) => resolvePromise(promiseUpdate, token),
     onSuccess: () => {
-      navigate('/my-promises')      
+      navigate('/my-promises')
     },
   })
 
@@ -33,7 +31,6 @@ function PromiseDetailPage() {
     const token = await getAccessTokenSilently()
     const promiseId = promiseQuery.data?.promiseId as number
     const promiseUpdate = { promiseId, status }
-    
 
     mutation.mutate({ promiseUpdate, token })
   }
@@ -47,16 +44,15 @@ function PromiseDetailPage() {
   }
 
   return (
-    
-    <div>
-      { !promiseQuery.isLoading && promiseQuery.data && (
-
-        <Promise
-          promise={promiseQuery.data}
-          handleResolvePromise={handleResolvePromise}
-        />
-
-      )}
+    <div className="flex justify-center mt-20">
+      <div className="flex flex-col bg-slate-950 bg-opacity-50 rounded-lg h-96">
+        {!promiseQuery.isLoading && promiseQuery.data && (
+          <Promise
+            promise={promiseQuery.data}
+            handleResolvePromise={handleResolvePromise}
+          />
+        )}
+      </div>
     </div>
   )
 }
