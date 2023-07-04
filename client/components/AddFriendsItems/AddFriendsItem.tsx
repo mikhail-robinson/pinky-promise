@@ -44,9 +44,9 @@ function AddFriendsItem(props: Props) {
                 return (
                   <li
                     key={friend.friendUserId}
-                    className="pt-4 pb-4 text-1xl text-slate-50 bg-slate-950 bg-opacity-25 rounded-l-lg flex items-center justify-between w-80 mb-4"
+                    className="pt-4 pb-4 text-lg font-sans font-bold text-bold text-slate-50 bg-slate-950 bg-opacity-50 rounded-lg flex items-center justify-between w-80 mb-4"
                   >
-                    <div className="flex-grow text-left ml-2">
+                    <div className="flex-grow text-left ml-4">
                       {friend.username}
                     </div>
                     <div className="flex items-end">
