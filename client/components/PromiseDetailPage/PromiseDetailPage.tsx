@@ -29,27 +29,24 @@ function PromiseDetailPage() {
     }) => resolvePromise(promiseUpdate, token),
   })
 
-  // BROKEN ANIMATION HANDLER
   function handleBroken() {
     broken.start({
       scale: [1, 1.5, 1],
       transition: { duration: 0.5 },
       opacity: 1,
+      x: 100,
     })
     setTimeout(() => {
-      // CHANGE THIS BACK TO my-promises
       navigate(`/my-promises`)
     }, 1000)
   }
 
-  // KEPT ANIMATION HANDLER
   function handleKept() {
     kept.start({
       scale: [1, 1.5, 1],
-      transition: { type: 'spring' },
+      transition: { duration: 0.5 },
     })
     setTimeout(() => {
-      // CHANGE THIS BACK TO my-promises
       navigate(`/my-promises`)
     }, 1000)
   }

@@ -30,7 +30,7 @@ function Promise(props: Props) {
         </button>
 
         <button onClick={() => props.handleResolvePromise('kept')}>
-          <img src="/promiseMade.svg" alt="Promise Kept!" />
+          <img src="/promiseKept.svg" alt="Promise Kept!" />
           Promise Kept!
         </button>
 
