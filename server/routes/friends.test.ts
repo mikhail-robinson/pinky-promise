@@ -14,7 +14,7 @@ import server from '../server'
 
 import * as db from '../db/dataBaseFunctions/friendsDB'
 import { getMockToken } from '../db/dataBaseFunctions/mockToken'
-import { FriendNames } from '../../models/friends_models'
+import { FriendNames, FriendsDraft } from '../../models/friends_models'
 const testDb = knex(config.test)
 
 vi.mock('../db/dataBaseFunctions/friendsDB')
