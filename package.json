@@ -7,7 +7,7 @@
     "fullstack"
   ],
   "scripts": {
-    "start": "node dist/server/index.js",
+    "start": "ts-node server/index.js",
     "test": "vitest",
     "dev": "run-p dev:client dev:server dev:css",
     "dev:client": "vite",
