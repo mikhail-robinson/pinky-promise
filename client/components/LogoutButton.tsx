@@ -5,7 +5,7 @@ function LogoutButton() {
   return (
     <button
       onClick={() => {
-        logout()
+        logout({ logoutParams: { returnTo: window.location.origin } })
         
       }}
     >
