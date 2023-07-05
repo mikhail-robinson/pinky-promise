@@ -59,7 +59,7 @@ function UserProfileForm(props: Props) {
               type="text"
               name="username"
               id="username"
-              placeholder="Who is your friend?"
+              placeholder="Username"
               required
               defaultValue={props.profile?.username}
             />
@@ -75,7 +75,7 @@ function UserProfileForm(props: Props) {
               className="p-2 pb-20 w-80 m text-base font-bold text-fuchsia-200 bg-slate-950 bg-opacity-50 rounded-lg font-body resize-none overflow-wrap-normal"
               name="bio"
               id="bio"
-              placeholder=""
+              placeholder="Bio"
               required
               defaultValue={props.profile?.bio}
             ></textarea>
