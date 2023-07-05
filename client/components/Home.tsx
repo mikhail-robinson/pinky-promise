@@ -7,7 +7,7 @@ function Home() {
     <div className="app">
       {!isAuthenticated && (
         <>
-          <div className=" absolute top-40 inset-0 flex items-center justify-center z-30  animate-floating pointer-events-none">
+          <div className=" absolute top-44 inset-0 flex items-center justify-center z-30  animate-floating pointer-events-none">
             <svg
               width="246"
               height="126"
