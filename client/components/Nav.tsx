@@ -55,7 +55,7 @@ function Nav() {
                   <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink">
                     <a href="/my-friends">Friends</a>
                   </li>
-                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50 ">
+                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink ">
                     <button onClick={handleLogout}>Log out</button>
                   </li>
                 </ul>
