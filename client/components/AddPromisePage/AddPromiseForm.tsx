@@ -9,7 +9,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 interface Props {
   promise?: PledgeDraftSchemaFrontEnd
   handleSubmit: (promise: Pledge | PledgeDraftSchemaFrontEnd) => void
-  handleAnimation: () => void
 }
 
 function AddPromiseForm(props: Props) {
@@ -32,7 +31,7 @@ function AddPromiseForm(props: Props) {
     const friendUserId = formData.get('friendUserId') as string
     const promiseDescription = formData.get('promiseDescription') as string
     const dateDue = formData.get('dateDue') as string
-
+    
     const form = {
       promiseName: promiseName,
       promiseDescription: promiseDescription,
@@ -46,16 +45,15 @@ function AddPromiseForm(props: Props) {
   return (
     <div className="flex flex-col items-center mt-20">
       <form onSubmit={handleSave} className="w-80">
-
         <div className="pb-4">
           <label
-            className="font-sans font-bold text-base  pb-2"
+            className="font-sans font-bold text-lg text-bold text-slate-50 pb-2"
             htmlFor="promiseName"
           >
             Name
           </label>
           <input
-            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans "
+            className="p-2 w-full  bg-slate-950 bg-opacity-50 rounded-lg font-sans font-bold text-bold text-fuchsia-200 placeholder-fuchsia-200"
             type="text"
             name="promiseName"
             id="promiseName"
@@ -66,13 +64,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div className="pb-4">
           <label
-            className="font-sans font-bold text-base "
+            className="font-sans font-bold text-lg text-bold text-slate-50"
             htmlFor="friendUserId"
           >
             Add a Friend
           </label>
           <select
-            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-50 rounded-lg font-sans font-bold text-bold text-fuchsia-200"
             name="friendUserId"
             id="friendUserId"
           >
@@ -90,13 +88,13 @@ function AddPromiseForm(props: Props) {
         </div>
         <div>
           <label
-            className="text-start align-top place-items-start font-sans font-bold text-base "
+            className="text-start align-top place-items-start font-sans font-bold text-lg text-slate-50 text-bold"
             htmlFor="promiseDescription"
           >
             Describe your promise
           </label>
           <textarea
-            className="p-2 pb-20 w-80 m text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-sans font-bold resize-none overflow-wrap-normal"
+            className="p-2 pb-20 w-80 m bg-slate-950 bg-opacity-50 rounded-lg resize-none overflow-wrap-normal font-sans font-bold text-bold text-fuchsia-200 placeholder-fuchsia-200"
             name="promiseDescription"
             id="promiseDescription"
             placeholder="What's your promise about?"
@@ -106,24 +104,23 @@ function AddPromiseForm(props: Props) {
         </div>
         <div>
           <label
-            className="text-start align-top place-items-start font-sans font-bold text-base "
+            className="text-start align-top place-items-start font-sans font-bold text-lg text-slate-50 text-bold"
             htmlFor="dateDue"
           >
             Date (optional)
           </label>
           <input
-            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-25 rounded-lg font-bold font-sans"
+            className="p-2 w-full text-sm  bg-slate-950 bg-opacity-50 rounded-lg font-sans font-bold text-bold text-fuchsia-200"
             type="date"
             name="dateDue"
             id="dateDue"
             defaultValue={'none'}
           />
         </div>
-        <div className="flex items-center justify-center mt-9">
+        <div className="flex items-center justify-center mt-4">
           <button
             className='className="font-body text-purple bg-pink text-xl hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
-            onClick={props.handleAnimation}
-            name="New Promise"
+              name="New Promise"
           >
             Make A Promise!
           </button>

@@ -24,6 +24,9 @@ function AddPromisePage() {
       form: PledgeDraftSchemaFrontEnd | PledgeDraft
       token: string
     }) => addPromise(form, token),
+    onSuccess: () => {
+      handleAnimation()
+    },
   })
 
   if (isLoading) {
@@ -48,14 +51,12 @@ function AddPromisePage() {
   async function handleSubmit(form: PledgeDraftSchemaFrontEnd | PledgeDraft) {
     const token = await getAccessTokenSilently()
     mutation.mutate({ form, token })
-    handleAnimation()
   }
 
   return (
     <div className="relative ">
       <AddPromiseForm
         handleSubmit={handleSubmit}
-        handleAnimation={handleAnimation}
       />
       <AnimationComponent controls={controls} />
     </div>

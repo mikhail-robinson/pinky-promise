@@ -48,8 +48,8 @@ describe('addFriend', () => {
   it('adds a friend to the database', async () => {
     const fakeFriend = {
       userId: 'auth0|6491331aa4bd45e690ea1e87',
-      friendUserId: 'google-oauth2|117005350284520001031',
-      dateCreated: '2023-06-30T02:05:35.428Z',
+      friendUserId: 'auth0|649b980080e8d6023e17e6dd',
+      dateCreated: '30/06/2023',
     }
 
     await db.addFriend(fakeFriend, fakeFriend.userId, testDb)

@@ -47,31 +47,16 @@ function Nav() {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute -inset-x-72 flex justify-start pl-40 z-10 bottom-20 mt-3 rounded-lg shadow bg-purple">
-                <ul className="text-base">
-                  <li>
-                    <a
-                      href="/my-profile"
-                      className="block px-4 py-6 text-base text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black"
-                    >
-                      Profile
-                    </a>
+              <div className="absolute -inset-x-72 right-0  z-10 bottom-24  rounded-lg bg-purple">
+                <ul className="text-xl flex flex-col items-center w-full">
+                  <li className="w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink">
+                    <a href="/my-profile">Profile</a>
                   </li>
-                  <li>
-                    <a
-                      href="/my-friends"
-                      className="block px-4 py-6 text-base text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black"
-                    >
-                      Friends
-                    </a>
+                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink">
+                    <a href="/my-friends">Friends</a>
                   </li>
-                  <li>
-                    <button
-                      onClick={handleLogout}
-                      className="block px-4 py-6 text-base text-gray-700 dark:text-gray-200 dark:hover:bg-pink dark:hover:text-black"
-                    >
-                      Log out
-                    </button>
+                  <li className=" w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink ">
+                    <button onClick={handleLogout}>Log out</button>
                   </li>
                 </ul>
               </div>

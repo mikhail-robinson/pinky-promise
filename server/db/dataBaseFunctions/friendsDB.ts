@@ -67,7 +67,8 @@ export function addFriend(
   auth0_id: string,
   db = connection
 ) {
-  const newDate = new Date().toString()
+  const newDate = new Date().toLocaleDateString()
+  
   const { friendUserId } = input
   return db('friends').insert({
     user_id: auth0_id,

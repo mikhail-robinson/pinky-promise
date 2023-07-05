@@ -12,41 +12,69 @@ interface Props {
 }
 
 function Promise(props: Props) {
-  const { promiseName, promiseDescription, friendName } = props.promise
-  //TODO: replace hardcoded date with acutal date
-  const dateCreated = '28/06/3000'
+  const { promiseName, promiseDescription, friendName, dateCreated } = props.promise
+    
   return (
-    <div>
-      <div className="promise">
-        <h1>{promiseName}</h1>
+    <div className="font-sans flex-grow p-4">
+      <h1 className="flex items-center justify-between text-slate-50 p-2 text-2xl">
+        <span className="font-bold">{promiseName}</span>
 
-        <div>{dateCreated}</div>
-        <div>{friendName}</div>
-        <p>{promiseDescription}</p>
+        <span className="text-base font-bold text-fuchsia-200">{dateCreated}</span>
+      </h1>
 
-        {/* TODO: replace buttons with actual promise action buttons */}
-        <button onClick={() => props.handleResolvePromise('broken')}>
-          Promise Broken!
+      <div className="p-2 font-bold text-xl text-fuchsia-200">
+        {friendName}
+      </div>
+
+      <p className="text-slate-50 text-base p-2 font-bold ">
+        {promiseDescription}
+      </p>
+
+      <div className="flex justify-center items-center pt-5">
+        <button
+          onClick={() => props.handleResolvePromise('broken')}
+          className="p-2"
+        >
+          <img
+            src="/promiseBroken.svg"
+            alt="Promise Broken!"
+            className="flex items-center"
+          />
+          <span className="text-slate-50 font-bold text-base">
+            Promise <br /> Broken!
+          </span>
         </button>
-        <button onClick={() => props.handleResolvePromise('kept')}>
-          Promise Kept!
+
+        <button
+          onClick={() => props.handleResolvePromise('kept')}
+          className="p-2"
+        >
+          <img src="/promiseKept.svg" alt="Promise Kept!" />
+          <span className="text-slate-50 font-bold text-base ">
+            Promise <br /> Kept!
+          </span>
         </button>
+      </div>
+
+      <div className="flex justify-center mx-2 pt-4">
         <FacebookShareButton
-          // TO DO: update when app is deployed
+          // TO DO: update when app is deployed with deployment site
           url={`kahikatea-2023-mikhail.au.auth0.com`}
           title={`Check out my promise with, ${friendName}!`}
           hashtag="#PinkyPromise"
           name="Facebook Share Button"
+          
         >
-          <FacebookIcon className="ml-4" size={48} borderRadius={50} />
+          <FacebookIcon className="mx-2" size={40} borderRadius={50} />
         </FacebookShareButton>
         <TwitterShareButton
           title={`Check out my promise with, ${friendName}!`}
           url={`${window.location.href}/my-promises/`}
           hashtags={['PinkyPromise']}
           name="Twitter Share Button"
+          
         >
-          <TwitterIcon className="ml-4" size={48} borderRadius={50} />
+          <TwitterIcon className="mx-2" size={40} borderRadius={50} />
         </TwitterShareButton>
       </div>
     </div>

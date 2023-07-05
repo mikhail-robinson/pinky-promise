@@ -35,8 +35,8 @@ describe('Promise component shows props', () => {
       render(<Promise promise={pledge} handleResolvePromise={() => {}} />)
 
       const buttons = await screen.getAllByRole('button')
-      expect(buttons[0].textContent).toContain('Promise Broken')
-      expect(buttons[1].textContent).toContain('Promise Kept')
+      expect(buttons[0].textContent).toContain('Broken')
+      expect(buttons[1].textContent).toContain('Kept')
     })
 })
 
