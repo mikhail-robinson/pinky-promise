@@ -15,7 +15,7 @@ function MyFriends(props: Props) {
 
   return (
     <div className="mt-20">
-      <div className="flex mb-8 mx-auto relative">
+      <div className="flex mb-8 mx-auto relative w-4/5">
         <h2 className="font-sans font-bold text-2xl text-slate-50  text-left ml-8 mr-8">
           Friends List
         </h2>
