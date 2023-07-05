@@ -12,11 +12,20 @@ export function getAllFriends(
   return db('friends').select()
 }
 
-export function getAllFriendsById(
+export async function getAllFriendsById(
   auth0Id: string,
   db = connection
 ): Promise<FriendNames[]> {
-  return db('friends')
+  const friends1 = await db('friends')
+    .join('users', 'friends.user_id', 'users.auth0_id')
+    .where('friends.friend_user_id', auth0Id)
+    .select(
+      'users.name as friendName',
+      'users.username as username',
+      'friends.user_id as friendUserId'
+    )
+
+  const friends2 = await db('friends')
     .join('users', 'friends.friend_user_id', 'users.auth0_id')
     .where('friends.user_id', auth0Id)
     .select(
@@ -24,6 +33,7 @@ export function getAllFriendsById(
       'users.username as username',
       'friends.friend_user_id as friendUserId'
     )
+  return [...friends1, ...friends2].filter((f) => f.friendUserId !== auth0Id)
 }
 
 export function getNotFriends(auth0_id: string, db = connection) {

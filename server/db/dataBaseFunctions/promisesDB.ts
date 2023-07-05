@@ -10,13 +10,15 @@ export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
 }
 
-export function getPromiseByIdWithFriendName(
-  id: number,
+export async function getPromiseByIdWithFriendName(
+  promiseId: number,
+  userId: string,
   db = connection
 ): Promise<PledgeFrontEnd> {
-  return db('promises')
+  const friends1 = await db('promises')
     .join('users', 'promises.friend_user_id', 'users.auth0_id')
-    .where('id', id)
+    .where('id', promiseId)
+    .andWhere('promises.user_id', userId)
     .select(
       'id as promiseId',
       'promise_name as promiseName',
@@ -28,6 +30,23 @@ export function getPromiseByIdWithFriendName(
       'date_due as dateDue'
     )
     .first()
+  const friends2 = await db('promises')
+    .join('users', 'promises.user_id', 'users.auth0_id')
+    .where('id', promiseId)
+    .andWhere('promises.friend_user_id', userId)
+    .select(
+      'id as promiseId',
+      'promise_name as promiseName',
+      'promise_description as promiseDescription',
+      'user_id as userId',
+      'users.username as friendName',
+      'status',
+      'date_created as dateCreated',
+      'date_due as dateDue'
+    )
+    .first()
+
+  return { ...friends1, ...friends2 }
 }
 
 export function addPromise(input: PledgeDraft, db = connection) {
@@ -57,15 +76,26 @@ export async function getAllPromisesById(
   userId: string,
   db = connection
 ): Promise<PledgeFrontEnd[]> {
-  return await db('promises')
+  const friends1 = await db('promises')
     .join('users', 'promises.friend_user_id', 'users.auth0_id')
-    .where('promises.status', '=', 'pending')
+    .where('promises.user_id', userId)
+    .andWhere('promises.status', '=', 'pending')
     .select(
-      'id as promiseId',
-      'promise_name as promiseName',
+      'promises.id as promiseId',
+      'promises.promise_name as promiseName',
       'users.username as friendName'
     )
-    .where('user_id', userId)
+
+  const friends2 = await db('promises')
+    .join('users', 'promises.user_id', 'users.auth0_id')
+    .where('promises.friend_user_id', userId)
+    .andWhere('promises.status', '=', 'pending')
+    .select(
+      'promises.id as promiseId',
+      'promises.promise_name as promiseName',
+      'users.username as friendName'
+    )
+  return [...friends1, ...friends2]
 }
 
 export function updatePromiseStatus(
