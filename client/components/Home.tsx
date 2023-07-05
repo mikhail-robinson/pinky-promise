@@ -6,19 +6,8 @@ function Home() {
   return (
     <div className="app">
       {!isAuthenticated && (
-        <div className="">
-          <div className=" w-screen h-screen bg-space bg-center bg-cover">
-            <div className="flex flex-col  h-screen">
-              <h1 className="font-primary text-pink text-center text-5xl drop-shadow mt-48">
-                Pinky
-              </h1>
-              <div></div>
-              <h1 className="font-primary text-pink text-center text-5xl drop-shadow">
-                Promise
-              </h1>
-            </div>
-          </div>
-          <div className="absolute top-1/2 right-16 animate-floating">
+        <>
+          <div className=" absolute top-40 inset-0 flex items-center justify-center z-30  animate-floating pointer-events-none">
             <svg
               width="246"
               height="126"
@@ -48,7 +37,18 @@ function Home() {
               />
             </svg>
           </div>
-        </div>
+          <div className="w-screen h-screen bg-space bg-center bg-cover">
+            <div className="flex flex-col  h-screen">
+              <h1 className="font-primary text-pink text-center text-5xl mt-48">
+                Pinky
+              </h1>
+              <div></div>
+              <h1 className="font-primary text-pink text-center text-5xl">
+                Promise
+              </h1>
+            </div>
+          </div>
+        </>
       )}
     </div>
   )

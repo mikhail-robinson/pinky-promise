@@ -4,7 +4,7 @@ function LoginButton() {
   const { loginWithRedirect } = useAuth0()
 
   return (
-    <div className="flex justify-start items-start">
+    <div className="flex justify-start items-start z-40">
       <button
         className="font-body text-purple bg-pink text-2xl hover:bg-darkPink py-2 px-4 p-2 rounded-lg -mt-32 ml-16"
         onClick={() => {
@@ -23,5 +23,3 @@ function LoginButton() {
 }
 
 export default LoginButton
-
-
