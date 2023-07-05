@@ -8,7 +8,7 @@ function PromiseKept(props: Props) {
   const { kept } = props
 
   return (
-    <div>
+    <div className="absolute inset-0  pointer-events-none">
       <motion.div
         initial={{ scale: 0 }}
         animate={kept}
@@ -16,7 +16,7 @@ function PromiseKept(props: Props) {
       >
         <img
           className="absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="/promiseKept.svg"
+          src="/promiseKeptAnimation.gif"
           alt="promise"
           aria-label="Promise"
         />
@@ -26,5 +26,3 @@ function PromiseKept(props: Props) {
 }
 
 export default PromiseKept
-
-// /home/learner/workspace/pinky-promise/public/promiseKept.svg
