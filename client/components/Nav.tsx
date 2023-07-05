@@ -35,7 +35,7 @@ function Nav() {
             ></button>
           </div>
 
-          <div className="relative">
+          <div className="">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full flex items-center justify-center text-white focus:outline-none"
@@ -47,8 +47,8 @@ function Nav() {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute -inset-x-72 right-0  z-10 bottom-24  rounded-lg bg-purple">
-                <ul className="text-xl flex flex-col items-center w-full">
+              <div className="fixed right-0  z-10 bottom-24   w-full rounded-lg bg-purple">
+                <ul className="text-xl flex flex-col items-center">
                   <li className="w-full flex items-center justify-center rounded-lg px-4 py-6 text-slate-50  hover:bg-darkPink">
                     <a href="/my-profile">Profile</a>
                   </li>
