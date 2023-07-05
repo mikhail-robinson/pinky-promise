@@ -32,6 +32,7 @@ describe('getPromisesById', () => {
   it('returns the correct information', async () => {
     const promise = (await db.getPromiseByIdWithFriendName(
       1,
+      'auth0|6491331aa4bd45e690ea1e87',
       testDb
     )) as PledgeFrontEnd
     expect(promise).toHaveProperty('promiseId')
@@ -95,6 +96,7 @@ describe('updatePromiseStatus', () => {
     await db.updatePromiseStatus(fakeUpdate, testDb)
     const promise = (await db.getPromiseByIdWithFriendName(
       1,
+      'auth0|6491331aa4bd45e690ea1e87',
       testDb
     )) as PledgeFrontEnd
     expect(promise.status).toBe(fakeUpdate.status)
