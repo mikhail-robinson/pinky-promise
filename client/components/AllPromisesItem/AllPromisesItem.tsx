@@ -23,8 +23,8 @@ function AllPromisesItem(props: Props) {
         <div className="flex flex-col gap-4">
           {promises.map((promise) => {
             return (
-              <div key={promise.promiseId} className="flex">
-                <div className="w-3/4 p-2 text-slate-50 pr-5 bg-slate-950 bg-opacity-50 rounded-lg text-lg font-sans font-bold">
+              <div key={promise.promiseId} className="flex ">
+                <div className="w-3/4 p-2 text-slate-50 truncate pr-5 bg-slate-950 bg-opacity-50  rounded-l-lg  text-lg font-sans font-bold">
                   <ul className="list-disc">
                     <div className="truncate overflow-hidden whitespace-nowrap">
                       {promise.promiseName}
@@ -34,7 +34,7 @@ function AllPromisesItem(props: Props) {
                     </span>
                   </ul>
                 </div>
-                <div className="flex items-center justify-center w-1/4 text-base  text-slate-50 bg-slate-950 bg-opacity-50 rounded-lg font-body ">
+                <div className="flex items-center justify-center w-1/4 text-base  text-slate-50 bg-slate-950 bg-opacity-50   rounded-r-lg font-body ">
                   <button
                     className="fa-solid fa-angle-right"
                     onClick={() => redirectToDetailsPage(promise.promiseId)}
