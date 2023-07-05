@@ -24,10 +24,12 @@ function AllPromisesItem(props: Props) {
           {promises.map((promise) => {
             return (
               <div key={promise.promiseId} className="flex ">
-                <div className="flex w-3/4 p-2 text-slate-50 truncate pr-5 bg-slate-950 bg-opacity-50  rounded-l-lg  text-lg font-sans font-bold">
+                <div className="w-3/4 p-2 text-slate-50 truncate pr-5 bg-slate-950 bg-opacity-50  rounded-l-lg  text-lg font-sans font-bold">
                   <ul className="list-disc">
-                    <div className="flex truncate">{promise.promiseName}</div>
-                    <span className="font-sans font-bold text-bold text-fuchsia-200">
+                    <div className="truncate overflow-hidden whitespace-nowrap">
+                      {promise.promiseName}
+                    </div>
+                    <span className="font-sans font-bold text-bold text-fuchsia-200 truncate overflow-hidden whitespace-nowrap">
                       {promise.friendName}
                     </span>
                   </ul>

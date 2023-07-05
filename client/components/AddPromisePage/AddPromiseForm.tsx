@@ -31,7 +31,7 @@ function AddPromiseForm(props: Props) {
     const friendUserId = formData.get('friendUserId') as string
     const promiseDescription = formData.get('promiseDescription') as string
     const dateDue = formData.get('dateDue') as string
-    
+
     const form = {
       promiseName: promiseName,
       promiseDescription: promiseDescription,
@@ -117,10 +117,10 @@ function AddPromiseForm(props: Props) {
             defaultValue={'none'}
           />
         </div>
-        <div className="flex items-center justify-center mt-4">
+        <div className="flex items-center justify-center pb-36 mt-4">
           <button
             className='className="font-body text-purple bg-pink text-xl hover:bg-darkPink drop-shadow-xl py-1 px-3 p-1 rounded-lg'
-              name="New Promise"
+            name="New Promise"
           >
             Make A Promise!
           </button>

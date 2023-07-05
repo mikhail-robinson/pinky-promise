@@ -31,7 +31,10 @@ function UserProfileForm(props: Props) {
             {props.profile ? 'Your Profile' : 'Introduce Yourself'}
           </h1>
           <div className="pb-4">
-            <label className="font-sans font-bold text-slate-50 pb-2" htmlFor="name">
+            <label
+              className="font-sans font-bold text-slate-50 pb-2"
+              htmlFor="name"
+            >
               Name
             </label>
             <input
@@ -39,13 +42,16 @@ function UserProfileForm(props: Props) {
               type="text"
               name="name"
               id="name"
-              placeholder="Insert your title here"
+              placeholder="Name"
               required
               defaultValue={props.profile?.name}
             />
           </div>
           <div className="pb-4">
-            <label className="font-sans font-bold text-slate-50" htmlFor="username">
+            <label
+              className="font-sans font-bold text-slate-50"
+              htmlFor="username"
+            >
               Username
             </label>
             <input
@@ -53,20 +59,23 @@ function UserProfileForm(props: Props) {
               type="text"
               name="username"
               id="username"
-              placeholder="Who is your friend?"
+              placeholder="Username"
               required
               defaultValue={props.profile?.username}
             />
           </div>
           <div className="text-start align-top place-items-start">
-            <label className="font-sans font-bold text-slate-50 block" htmlFor="bio">
+            <label
+              className="font-sans font-bold text-slate-50 block"
+              htmlFor="bio"
+            >
               Bio
             </label>
             <textarea
               className="p-2 pb-20 w-80 m text-base font-bold text-fuchsia-200 bg-slate-950 bg-opacity-50 rounded-lg font-body resize-none overflow-wrap-normal"
               name="bio"
               id="bio"
-              placeholder=""
+              placeholder="Bio"
               required
               defaultValue={props.profile?.bio}
             ></textarea>
