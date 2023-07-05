@@ -9,6 +9,7 @@ function Nav() {
   const { logout } = useAuth0()
   function goTo(link: string) {
     navigate(link)
+    setIsDropdownOpen(false)
   }
 
   function handleLogout() {
