@@ -42,8 +42,8 @@ module.exports = {
         },
         float: {
           '0%, 100%': {
-            transform: 'translateY(-12%)',
-            animationTimingFunction: 'cubic-bezier(0.8, 1, 0, 0)',
+            transform: 'translateY(-3%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 1, 1, 1)',
           },
           '80%': {
             transform: 'none',
@@ -53,7 +53,7 @@ module.exports = {
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
-        floating: 'float 4s infinite',
+        floating: 'float 5s infinite',
       },
     },
   },
