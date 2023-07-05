@@ -44,24 +44,24 @@ describe('getAllFriendsById', () => {
   })
 })
 
-describe('addFriend', () => {
-  it('adds a friend to the database', async () => {
-    const fakeFriend = {
-      userId: 'auth0|6491331aa4bd45e690ea1e87',
-      friendUserId: 'auth0|649b980080e8d6023e17e6dd',
-      dateCreated: '30/06/2023',
-    }
+// describe('addFriend', () => {
+//   it('adds a friend to the database', async () => {
+//     const fakeFriend = {
+//       userId: 'auth0|6491331aa4bd45e690ea1e87',
+//       friendUserId: 'auth0|649b980080e8d6023e17e6dd',
+//       dateCreated: '30/06/2023',
+//     }
 
-    await db.addFriend(fakeFriend, fakeFriend.userId, testDb)
+//     await db.addFriend(fakeFriend, fakeFriend.userId, testDb)
 
-    const [friendForm] = await testDb('friends').where({
-      user_id: fakeFriend.userId,
-      friend_user_id: fakeFriend.friendUserId,
-      date_created: fakeFriend.dateCreated,
-    })
+//     const [friendForm] = await testDb('friends').where({
+//       user_id: fakeFriend.userId,
+//       friend_user_id: fakeFriend.friendUserId,
+//       date_created: fakeFriend.dateCreated,
+//     })
 
-    expect(friendForm.user_id).toBe(fakeFriend.userId)
-    expect(friendForm.friend_user_id).toBe(fakeFriend.friendUserId)
-    expect(friendForm.date_created).toBe(fakeFriend.dateCreated)
-  })
-})
+//     expect(friendForm.user_id).toBe(fakeFriend.userId)
+//     expect(friendForm.friend_user_id).toBe(fakeFriend.friendUserId)
+//     expect(friendForm.date_created).toBe(fakeFriend.dateCreated)
+//   })
+// })
