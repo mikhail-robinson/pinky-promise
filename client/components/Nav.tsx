@@ -20,18 +20,18 @@ function Nav() {
     <div className="app">
       <div className="fixed bottom-0 left-0 w-full h-20">
         <div className="grid h-full max-w-lg grid-cols-3 mx-auto font-medium px-10">
-          <div className="w-16 h-16 bg bg-pink hover:bg-darkPink mx-auto rounded-full flex items-center justify-center">
+          <div className="">
             <button
               onClick={() => goTo('/my-promises')}
-              className="fa-solid fa-house fa-lg "
+              className="fa-solid fa-house fa-lg w-16 h-16 bg bg-pink hover:bg-darkPink mx-auto rounded-full flex items-center justify-center "
               style={{ color: '#464fa3' }}
             ></button>
           </div>
 
-          <div className="w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full mx-auto flex items-center justify-center">
+          <div className="">
             <button
               onClick={() => goTo('/add-promise')}
-              className="fa-thin fa-plus fa-2xl mb-2"
+              className="fa-thin fa-plus fa-2xl mb-2 w-16 h-16 bg bg-pink hover:bg-darkPink rounded-full mx-auto flex items-center justify-center"
               style={{ color: '#464fa3' }}
             ></button>
           </div>
