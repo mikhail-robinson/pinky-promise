@@ -1,29 +1,10 @@
-# Boilerplate: Fullstack with Sass
+# Pinky Promise
 
-## Setup
+![pinky promise](image.png)
+![my promises page](image-1.png)
+![promise details](image-2.png)
 
-### What's included
-
-This repo includes:
-
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Jest and testing library
-* configuration for server-side debugging in VS Code
-* configuration for preprocessing Sass
-* a single client-side test (`client/components/App.test.js`)
-
-### Installation
-
-### Resources
-
-[Figma Wireframe](https://www.figma.com/file/sNIyAtAcP5v3chOp3jlO7s/Pinky-Promise-Wireframe?type=design&node-id=0%3A1&mode=design&t=PexV5VXsLAXhLeMj-1)
-
-#### **From the Github UI**
-
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
+A web app to help keep yourself and friends accountable! A mobile-first app made for the 7-day final group project at Dev Academy.
 
 #### **From the command line**
 
@@ -34,7 +15,24 @@ npm install # to install dependencies
 npm run dev # to start the dev server
 ```
 
-You can find the server running on [http://localhost:3000](http://localhost:3000).
+### Technologies
 
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack-scss)
+- React
+- Tailwind CSS
+- SQLite3
+- Knex
+- tanstack-query (react-query)
+- Framer Motion
+- Express
+- vite
+
+### Future Development
+
+- Optional Consequences
+- Sound Effects
+- Notify Users when a promise is broken or kept
+- Improve add friends page
+
+### Resources
+
+[Figma Wireframe](https://www.figma.com/file/sNIyAtAcP5v3chOp3jlO7s/Pinky-Promise-Wireframe?type=design&node-id=0%3A1&mode=design&t=PexV5VXsLAXhLeMj-1)
