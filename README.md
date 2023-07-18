@@ -12,6 +12,8 @@ A web app to help keep yourself and friends accountable! A mobile-first app made
 git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
 cd [your-project-name]
 npm install # to install dependencies
+npm knex migrate:latest # to build database tables
+npm knex seed:run # to populate database tables
 npm run dev # to start the dev server
 ```
 
